@@ -101,8 +101,8 @@ address{margin-top:1.25rem;font-size:.875rem;line-height:1.6}
 
 /* Clients */
 .clients{display:grid;gap:1.5rem 2rem;align-items:center;grid-template-columns:repeat(2,1fr)}
-@media(min-width:48rem){.clients{grid-template-columns:repeat(3,1fr)}}
-.client{display:flex;align-items:center;justify-content:center;height:6rem;padding:1rem 1.5rem;border:1px solid var(--border);border-radius:var(--radius);background:var(--background)}
+@media(min-width:48rem){.clients{grid-template-columns:repeat(4,1fr)}}
+.client{display:flex;flex-wrap:wrap;flex-direction:row;gap:.15rem .6rem;align-items:center;justify-content:center;height:7rem;text-align:center;transition:border-color .15s;padding:1rem 1.5rem;border:1px solid var(--border);border-radius:var(--radius);background:var(--background)}
 .client img{max-height:3.5rem;width:auto;max-width:100%;object-fit:contain}
 .clients-note{margin-top:1.25rem;max-width:44rem}
 
@@ -126,3 +126,13 @@ address{margin-top:1.25rem;font-size:.875rem;line-height:1.6}
 .form button{justify-self:start;border:0}
 .form button:disabled{opacity:.6;cursor:wait}
 .form-status{font-size:.875rem;color:var(--steel)}
+
+.client:hover{border-color:var(--primary)}
+.client-name{font-weight:800;font-size:1.05rem;color:var(--charcoal)}
+.client-url{font-size:.75rem;color:var(--steel-mid)}
+
+.client img.mark{max-height:2.5rem;width:2.5rem}
+.client-wordmark{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:1.6rem;color:oklch(33% .07 245);white-space:nowrap}
+
+.client-cap{flex-basis:100%;text-align:center;font-size:.75rem;color:var(--steel-mid)}
+.client img{max-height:3rem}
