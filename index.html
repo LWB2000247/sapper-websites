@@ -17,13 +17,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;family=Cormorant+Garamond:wght@600;700&amp;display=swap">
-<link rel="stylesheet" href="assets/style.css?v=9">
+<link rel="stylesheet" href="assets/style.css?v=13">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","name":"Sapper Websites","url":"https://sapperwebsites.com/","description":"Sapper Websites designs and builds mobile-friendly websites for small businesses, with help on domain and hosting setup, contact forms, and ongoing maintenance. Based in Piketon, Ohio.","telephone":"+17402595954","parentOrganization":{"@type":"Organization","name":"Sapper Advanced Technologies LLC","url":"https://sapperadvanced.com"},"address":{"@type":"PostalAddress","streetAddress":"4239 U.S. 23","addressLocality":"Piketon","addressRegion":"OH","postalCode":"45661","addressCountry":"US"}}
 </script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"><span></span></div>
 <header class="site-header">
   <div class="container-x header-row">
     <a class="brand" href="./" aria-label="Sapper Websites home">
@@ -44,6 +45,8 @@
 
 <main id="main">
   <section class="hero-slides" aria-roledescription="carousel" aria-label="Highlights">
+    <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div><div class="hero-grid"></div>
+    <canvas id="net" aria-hidden="true"></canvas>
     <img class="hero-mark" src="assets/eagle-mark.webp" alt="" aria-hidden="true">
     <div class="container-x hero-inner">
       <div class="slides">
@@ -69,6 +72,16 @@
         <button type="button" class="dot" aria-label="Show slide 2"></button>
         <button type="button" class="dot" aria-label="Show slide 3"></button>
       </div>
+    </div>
+  </section>
+
+
+  <section class="stats" aria-label="At a glance">
+    <div class="container-x stats-row">
+      <div class="stat"><span class="num" data-to="4">0</span><span class="lbl">Client sites we run</span></div>
+      <div class="stat"><span class="num" data-to="4">0</span><span class="lbl">Companies in the Sapper Solution Group</span></div>
+      <div class="stat"><span class="num" data-to="3">0</span><span class="lbl">Simple steps from idea to launch</span></div>
+      <div class="stat"><span class="num" data-to="100" data-suffix="%">0</span><span class="lbl">Mobile-friendly pages</span></div>
     </div>
   </section>
 
@@ -221,6 +234,40 @@
   document.documentElement.classList.add("js");
   var els=[].slice.call(document.querySelectorAll(".band .container-x, .item, .steps li, .facts>div"));
   if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.12});els.forEach(function(el){el.classList.add("reveal");io.observe(el);});}
+})();
+</script>
+<script>
+(function(){
+  var reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var bar=document.querySelector(".progress span"),hdr=document.querySelector(".site-header");
+  function onScroll(){var h=document.documentElement,m=h.scrollHeight-h.clientHeight;bar.style.transform="scaleX("+(m>0?h.scrollTop/m:0)+")";hdr.classList.toggle("shrunk",h.scrollTop>40);}
+  window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+  /* counters */
+  var nums=[].slice.call(document.querySelectorAll(".num"));
+  function count(el){var to=+el.dataset.to,suf=el.dataset.suffix||"",t0=null;function f(ts){if(!t0)t0=ts;var k=Math.min((ts-t0)/1400,1),e=1-Math.pow(1-k,3);el.textContent=Math.round(to*e)+suf;if(k<1)requestAnimationFrame(f);}requestAnimationFrame(f);}
+  if("IntersectionObserver" in window&&!reduce){var io2=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){count(e.target);io2.unobserve(e.target);}});},{threshold:.6});nums.forEach(function(n){io2.observe(n);});}else{nums.forEach(function(n){n.textContent=n.dataset.to+(n.dataset.suffix||"");});}
+  /* card spotlight + tilt */
+  [].slice.call(document.querySelectorAll(".item,.client,.group-list li")).forEach(function(c){
+    c.addEventListener("pointermove",function(e){var r=c.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;c.style.setProperty("--mx",x+"px");c.style.setProperty("--my",y+"px");
+      if(!reduce&&c.classList.contains("client")){c.style.transform="perspective(600px) rotateX("+((y/r.height-.5)*-10)+"deg) rotateY("+((x/r.width-.5)*10)+"deg) translateY(-2px)";}});
+    c.addEventListener("pointerleave",function(){c.style.transform="";});
+  });
+  /* particle network in hero */
+  var cv=document.getElementById("net");
+  if(cv&&!reduce){var ctx=cv.getContext("2d"),W,H,pts=[],mouse={x:-999,y:-999},hero=cv.parentElement;
+    function size(){W=cv.width=hero.clientWidth;H=cv.height=hero.clientHeight;var n=Math.round(W*H/16000);pts=[];for(var i=0;i<n;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35});}
+    size();window.addEventListener("resize",size);
+    hero.addEventListener("pointermove",function(e){var r=hero.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;});
+    hero.addEventListener("pointerleave",function(){mouse.x=mouse.y=-999;});
+    var vis=true;if("IntersectionObserver" in window){new IntersectionObserver(function(es){vis=es[0].isIntersecting;}).observe(hero);}
+    (function loop(){if(vis){ctx.clearRect(0,0,W,H);
+      for(var i=0;i<pts.length;i++){var a=pts[i];a.x+=a.vx;a.y+=a.vy;if(a.x<0||a.x>W)a.vx*=-1;if(a.y<0||a.y>H)a.vy*=-1;
+        var dm=Math.hypot(a.x-mouse.x,a.y-mouse.y);if(dm<140){a.x+=(a.x-mouse.x)*.012;a.y+=(a.y-mouse.y)*.012;}
+        ctx.beginPath();ctx.arc(a.x,a.y,1.6,0,6.283);ctx.fillStyle="rgba(150,190,255,.7)";ctx.fill();
+        for(var j=i+1;j<pts.length;j++){var b=pts[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<120){ctx.strokeStyle="rgba(120,170,255,"+(.28*(1-d/120))+")";ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}}
+        if(dm<160){ctx.strokeStyle="rgba(200,225,255,"+(.5*(1-dm/160))+")";ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(mouse.x,mouse.y);ctx.stroke();}}
+    }requestAnimationFrame(loop);})();
+  }
 })();
 </script>
 <script>
