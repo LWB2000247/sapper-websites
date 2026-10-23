@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.clarity.ms https://*.clarity.ms; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https://*.clarity.ms https://www.clarity.ms; connect-src 'self' https://*.clarity.ms https://www.clarity.ms https://fonts.googleapis.com https://fonts.gstatic.com; form-action https://formsubmit.co; base-uri 'self'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>{{page_title}}</title>
 <meta name="description" content="{{description}}">
 <link rel="canonical" href="https://{{domain}}/">
@@ -11,14 +13,21 @@
 <meta property="og:title" content="{{page_title}}">
 <meta property="og:description" content="{{description}}">
 <meta property="og:url" content="https://{{domain}}/">
-<meta property="og:image" content="https://{{domain}}/assets/eagle-mark.webp">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://{{domain}}/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sapper Websites logo and slogan">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://{{domain}}/assets/og-image.png">
+<meta name="twitter:image:alt" content="Sapper Websites logo and slogan">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;700;800&amp;family=Inter:wght@400;500;600&amp;family=Cormorant+Garamond:wght@600;700&amp;display=swap">
-<link rel="stylesheet" href="assets/style.css?v=33">
-<script>document.documentElement.classList.add("js");</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="assets/style.css?v=35">
+<script>document.documentElement.classList.add("js");window.__formOpened=Date.now();</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","name":"{{brand_name}}","url":"https://{{domain}}/","description":"{{description}}","parentOrganization":{"@type":"Organization","name":"{{legal_name}}","url":"{{parent_site_url}}"},"address":{"@type":"PostalAddress","streetAddress":"{{address_street}}","addressLocality":"{{address_city}}","addressRegion":"{{address_state}}","postalCode":"{{address_zip}}","addressCountry":"US"}}
 </script>
@@ -33,43 +42,167 @@
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
-  <a class="brand" href="./" aria-label="{{brand_name}} home"><img src="assets/eagle-mark.webp" alt="Eagle logo of {{brand_name}}" width="28" height="28"><span>{{brand_name}}</span></a>
-  <nav class="main-nav" aria-label="Main">
-    <a href="#strengths">Strengths</a><a href="#steps">How it works</a>
-  </nav>
-  <a class="nav-cta" href="#start">Get my website</a>
+  <div class="container header-inner">
+    <a class="brand" href="/" aria-label="{{brand_name}} home"><img src="assets/eagle-mark.webp" alt="Eagle logo of {{brand_name}}" width="32" height="32"><span>{{brand_name}}</span></a>
+    <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="main-nav" aria-label="Main">{{nav_html}}</nav>
+    <a class="nav-cta" href="{{nav_cta_href}}">{{nav_cta_label}}</a>
+  </div>
 </header>
 
 <main id="main">
   <section class="hero" id="top">
-    <div class="hero-inner">
-      <h1><span>{{slogan_line_1}}</span> <span>{{slogan_line_2}}</span> <span class="accent">{{slogan_line_3}}</span></h1>
-      <p class="hero-sub">We design and build clear, mobile-friendly websites for small businesses, and help with domain, hosting, forms and updates.</p>
-      <a class="btn btn-primary btn-lg hero-cta" href="#start">Get my website</a>
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <h1><span>{{slogan_line_1}}</span> <span>{{slogan_line_2}}</span> <span class="accent">{{slogan_line_3}}</span></h1>
+        <p class="hero-sub">We design and build clear, mobile-friendly websites for small businesses, and help with domain, hosting, forms and updates.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg hero-cta" href="#start">Get my website</a>
+          <a class="quiet-link" href="#steps">How it works</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <figure class="example">
+          <div class="browser">
+            <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>Example layout</span></div>
+            <div class="sample" aria-hidden="true">
+              <div class="sample-nav"></div>
+              <div class="sample-block"></div>
+              <div class="sample-lines"><span></span><span></span><span></span></div>
+              <div class="sample-cards"><i></i><i></i><i></i></div>
+            </div>
+          </div>
+          <figcaption class="sr-only">Example layout</figcaption>
+        </figure>
+        <ul class="proof">
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.8 2.6 15.2 0 18M12 3c-2.6 2.8-2.6 15.2 0 18"/></svg>
+            <p><strong>Domain:</strong> We help you choose and connect your domain name.</p>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><path d="M7 7h.01M7 17h.01"/></svg>
+            <p><strong>Hosting:</strong> We help you set up a place to host your site.</p>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 12a8 8 0 1 1-2.3-5.7L20 8"/><path d="M20 4v4h-4"/></svg>
+            <p><strong>Updates:</strong> Ask us for changes after your site is live.</p>
+          </li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <section id="strengths" class="big-list" aria-labelledby="strengths-h">
-    <h2 id="strengths-h" class="label">Strengths</h2>
-    <ul>
-      <li><span>1</span><div><h3>Clear design</h3><p>A site built around what your business does and what visitors need to find.</p></div></li>
-      <li><span>2</span><div><h3>Works on every screen</h3><p>Phones, tablets and desktops.</p></div></li>
-      <li><span>3</span><div><h3>We help with the rest</h3><p>Domain, hosting, contact form and updates available after launch.</p></div></li>
-    </ul>
+  <section class="band alt" aria-labelledby="about">
+    <div class="container">
+      <h2 id="about">About Sapper Websites</h2>
+      <p class="section-intro">Sapper Websites is the web design arm of the Sapper Solution Group. We design, build and look after websites for small businesses, and we stay with you after launch.</p>
+    </div>
   </section>
 
-  <section id="steps" class="big-list alt" aria-labelledby="steps-h">
-    <h2 id="steps-h" class="label">How it works</h2>
-    <p class="steps-line">Tell us. We build. You launch.</p>
-    <ul>
-      <li><span>1</span><div><h3>Send a short form.</h3><p>Tell us about your business.</p></div></li>
-      <li><span>2</span><div><h3>We build it.</h3><p>You review the pages.</p></div></li>
-      <li><span>3</span><div><h3>We help you go live.</h3><p>Updates available after launch.</p></div></li>
-    </ul>
+  <section class="band" aria-labelledby="services">
+    <div class="container">
+      <h2 id="services">Services: websites, domain and hosting, forms, updates</h2>
+      <p class="section-intro">What we do.</p>
+      <ul class="num-list">
+        <li><span>01</span><div><h3>Design and build</h3><p>Made around your business, written and built by hand.</p></div></li>
+        <li><span>02</span><div><h3>Made for phones</h3><p>Every page is checked on a phone first.</p></div></li>
+        <li><span>03</span><div><h3>Domain and hosting</h3><p>We pick, set up and connect them for you.</p></div></li>
+        <li><span>04</span><div><h3>Contact forms</h3><p>Each message goes straight to your inbox.</p></div></li>
+        <li><span>05</span><div><h3>Upkeep</h3><p>New text, new photos, fixes. Just write to us.</p></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="band alt" aria-labelledby="work">
+    <div class="container">
+      <h2 id="work">Our work: real projects</h2>
+      <p class="section-intro">Projects from our own group and affiliated businesses.</p>
+      <div class="work-grid">
+        <article class="work-card">
+          <img src="assets/work/aura-tavira.webp" alt="Screenshot of the Aura Tavira website, auratavira.com" width="1100" height="413" loading="lazy">
+          <div class="card-body">
+            <h3>Aura Tavira</h3>
+            <p>A wine boutique in Tavira, Portugal. Bookings, events and a shop.</p>
+            <a href="https://auratavira.com" rel="noopener noreferrer">auratavira.com &rarr;</a>
+          </div>
+        </article>
+        <article class="work-card">
+          <img src="assets/work/sapper-advanced.webp" alt="Screenshot of the Sapper Advanced website, sapperadvanced.com" width="1100" height="413" loading="lazy">
+          <div class="card-body">
+            <h3>Sapper Advanced</h3>
+            <p>Metal fabrication, racks and industrial packaging, with a quote request flow.</p>
+            <a href="https://sapperadvanced.com" rel="noopener noreferrer">sapperadvanced.com &rarr;</a>
+          </div>
+        </article>
+        <article class="work-card">
+          <img src="assets/work/jays-catering.webp" alt="Screenshot of the Jay&rsquo;s Catering website, flavorjay.org" width="1100" height="413" loading="lazy">
+          <div class="card-body">
+            <h3>Jay&rsquo;s Catering</h3>
+            <p>Private catering in the Algarve, with menus and a quote form.</p>
+            <a href="https://flavorjay.org" rel="noopener noreferrer">flavorjay.org &rarr;</a>
+          </div>
+        </article>
+        <article class="work-card">
+          <img src="assets/work/aura-wines.webp" alt="Screenshot of the Aura Wines website, aurawines.pt" width="1100" height="413" loading="lazy">
+          <div class="card-body">
+            <h3>Aura Wines</h3>
+            <p>A Portuguese wine house selling to restaurants and hotels across Europe.</p>
+            <a href="https://aurawines.pt" rel="noopener noreferrer">aurawines.pt &rarr;</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="pricing">
+    <div class="container">
+      <h2 id="pricing">Pricing: tell us what you need</h2>
+      <div class="price-card">
+        <p class="section-intro">Tell us what you need and we&rsquo;ll send a proposal.</p>
+        <a class="btn btn-primary btn-lg" href="#start">Get my website</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt" aria-labelledby="group">
+    <div class="container">
+      <h2 id="group">The group: Sapper Solution Group</h2>
+      <p class="section-intro">Sapper Websites is a DBA of Sapper Advanced Technologies LLC, an Ohio company based in Piketon, Ohio, part of the Sapper Solution Group. Your agreement is with Sapper Advanced Technologies LLC, not with other group companies.</p>
+      <p class="group-source"><a href="https://sapperadvanced.com" rel="noopener noreferrer">sapperadvanced.com</a></p>
+      <ul class="group-grid">
+        <li class="group-card"><h3>Sapper Advanced Technologies</h3><p>Metal fabrication, racks, and industrial packaging.</p></li>
+        <li class="group-card"><h3>Sapper Plastics</h3><p>Advanced packaging for EV batteries, industrial components, and sensitive goods.</p></li>
+        <li class="group-card"><h3>F&middot;S&middot;S&middot;I Federal Supply Services International</h3><p>Procurement, compliant logistics, and industrial supply chain operations.</p></li>
+        <li class="group-card"><h3>Sapper Waste</h3><p>Roll off dumpster rentals and waste removal services.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="strengths">
+    <div class="container">
+      <h2 id="strengths">Strengths</h2>
+      <ul class="num-list">
+        <li><span>1</span><div><h3>Clear design</h3><p>A site built around what your business does and what visitors need to find.</p></div></li>
+        <li><span>2</span><div><h3>Works on every screen</h3><p>Phones, tablets and desktops.</p></div></li>
+        <li><span>3</span><div><h3>We help with the rest</h3><p>Domain, hosting, contact form and updates available after launch.</p></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="band alt" aria-labelledby="steps">
+    <div class="container">
+      <h2 id="steps">How it works</h2>
+      <p class="section-intro">Tell us. We build. You launch.</p>
+      <ul class="num-list">
+        <li><span>1</span><div><h3>Send a short form.</h3><p>Tell us about your business.</p></div></li>
+        <li><span>2</span><div><h3>We build it.</h3><p>You review the pages.</p></div></li>
+        <li><span>3</span><div><h3>We help you go live.</h3><p>Updates available after launch.</p></div></li>
+      </ul>
+    </div>
   </section>
 
   <section id="contact" class="contact" aria-labelledby="contact-h">
-    <div class="contact-grid">
+    <div class="container contact-grid">
       <div class="contact-intro">
         <h2 id="contact-h">Let&rsquo;s build<br>yours.</h2>
         <p class="muted">Tell us what you need. We read every message and answer it ourselves.</p>
@@ -81,34 +214,37 @@
         <input type="hidden" name="_template" value="table" data-clarity-mask="True">
         <input type="hidden" name="_captcha" value="true" data-clarity-mask="True">
         <input type="hidden" name="_next" value="https://{{domain}}/thanks.html" data-clarity-mask="True">
+        <p id="form-guard-msg" class="field-error" role="alert"></p>
         <p class="sr-only">Required fields are marked with an asterisk.</p>
         <div class="field">
           <label for="f-name">Your name <span class="req" aria-hidden="true">*</span></label>
-          <input id="f-name" name="Your name" type="text" required aria-required="true" autocomplete="name" maxlength="200" aria-describedby="f-name-err" data-clarity-mask="True">
+          <input id="f-name" name="Your name" type="text" required aria-required="true" autocomplete="name" maxlength="80" aria-describedby="f-name-err" data-clarity-mask="True">
           <p id="f-name-err" class="field-error">Please enter your name.</p>
         </div>
         <div class="field">
           <label for="f-email">Email <span class="req" aria-hidden="true">*</span></label>
-          <input id="f-email" name="Email" type="email" required aria-required="true" autocomplete="email" autocapitalize="none" spellcheck="false" maxlength="200" aria-describedby="f-email-err" data-clarity-mask="True">
+          <input id="f-email" name="Email" type="email" required aria-required="true" autocomplete="email" autocapitalize="none" spellcheck="false" maxlength="120" aria-describedby="f-email-err" data-clarity-mask="True">
           <p id="f-email-err" class="field-error">Please enter a valid email address.</p>
         </div>
         <div class="field">
           <label for="f-phone">Phone <span class="opt">(optional)</span></label>
-          <input id="f-phone" name="Phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="40" data-clarity-mask="True">
+          <input id="f-phone" name="Phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="30" aria-describedby="f-phone-err" data-clarity-mask="True">
+          <p id="f-phone-err" class="field-error"></p>
         </div>
         <div class="field">
           <label for="f-business">Business name <span class="req" aria-hidden="true">*</span></label>
-          <input id="f-business" name="Business name" type="text" required aria-required="true" autocomplete="organization" maxlength="200" aria-describedby="f-business-err" data-clarity-mask="True">
+          <input id="f-business" name="Business name" type="text" required aria-required="true" autocomplete="organization" maxlength="120" aria-describedby="f-business-err" data-clarity-mask="True">
           <p id="f-business-err" class="field-error">Please enter the business name.</p>
         </div>
         <div class="field">
           <label for="f-need">What you need <span class="req" aria-hidden="true">*</span></label>
-          <textarea id="f-need" name="What you need" rows="4" required aria-required="true" maxlength="2000" aria-describedby="f-need-err" data-clarity-mask="True"></textarea>
+          <textarea id="f-need" name="What you need" rows="4" required aria-required="true" maxlength="1500" aria-describedby="f-need-err" data-clarity-mask="True"></textarea>
           <p id="f-need-err" class="field-error">Please say what you need.</p>
         </div>
         <div class="field">
           <label for="f-site">Current site or domain <span class="opt">(optional)</span></label>
-          <input id="f-site" name="Current site or domain" type="text" autocapitalize="none" spellcheck="false" maxlength="300" placeholder="https://example.com or example.com" data-clarity-mask="True">
+          <input id="f-site" name="Current site or domain" type="text" autocapitalize="none" spellcheck="false" maxlength="200" placeholder="https://example.com or example.com" aria-describedby="f-site-err" data-clarity-mask="True">
+          <p id="f-site-err" class="field-error"></p>
         </div>
         <div class="consent">
           <input id="f-consent" name="Agreement" type="checkbox" value="{{consent_label}}" required aria-required="true" aria-describedby="f-consent-err" data-clarity-mask="True">
@@ -124,80 +260,100 @@
         </p>
       </form>
       </div>
-
-
     </div>
-  </section>
-  <section id="facts" class="group" aria-labelledby="facts-h">
-    <h2 id="facts-h" class="label">Key facts</h2>
-    <p class="reveal-words group-lead" data-reveal>A privately held group of U.S. engineering, packaging and logistics companies based in Piketon, Ohio. {{brand_name}} is a DBA of {{legal_name}}.</p>
-    <ul class="group-list">
-      <li><h3>Sapper Advanced Technologies</h3><p>Metal fabrication, racks, and industrial packaging.</p></li>
-      <li><h3>Sapper Plastics</h3><p>Advanced packaging for EV batteries, industrial components, and sensitive goods.</p></li>
-      <li><h3>F&middot;S&middot;S&middot;I Federal Supply Services International</h3><p>Procurement, compliant logistics, and industrial supply chain operations.</p></li>
-      <li><h3>Sapper Waste</h3><p>Roll off dumpster rentals and waste removal services.</p></li>
-    </ul>
   </section>
 </main>
 
 <footer class="site-footer">
-  <p>{{dba_text}}.</p>
-  <p>{{address_name}}, {{address_street}}, {{address_city}}, {{address_state}} {{address_zip}}</p>
-  <p><a href="mailto:{{form_email}}">Email us</a></p>
-  <p><a href="{{terms_url}}">{{terms_label}}</a> &middot; <a href="{{privacy_url}}">{{privacy_label}}</a> &middot; <a href="{{legal_notice_url}}">{{legal_notice_label}}</a></p>
-  <p>&copy; {{year}} {{legal_name}} &middot; <a href="{{parent_site_url}}">sapperadvanced.com</a></p>
+  <div class="container">
+    <p>{{dba_text}}.</p>
+    <p>{{address_name}}, {{address_street}}, {{address_city}}, {{address_state}} {{address_zip}}</p>
+    <p><a href="mailto:{{form_email}}">Email us</a></p>
+    <p><a href="{{terms_url}}">{{terms_label}}</a> &middot; <a href="{{privacy_url}}">{{privacy_label}}</a> &middot; <a href="{{legal_notice_url}}">{{legal_notice_label}}</a></p>
+    <p>&copy; {{year}} {{legal_name}} &middot; <a href="{{parent_site_url}}" rel="noopener noreferrer">sapperadvanced.com</a></p>
+  </div>
 </footer>
-<a class="float-cta" href="#start">Get my website</a>
+<a class="float-cta" href="{{nav_cta_href}}">{{nav_cta_label}}</a>
+<script src="assets/form-guard.js"></script>
 <script>
-(function(){
-  var reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  /* hero background crossfade */
-  var bgs=[].slice.call(document.querySelectorAll(".hero-bg .bg")),k=0;
-  if(!reduce&&bgs.length)setInterval(function(){bgs[k].classList.remove("is-active");k=(k+1)%bgs.length;bgs[k].classList.add("is-active");},4500);
-  /* words that light up while scrolling */
-  var blocks=[].slice.call(document.querySelectorAll("[data-reveal]"));
-  blocks.forEach(function(p){var w=p.textContent.trim().split(/\s+/);p.setAttribute("aria-label",p.textContent.trim());p.innerHTML=w.map(function(x){return '<span class="w" aria-hidden="true">'+x+'</span>';}).join(" ");});
-  function update(){var vh=window.innerHeight;blocks.forEach(function(p){var ws=p.querySelectorAll(".w"),r=p.getBoundingClientRect(),prog=(vh*0.85-r.top)/(vh*0.55+r.height*0.6);prog=Math.max(0,Math.min(1,prog));var n=Math.round(prog*ws.length);for(var i=0;i<ws.length;i++)ws[i].classList.toggle("on",reduce||i<n);});
-    document.querySelector(".site-header").classList.toggle("solid",window.scrollY>vh*0.6);
-    var fc=document.querySelector(".float-cta"),c=document.getElementById("contact").getBoundingClientRect();fc.classList.toggle("hide",c.top<vh*0.75&&c.bottom>vh*0.35);}
-  window.addEventListener("scroll",update,{passive:true});window.addEventListener("resize",update);update();
-  /* fade-up for panels and list rows */
-  document.documentElement.classList.add("js");
-  var els=[].slice.call(document.querySelectorAll(".panel-text,.panel-shot,.big-list li,.group-list li,.contact-grid>*"));
-  if("IntersectionObserver" in window&&!reduce){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.15});els.forEach(function(el){el.classList.add("fx");io.observe(el);});}
-})();
-</script>
-<script>
-/* Points the thank-you page at this site and sets the reply address. The form still posts with JavaScript off. */
-(function(){
-  var f=document.getElementById("start");
-  if(!f)return;
-  var next=f.querySelector('input[name="_next"]');
-  function pointNext(){
-    if(!next)return;
-    try{next.value=new URL("thanks.html",window.location.href).href;}catch(e){}
+/* Applies the checks in assets/form-guard.js. If JavaScript is off, or this fails, the form still posts to FormSubmit. _captcha stays on. _next stays the live thank-you page. */
+(function () {
+  var f = document.getElementById("start");
+  if (!f) return;
+  var opened = window.__formOpened || Date.now();
+  var ids = {name:"f-name", email:"f-email", phone:"f-phone", business:"f-business", need:"f-need", site:"f-site", consent:"f-consent"};
+  function read(id) {
+    var el = document.getElementById(id);
+    return el ? el.value : "";
   }
-  function replyTo(){
-    var email=document.getElementById("f-email");
-    if(!email||!email.value)return;
-    var reply=f.querySelector('input[name="_replyto"]');
-    if(!reply){
-      reply=document.createElement("input");
-      reply.type="hidden";
-      reply.name="_replyto";
-      reply.setAttribute("data-clarity-mask","True");
-      f.appendChild(reply);
-    }
-    reply.value=email.value;
+  function clearErrors() {
+    var nodes = f.querySelectorAll(".field-error");
+    for (var i = 0; i < nodes.length; i++) nodes[i].classList.remove("is-on");
+    var bad = f.querySelectorAll("[aria-invalid]");
+    for (var j = 0; j < bad.length; j++) bad[j].removeAttribute("aria-invalid");
+    var box = document.getElementById("form-guard-msg");
+    if (box) box.textContent = "";
   }
-  pointNext();
-  f.addEventListener("submit",function(){
-    pointNext();
-    replyTo();
+  f.addEventListener("input", function (ev) {
+    var el = ev.target;
+    if (!el || !el.id) return;
+    el.removeAttribute("aria-invalid");
+    var err = document.getElementById(el.id + "-err");
+    if (err) err.classList.remove("is-on");
+  });
+  f.addEventListener("submit", function (ev) {
+    try {
+      if (!window.formGuard) return;
+      var consent = document.getElementById("f-consent");
+      var honey = f.querySelector('input[name="_honey"]');
+      var result = window.formGuard.validate({
+        name: read("f-name"),
+        email: read("f-email"),
+        phone: read("f-phone"),
+        business: read("f-business"),
+        need: read("f-need"),
+        site: read("f-site"),
+        consent: !!(consent && consent.checked),
+        honey: honey ? honey.value : ""
+      }, { elapsedMs: Date.now() - opened });
+      var values = result.values;
+      var map = {name:"f-name", email:"f-email", phone:"f-phone", business:"f-business", need:"f-need", site:"f-site"};
+      Object.keys(map).forEach(function (key) {
+        var el = document.getElementById(map[key]);
+        if (el) el.value = values[key];
+      });
+      clearErrors();
+      if (!result.ok) {
+        ev.preventDefault();
+        var first = null;
+        Object.keys(ids).forEach(function (key) {
+          if (!result.errors[key]) return;
+          var el = document.getElementById(ids[key]);
+          var err = document.getElementById(ids[key] + "-err");
+          if (el) el.setAttribute("aria-invalid", "true");
+          if (err) { err.textContent = result.errors[key]; err.classList.add("is-on"); }
+          if (!first && el) first = el;
+        });
+        if (result.errors.form) {
+          var box = document.getElementById("form-guard-msg");
+          if (box) { box.textContent = result.errors.form; box.classList.add("is-on"); }
+        }
+        if (first && first.focus) first.focus();
+        return;
+      }
+      var reply = f.querySelector('input[name="_replyto"]');
+      if (!reply) {
+        reply = document.createElement("input");
+        reply.type = "hidden";
+        reply.name = "_replyto";
+        reply.setAttribute("data-clarity-mask", "True");
+        f.appendChild(reply);
+      }
+      reply.value = values.email;
+    } catch (err) {}
   });
 })();
 </script>
-
-
+<script src="assets/site.js"></script>
 </body>
 </html>

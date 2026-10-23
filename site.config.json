@@ -26,5 +26,17 @@
  "privacy_label": "Privacy Policy",
  "privacy_url": "privacy.html",
  "legal_notice_label": "Legal Notice",
- "legal_notice_url": "legal-notice.html"
+ "legal_notice_url": "legal-notice.html",
+ "nav_links": [
+  {"label": "About", "href": "#about"},
+  {"label": "Our work", "href": "#work"},
+  {"label": "Services", "href": "#services"},
+  {"label": "Pricing", "href": "#pricing"},
+  {"label": "The group", "href": "#group"}
+ ],
+ "nav_cta_label": "Get my website",
+ "nav_cta_href": "#start",
+ "thanks_heading": "Request received",
+ "thanks_text": "Thank you. We read every request. If we can help, we will email you a short proposal with the next steps. Nothing is agreed until you confirm it.",
+ "thanks_note": "No call needed. Just reply to our email."
 }

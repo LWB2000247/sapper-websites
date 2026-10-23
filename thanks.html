@@ -3,13 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.clarity.ms https://*.clarity.ms; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https://*.clarity.ms https://www.clarity.ms; connect-src 'self' https://*.clarity.ms https://www.clarity.ms https://fonts.googleapis.com https://fonts.gstatic.com; form-action https://formsubmit.co; base-uri 'self'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Request received | Sapper Websites</title>
 <meta name="robots" content="noindex">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;700;800&amp;family=Inter:wght@400;500;600&amp;family=Cormorant+Garamond:wght@600;700&amp;display=swap">
-<link rel="stylesheet" href="assets/style.css?v=33">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="assets/style.css?v=35">
+<script>document.documentElement.classList.add("js");</script>
 <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -20,28 +25,34 @@
 </head>
 <body>
 <a class="skip" href="#thanks">Skip to content</a>
-<header class="site-header solid">
-  <a class="brand" href="./" aria-label="Sapper Websites home"><img src="assets/eagle-mark.webp" alt="Eagle logo of Sapper Websites" width="28" height="28"><span>Sapper Websites</span></a>
-  <nav class="main-nav" aria-label="Main">
-    <a href="./#strengths">Strengths</a><a href="./#steps">How it works</a>
-  </nav>
-  <a class="nav-cta" href="./#start">Get my website</a>
+<header class="site-header solid solid-lock">
+  <div class="container header-inner">
+    <a class="brand" href="/" aria-label="Sapper Websites home"><img src="assets/eagle-mark.webp" alt="Eagle logo of Sapper Websites" width="32" height="32"><span>Sapper Websites</span></a>
+    <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="main-nav" aria-label="Main"><a href="/#about">About</a><a href="/#work">Our work</a><a href="/#services">Services</a><a href="/#pricing">Pricing</a><a href="/#group">The group</a></nav>
+    <a class="nav-cta" href="/#start">Get my website</a>
+  </div>
 </header>
 <main id="thanks" class="thanks">
-  <div class="thanks-inner">
-    <p class="kicker">Request received</p>
-    <h1>Thank you.</h1>
-    <p>We email you to confirm the contract. After you confirm, we send the payment link.</p>
-    
-    <a class="btn btn-primary btn-lg" href="./">Back to the site</a>
+  <div class="container">
+    <div class="thanks-inner">
+      <h1 class="kicker">Request received</h1>
+      <p class="thanks-lead">Thank you. We read every request. If we can help, we will email you a short proposal with the next steps. Nothing is agreed until you confirm it.</p>
+      <p class="thanks-note">No call needed. Just reply to our email.</p>
+      <a class="btn btn-primary btn-lg" href="/">Back to the site</a>
+    </div>
   </div>
 </main>
 <footer class="site-footer">
-  <p>Sapper Websites is a DBA of Sapper Advanced Technologies LLC.</p>
-  <p>Sapper Solution HQ, 4239 U.S. 23, Piketon, OH 45661</p>
-  <p><a href="mailto:leon@baldridge.info">Email us</a></p>
-  <p><a href="terms.html">Terms of Service</a> &middot; <a href="privacy.html">Privacy Policy</a> &middot; <a href="legal-notice.html">Legal Notice</a></p>
-  <p>&copy; 2026 Sapper Advanced Technologies LLC &middot; <a href="https://sapperadvanced.com">sapperadvanced.com</a></p>
+  <div class="container">
+    <p>Sapper Websites is a DBA of Sapper Advanced Technologies LLC.</p>
+    <p>Sapper Solution HQ, 4239 U.S. 23, Piketon, OH 45661</p>
+    <p><a href="mailto:leon@baldridge.info">Email us</a></p>
+    <p><a href="terms.html">Terms of Service</a> &middot; <a href="privacy.html">Privacy Policy</a> &middot; <a href="legal-notice.html">Legal Notice</a></p>
+    <p>&copy; 2026 Sapper Advanced Technologies LLC &middot; <a href="https://sapperadvanced.com" rel="noopener noreferrer">sapperadvanced.com</a></p>
+  </div>
 </footer>
+<a class="float-cta" href="/#start">Get my website</a>
+<script src="assets/site.js"></script>
 </body>
 </html>
