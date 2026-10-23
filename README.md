@@ -11,7 +11,7 @@ Edit `site.config.json`, then run:
 
     python3 build.py
 
-This regenerates `index.html`, `thanks.html`, `terms.html`, `privacy.html`, `sitemap.xml` and `robots.txt` (canonical, Open Graph and sitemap URLs use `domain`). The request form is delivered to `form_email`. Commit and push. No dependencies beyond Python 3.
+This regenerates `index.html`, `thanks.html`, `terms.html`, `privacy.html`, `sitemap.xml` and `robots.txt` (canonical, Open Graph and sitemap URLs use `domain`). The request form is delivered to `form_email`. The homepage headline is `slogan`. The public pages do not show `phone_display`. Commit and push. No dependencies beyond Python 3.
 
 ## Hosting notes
 
