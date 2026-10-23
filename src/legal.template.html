@@ -8,13 +8,14 @@
 <title>{{legal_title}} | {{brand_name}}</title>
 <meta name="description" content="{{legal_description}}">
 <link rel="canonical" href="https://{{domain}}/{{legal_file}}">
+<link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
-<link rel="stylesheet" href="assets/style.css?v=36">
+<link rel="stylesheet" href="assets/style.css?v=38">
 <script>document.documentElement.classList.add("js");</script>
 {{#clarity_id}}<script type="text/javascript">
     (function(c,l,a,r,i,t,y){
@@ -26,7 +27,7 @@
 {{/clarity_id}}</head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="site-header solid solid-lock">
+<header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="/" aria-label="{{brand_name}} home"><img src="assets/eagle-mark.webp" alt="Eagle logo of {{brand_name}}" width="32" height="32"><span>{{brand_name}}</span></a>
     <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
@@ -50,7 +51,6 @@
     <p>&copy; {{year}} {{legal_name}} &middot; <a href="{{parent_site_url}}" rel="noopener noreferrer">sapperadvanced.com</a></p>
   </div>
 </footer>
-<a class="float-cta" href="{{nav_cta_href}}">{{nav_cta_label}}</a>
 <script src="assets/site.js"></script>
 </body>
 </html>

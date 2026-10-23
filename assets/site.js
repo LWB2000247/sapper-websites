@@ -34,14 +34,10 @@
     for (var i = 0; i < links.length; i++) links[i].addEventListener("click", closeMenu);
   }
 
-  var header = document.querySelector(".site-header");
   var pill = document.querySelector(".float-cta");
 
   function onScroll() {
     var vh = window.innerHeight || 1;
-    if (header && !header.classList.contains("solid-lock")) {
-      header.classList.toggle("solid", window.scrollY > vh * 0.6);
-    }
     if (!pill) return;
     var hide = false;
     var heroCta = document.querySelector(".hero-cta");

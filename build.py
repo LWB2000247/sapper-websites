@@ -81,10 +81,10 @@ def prepare_legal(body, fname):
         return "<h2%s>%s</h2>" % (attrs, inner)
     body = re.sub(r"<h2([^>]*)>(.*?)</h2>", repl, body, flags=re.S)
     if fname in ("terms.html", "privacy.html") and heads:
-        links = " &middot; ".join(
-            '<a href="#%s">%s</a>' % (html.escape(sid, quote=True), html.escape(label))
+        items = "\n".join(
+            '  <li><a href="#%s">%s</a></li>' % (html.escape(sid, quote=True), html.escape(label))
             for sid, label in heads)
-        toc = '<p class="legal-contents">Contents: %s</p>' % links
+        toc = '<nav class="legal-contents" aria-label="Contents">\n<p>Contents</p>\n<ul>\n%s\n</ul>\n</nav>' % items
         if "</h1>" in body:
             body = body.replace("</h1>", "</h1>\n" + toc, 1)
         else:
