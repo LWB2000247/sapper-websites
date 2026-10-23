@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en"{{#clarity_id}} data-clarity-id="{{clarity_id}}"{{/clarity_id}}>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,16 +15,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
-<link rel="stylesheet" href="assets/style.css?v=40">
+<link rel="stylesheet" href="assets/style.css?v=44">
 <script>document.documentElement.classList.add("js");</script>
-{{#clarity_id}}<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "{{clarity_id}}");
-</script>
-{{/clarity_id}}</head>
+</head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
@@ -48,9 +41,11 @@
     <p>{{address_name}}, {{address_street}}, {{address_city}}, {{address_state}} {{address_zip}}</p>
     <p><a href="mailto:{{form_email}}">Email us</a></p>
     <p><a href="{{terms_url}}">{{terms_label}}</a> &middot; <a href="{{privacy_url}}">{{privacy_label}}</a> &middot; <a href="{{legal_notice_url}}">{{legal_notice_label}}</a></p>
+    {{#clarity_id}}<p><button type="button" class="cookie-settings">Cookie settings</button></p>{{/clarity_id}}
     <p>&copy; {{year}} {{legal_name}} &middot; <a href="{{parent_site_url}}" rel="noopener noreferrer">sapperadvanced.com</a></p>
   </div>
 </footer>
-<script src="assets/site.js"></script>
+<script src="assets/site.js?v=44"></script>
+<script src="assets/consent.js?v=44"></script>
 </body>
 </html>
