@@ -101,6 +101,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 .price-lines li{font-size:1.05rem;line-height:1.5;color:#334155}
 .price-lines strong{display:block;margin-bottom:.35rem;color:#0B1220;font-weight:700}
 .price-card .btn{margin-top:1.5rem}
+.price-note{margin-top:.85rem;font-size:14px;line-height:1.45;color:#334155}
 
 .contact{background:var(--blue);color:#fff;padding-block:96px}
 .contact-grid{display:grid;gap:2rem;align-items:start}
