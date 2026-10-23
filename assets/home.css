@@ -79,13 +79,15 @@ html:has(body.home){scroll-behavior:auto}
   .home .work-track{animation:none;width:auto;max-width:100%;height:auto;flex-wrap:wrap}
   .home .work-track [aria-hidden="true"]{display:none}
 }
-.home .work-list{margin-top:1.5rem}
-.home .work-list li{display:grid;grid-template-columns:1fr;gap:.35rem;padding:28px 0;border-top:1px solid rgba(43,34,32,.12);align-items:center}
-.home .work-list li:last-child{border-bottom:1px solid rgba(43,34,32,.12)}
-.home .work-list h3{margin:0;min-width:0;overflow-wrap:anywhere;font-size:clamp(32px,3.4vw,56px)}
+.home .work-list{display:grid;gap:1rem;margin-top:1.5rem}
+.home .work-card{display:flex;flex-direction:column;align-items:flex-start;gap:.75rem;min-width:0;margin:0;padding:1.25rem 1.35rem;background:#fff;border:1px solid rgba(11,18,32,.08);border-radius:16px}
+.home .work-logo{display:block;height:32px;width:auto;max-width:100%;object-fit:contain;object-position:left center}
+@media(min-width:40rem){
+  .home .work-logo{height:40px}
+}
+.home .work-list h3{margin:0;min-width:0;max-width:100%;overflow-wrap:anywhere;font-size:clamp(32px,3.4vw,56px)}
 .home .work-list p{margin:0}
 .home .work-list a{display:inline-flex;align-items:center;gap:.45rem;min-height:44px;margin-top:.15rem;color:#1D4ED8;font-size:16px;font-weight:600;text-decoration:underline;text-underline-offset:.15em}
-.home .work-list .arrow{width:18px;height:18px;flex:0 0 auto}
 
 .home .price-card{margin-top:0;width:100%;background:transparent;border-radius:0;padding:0}
 .home .price-lines{display:block}
