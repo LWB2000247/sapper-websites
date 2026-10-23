@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{brand_name}} | {{tagline}}</title>
+<meta name="description" content="{{description}}">
+<link rel="canonical" href="https://{{domain}}/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{brand_name}}">
+<meta property="og:title" content="{{brand_name}} | {{tagline}}">
+<meta property="og:description" content="{{description}}">
+<meta property="og:url" content="https://{{domain}}/">
+<meta property="og:image" content="https://{{domain}}/assets/eagle-mark.webp">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"{{brand_name}}","url":"https://{{domain}}/","description":"{{description}}","email":"{{email}}","telephone":"{{phone_tel}}","parentOrganization":{"@type":"Organization","name":"{{legal_name}}","url":"{{parent_site_url}}"},"address":{"@type":"PostalAddress","streetAddress":"{{address_street}}","addressLocality":"{{address_city}}","addressRegion":"{{address_state}}","postalCode":"{{address_zip}}","addressCountry":"US"}}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container-x header-row">
+    <a class="brand" href="./" aria-label="{{brand_name}} home">
+      <img src="assets/eagle-mark.webp" alt="" width="44" height="44">
+      <span class="brand-text"><span class="brand-name font-display">{{brand_name}}</span><span class="brand-sub">A DBA of {{legal_name}}</span></span>
+    </a>
+    <nav class="main-nav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#process">How It Works</a>
+      <a href="#facts">Key Facts</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="mailto:{{email}}?subject=Website%20inquiry%20for%20{{brand_name_url}}">Email Us</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="container-x hero">
+    <div>
+      <h1 class="h-slogan"><span class="eyebrow">{{brand_name}}</span><span class="hero-title">{{tagline}}</span></h1>
+      <p class="lead">We design and build clear, mobile-friendly websites, and we help with the domain, hosting, forms, and upkeep that come with them.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary btn-lg" href="mailto:{{email}}?subject=Website%20inquiry%20for%20{{brand_name_url}}">Email Us About Your Website</a>
+        <a class="btn btn-outline btn-lg" href="#services">What We Do</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="band" aria-labelledby="services-h">
+    <div class="container-x">
+      <h2 id="services-h" class="section-h font-display">What We Do</h2>
+      <div class="grid-3">
+        <article class="item"><h3 class="font-display">Website Design and Build</h3><p>A site designed around what your business does and what visitors need to find, built from scratch.</p></article>
+        <article class="item"><h3 class="font-display">Mobile-Friendly Layouts</h3><p>Pages that read well and work on phones, tablets, and desktop screens.</p></article>
+        <article class="item"><h3 class="font-display">Domain and Hosting Setup Help</h3><p>Help choosing and connecting a domain name and a place to host your site.</p></article>
+        <article class="item"><h3 class="font-display">Forms and Email Notifications</h3><p>Contact forms that send the message to your email so you can reply quickly.</p></article>
+        <article class="item"><h3 class="font-display">Maintenance</h3><p>Content changes, fixes, and updates after your site goes live.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" class="band band-border" aria-labelledby="process-h">
+    <div class="container-x process-grid">
+      <div>
+        <h2 id="process-h" class="section-h font-display">How It Works</h2>
+        <ol class="steps">
+          <li><span class="step-label">Step 1</span><h3 class="font-display">Tell Us What You Need</h3><p>Email or call us. Describe your business and what you want the site to do.</p></li>
+          <li><span class="step-label">Step 2</span><h3 class="font-display">We Design and Build</h3><p>We build the pages and send them to you to review.</p></li>
+          <li><span class="step-label">Step 3</span><h3 class="font-display">We Help You Go Live</h3><p>We help set up your domain and hosting and connect your contact form.</p></li>
+          <li><span class="step-label">Step 4</span><h3 class="font-display">We Keep It Running</h3><p>Ask us for changes and updates whenever you need them.</p></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="facts" class="band band-border" aria-labelledby="facts-h">
+    <div class="container-x">
+      <h2 id="facts-h" class="section-h font-display">Key Facts</h2>
+      <dl class="facts">
+        <div><dt>Business</dt><dd>{{brand_name}}, a DBA of {{legal_name}}</dd></div>
+        <div><dt>Location</dt><dd>{{address_city}}, {{address_state}}</dd></div>
+        <div><dt>Services</dt><dd>Website design and build, mobile-friendly layouts, domain and hosting setup help, forms and email notifications, maintenance</dd></div>
+        <div><dt>Phone</dt><dd><a href="tel:{{phone_tel}}">{{phone_display}}</a></dd></div>
+        <div><dt>Email</dt><dd><a href="mailto:{{email}}">{{email}}</a></dd></div>
+        <div><dt>Parent company</dt><dd><a href="{{parent_site_url}}">{{legal_name}}</a></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="contact" class="band band-border" aria-labelledby="contact-h">
+    <div class="container-x contact-row">
+      <div>
+        <h2 id="contact-h" class="section-h font-display">Contact {{brand_name}}</h2>
+        <p class="muted">Tell us what you need and we will take it from there.</p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-primary btn-md" href="mailto:{{email}}?subject=Website%20inquiry%20for%20{{brand_name_url}}">Email Us</a>
+        <a class="link-plain" href="tel:{{phone_tel}}">Call {{phone_display}}</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container-x footer-grid">
+    <div>
+      <a class="brand" href="./" aria-label="{{brand_name}} home">
+        <img src="assets/eagle-mark.webp" alt="" width="44" height="44">
+        <span class="brand-text"><span class="brand-name font-display">{{brand_name}}</span><span class="brand-sub">A DBA of {{legal_name}}</span></span>
+      </a>
+      <p class="foot-slogan font-display">{{tagline}}</p>
+      <address>{{address_name}}<br>{{address_street}}<br>{{address_city}}, {{address_state}} {{address_zip}}<br><a href="tel:{{phone_tel}}">{{phone_display}}</a><br><a href="mailto:{{email}}">{{email}}</a></address>
+    </div>
+    <div>
+      <h3 class="foot-h">Site</h3>
+      <ul class="foot-list">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">How It Works</a></li>
+        <li><a href="#facts">Key Facts</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="foot-h">Company</h3>
+      <ul class="foot-list">
+        <li><a href="{{parent_site_url}}">{{legal_name}}</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bar">
+    <div class="container-x foot-bar-row">
+      <p>&copy; {{year}} {{legal_name}}. All rights reserved.</p>
+      <p>{{dba_text}}.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
