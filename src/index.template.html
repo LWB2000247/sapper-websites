@@ -26,8 +26,8 @@
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/Archivo-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/style.css?v=54">
-<link rel="stylesheet" href="assets/home.css?v=54">
+<link rel="stylesheet" href="assets/style.css?v=55">
+<link rel="stylesheet" href="assets/home.css?v=55">
 <script>document.documentElement.classList.add("js");window.__formOpened=Date.now();</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","name":"{{brand_name}}","url":"https://{{domain}}/","description":"{{description}}","parentOrganization":{"@type":"Organization","name":"{{legal_name}}","url":"{{parent_site_url}}"},"address":{"@type":"PostalAddress","streetAddress":"{{address_street}}","addressLocality":"{{address_city}}","addressRegion":"{{address_state}}","postalCode":"{{address_zip}}","addressCountry":"US"}}
@@ -120,33 +120,34 @@
       <h2 id="work">Our work: real projects</h2>
       <div class="home-copy">
       <p class="section-intro">Websites we have built.</p>
-      <div class="work-marquee">
-        <div class="work-track">
-          <a class="work-logo-link" href="https://auratavira.com" target="_blank" rel="noopener"><img src="assets/auratavira-logo.png" alt="Aura Tavira logo" width="291" height="96" loading="lazy" decoding="async"></a>
-          <a class="work-logo-link" href="https://aurawines.pt" target="_blank" rel="noopener"><img src="assets/aurawines-logo.svg" alt="Aura Wines logo" width="1500" height="496" loading="lazy" decoding="async"></a>
-          <a class="work-logo-link" href="https://sapperadvanced.com" target="_blank" rel="noopener"><img src="assets/sapperadvanced-logo.png" alt="Sapper Advanced logo" width="394" height="96" loading="lazy" decoding="async"></a>
-          <a class="work-logo-link" href="https://auratavira.com" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="assets/auratavira-logo.png" alt="" width="291" height="96" loading="lazy" decoding="async"></a>
-          <a class="work-logo-link" href="https://aurawines.pt" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="assets/aurawines-logo.svg" alt="" width="1500" height="496" loading="lazy" decoding="async"></a>
-          <a class="work-logo-link" href="https://sapperadvanced.com" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="assets/sapperadvanced-logo.png" alt="" width="394" height="96" loading="lazy" decoding="async"></a>
-        </div>
       </div>
-      <ul class="work-list">
-        <li class="work-card">
-          <img class="work-logo" src="assets/auratavira-logo.png" alt="Aura Tavira logo" width="291" height="96" loading="lazy" decoding="async">
-          <h3><a href="https://auratavira.com" target="_blank" rel="noopener">auratavira.com<span class="sr-only"> (opens in a new tab)</span></a></h3>
-          <p>Website design and build</p>
-        </li>
-        <li class="work-card">
-          <img class="work-logo" src="assets/aurawines-logo.svg" alt="Aura Wines logo" width="1500" height="496" loading="lazy" decoding="async">
-          <h3><a href="https://aurawines.pt" target="_blank" rel="noopener">aurawines.pt<span class="sr-only"> (opens in a new tab)</span></a></h3>
-          <p>Website design and build</p>
-        </li>
-        <li class="work-card">
-          <img class="work-logo" src="assets/sapperadvanced-logo.png" alt="Sapper Advanced logo" width="394" height="96" loading="lazy" decoding="async">
-          <h3><a href="https://sapperadvanced.com" target="_blank" rel="noopener">sapperadvanced.com<span class="sr-only"> (opens in a new tab)</span></a></h3>
-          <p>Website design and build</p>
-        </li>
-      </ul>
+      <div class="work-carousel" data-work-carousel>
+        <div class="work-carousel-bar">
+          <button type="button" class="work-carousel-prev" aria-label="Previous website"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button type="button" class="work-carousel-next" aria-label="Next website"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </div>
+        <div class="work-carousel-track" tabindex="0" aria-label="Websites we have built">
+          <article class="work-slide work-card">
+            <img class="work-logo" src="assets/auratavira-logo.png" alt="Aura Tavira logo" width="291" height="96" loading="lazy" decoding="async">
+            <h3><a href="https://auratavira.com" target="_blank" rel="noopener">auratavira.com<span class="sr-only"> (opens in a new tab)</span></a></h3>
+            <p>Website design and build</p>
+          </article>
+          <article class="work-slide work-card">
+            <img class="work-logo" src="assets/aurawines-logo.svg" alt="Aura Wines logo" width="1500" height="496" loading="lazy" decoding="async">
+            <h3><a href="https://aurawines.pt" target="_blank" rel="noopener">aurawines.pt<span class="sr-only"> (opens in a new tab)</span></a></h3>
+            <p>Website design and build</p>
+          </article>
+          <article class="work-slide work-card">
+            <img class="work-logo" src="assets/sapperadvanced-logo.png" alt="Sapper Advanced logo" width="394" height="96" loading="lazy" decoding="async">
+            <h3><a href="https://sapperadvanced.com" target="_blank" rel="noopener">sapperadvanced.com<span class="sr-only"> (opens in a new tab)</span></a></h3>
+            <p>Website design and build</p>
+          </article>
+        </div>
+        <div class="work-dots" role="group" aria-label="Choose a website">
+          <button type="button" class="work-dot" aria-label="Show auratavira.com" aria-current="true"></button>
+          <button type="button" class="work-dot" aria-label="Show aurawines.pt"></button>
+          <button type="button" class="work-dot" aria-label="Show sapperadvanced.com"></button>
+        </div>
       </div>
     </div>
   </section>
@@ -374,9 +375,10 @@
   });
 })();
 </script>
-<script src="assets/float-pill.js?v=54"></script>
-<script src="assets/site.js?v=54"></script>
-<script src="assets/consent.js?v=54"></script>
-<script src="assets/home-motion.js?v=54"></script>
+<script src="assets/float-pill.js?v=55"></script>
+<script src="assets/site.js?v=55"></script>
+<script src="assets/consent.js?v=55"></script>
+<script src="assets/home-motion.js?v=55"></script>
+<script src="assets/work-carousel.js?v=55"></script>
 </body>
 </html>

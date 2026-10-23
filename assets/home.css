@@ -63,31 +63,40 @@ html:has(body.home){scroll-behavior:auto}
   .home .num-list li{grid-template-columns:1fr 2fr;column-gap:clamp(24px,3vw,64px);align-items:baseline}
 }
 
-.home .work-marquee{overflow:hidden;max-width:100%;min-width:0;margin-top:1.75rem;height:44px}
-.home .work-track{display:flex;align-items:center;width:max-content;height:44px;animation:work-glide 36s linear infinite}
-.home .work-logo-link{display:inline-flex;align-items:center;flex:0 0 auto;height:44px;padding:0 2rem}
-.home .work-logo-link:focus-visible{outline-offset:-2px}
-.home .work-logo-link img{display:block;height:32px;width:auto;max-width:none;object-fit:contain}
-.home .work-marquee:hover .work-track,.home .work-marquee:focus-within .work-track,.home .work-marquee:active .work-track{animation-play-state:paused}
-@media(min-width:40rem){
-  .home .work-marquee,.home .work-track,.home .work-logo-link{height:48px}
-  .home .work-logo-link img{height:40px}
+.home .work-carousel{min-width:0;max-width:100%;margin-top:1.75rem}
+@media(min-width:60rem){
+  .home section[aria-labelledby="work"]>.container>.work-carousel{grid-column:1/-1}
 }
-@keyframes work-glide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media(prefers-reduced-motion:reduce){
-  .home .work-marquee{height:auto;overflow:visible}
-  .home .work-track{animation:none;width:auto;max-width:100%;height:auto;flex-wrap:wrap}
-  .home .work-track [aria-hidden="true"]{display:none}
+.home .work-carousel-bar{display:flex;gap:.5rem;margin-bottom:.75rem}
+.home .work-carousel-prev,.home .work-carousel-next{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:1px solid rgba(11,18,32,.16);border-radius:999px;background:#fff;color:#0B1220}
+.home .work-carousel-prev:hover,.home .work-carousel-next:hover{background:#1D4ED8;border-color:#1D4ED8;color:#fff}
+.home .work-carousel-track{display:flex;gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;min-width:0;max-width:100%;overscroll-behavior-x:contain;scrollbar-width:none;contain:paint}
+.home .work-carousel-track::-webkit-scrollbar{display:none}
+.home .work-carousel-track:focus-visible{outline:2px solid var(--ring);outline-offset:-4px}
+.home .work-slide{flex:0 0 calc((100% - .2rem) / 1.2);scroll-snap-align:start;scroll-snap-stop:always;display:flex;flex-direction:column;align-items:flex-start;gap:.75rem;min-width:0;margin:0;padding:1.25rem 1.35rem;background:#fff;border:1px solid rgba(11,18,32,.08);border-radius:16px}
+@media(min-width:48rem){
+  .home .work-slide{flex-basis:calc((100% - 1.2rem) / 2.2)}
 }
-.home .work-list{display:grid;gap:1rem;margin-top:1.5rem}
-.home .work-card{display:flex;flex-direction:column;align-items:flex-start;gap:.75rem;min-width:0;margin:0;padding:1.25rem 1.35rem;background:#fff;border:1px solid rgba(11,18,32,.08);border-radius:16px}
+@media(min-width:60rem){
+  .home .work-slide{flex-basis:calc((100% - 1.6rem) / 2.6)}
+}
+@media(min-width:90rem){
+  .home .work-slide{flex-basis:calc((100% - 2.4rem) / 3.4)}
+}
 .home .work-logo{display:block;height:32px;width:auto;max-width:100%;object-fit:contain;object-position:left center}
 @media(min-width:40rem){
   .home .work-logo{height:40px}
 }
-.home .work-list h3{margin:0;min-width:0;max-width:100%;overflow-wrap:anywhere;font-size:clamp(32px,3.4vw,56px)}
-.home .work-card h3 a{display:inline;min-height:44px;margin:0;color:#1D4ED8;font:inherit;letter-spacing:inherit;line-height:inherit;text-decoration:underline;text-underline-offset:.12em}
-.home .work-list p{margin:0}
+.home .work-slide h3{margin:0;min-width:0;max-width:100%;overflow-wrap:break-word;font-size:clamp(22px,2vw,32px)}
+.home .work-slide h3 a{display:inline;min-height:44px;margin:0;color:#1D4ED8;font:inherit;letter-spacing:inherit;line-height:inherit;text-decoration:underline;text-underline-offset:.12em}
+.home .work-slide p{margin:0}
+.home .work-dots{display:flex;gap:.15rem;margin-top:.35rem}
+.home .work-dot{width:44px;height:44px;padding:0;border:0;background:transparent}
+.home .work-dot::after{content:"";display:block;width:8px;height:8px;margin:auto;border-radius:50%;background:rgba(11,18,32,.28)}
+.home .work-dot[aria-current="true"]::after{width:10px;height:10px;background:#0B1220}
+@media(prefers-reduced-motion:reduce){
+  .home .work-carousel-track{scroll-behavior:auto}
+}
 
 .home .price-card{margin-top:0;width:100%;background:transparent;border-radius:0;padding:0}
 .home .price-lines{display:block}
