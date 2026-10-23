@@ -102,6 +102,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .field input:user-invalid~.field-error,.field select:user-invalid~.field-error,.field textarea:user-invalid~.field-error{display:block}
 .field input:-webkit-autofill,.field textarea:-webkit-autofill{-webkit-text-fill-color:#fff;caret-color:#fff;box-shadow:0 0 0 1000px #12315f inset;transition:background-color 99999s ease-out}
 .hint{font-size:.78rem;line-height:1.4;opacity:.78}
+.no-js-fallback{display:none}
+html:not(.js) .js-checks,html:not(.js) .js-hint{display:none}
+html:not(.js) .no-js-fallback{display:block}
+.field select[multiple]{background-image:none;padding-right:.85rem;min-height:7.5rem}
 .block{border:0;margin:0;padding:0;min-width:0;display:grid;gap:.85rem}
 .block>legend{font-family:Unbounded,Inter,sans-serif;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sky);padding:0}
 .step-bar{display:none;justify-content:space-between;gap:1rem;align-items:baseline}

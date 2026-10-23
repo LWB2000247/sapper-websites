@@ -4,12 +4,18 @@ domain, footer/DBA text, contact details, and form_email). Usage: python3 build.
 Writes index.html, thanks.html, terms.html, privacy.html, sitemap.xml, robots.txt
 (and CNAME if write_cname is true).
 thanks.html, terms.html and privacy.html are noindex and are not added to the sitemap."""
-import json, pathlib, urllib.parse, html
+import json, pathlib, re, urllib.parse, html
 root = pathlib.Path(__file__).parent
 cfg = json.loads((root / "site.config.json").read_text())
 vals = {k: html.escape(str(v), quote=True) for k, v in cfg.items()}
 vals["brand_name_url"] = urllib.parse.quote(cfg["brand_name"])
 def render(t):
+    # {{#key}}...{{/key}} is omitted when that config value is empty.
+    def keep(m):
+        if str(cfg.get(m.group(1), "")).strip():
+            return m.group(2)
+        return ""
+    t = re.sub(r"\{\{#(\w+)\}\}(.*?)\{\{/\1\}\}", keep, t, flags=re.S)
     for k, v in vals.items():
         t = t.replace("{{%s}}" % k, v)
     assert "{{" not in t, "unresolved placeholder"

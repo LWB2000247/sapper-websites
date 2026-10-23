@@ -16,8 +16,10 @@
  "year": "2026",
  "write_cname": false,
  "form_email": "info@sappersolution.com",
- "consent_label": "I agree to the Terms and Privacy Policy.",
- "terms_label": "Terms",
+ "reply_time": "",
+ "consent_label": "I agree to the Terms of Service and Privacy Policy.",
+ "rights_label": "I confirm I own the rights to all texts and images I provide.",
+ "terms_label": "Terms of Service",
  "terms_url": "terms.html",
  "privacy_label": "Privacy Policy",
  "privacy_url": "privacy.html"
