@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;family=Cormorant+Garamond:wght@600;700&amp;display=swap">
-<link rel="stylesheet" href="assets/style.css?v=7">
+<link rel="stylesheet" href="assets/style.css?v=9">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","name":"{{brand_name}}","url":"https://{{domain}}/","description":"{{description}}","telephone":"{{phone_tel}}","parentOrganization":{"@type":"Organization","name":"{{legal_name}}","url":"{{parent_site_url}}"},"address":{"@type":"PostalAddress","streetAddress":"{{address_street}}","addressLocality":"{{address_city}}","addressRegion":"{{address_state}}","postalCode":"{{address_zip}}","addressCountry":"US"}}
 </script>
@@ -43,13 +43,31 @@
 </header>
 
 <main id="main">
-  <section class="container-x hero">
-    <div>
-      <h1 class="h-slogan"><span class="eyebrow">{{brand_name}}</span><span class="hero-title">{{tagline}}</span></h1>
-      <p class="lead">We design and build clear, mobile-friendly websites, and we help with the domain, hosting, forms, and upkeep that come with them.</p>
+  <section class="hero-slides" aria-roledescription="carousel" aria-label="Highlights">
+    <img class="hero-mark" src="assets/eagle-mark.webp" alt="" aria-hidden="true">
+    <div class="container-x hero-inner">
+      <div class="slides">
+        <div class="slide is-active" role="group" aria-roledescription="slide" aria-label="1 of 3">
+          <h1 class="h-slogan"><span class="eyebrow">{{brand_name}}</span><span class="hero-title">{{tagline}}</span></h1>
+          <p class="lead">We design and build clear, mobile-friendly websites, and we help with the domain, hosting, forms, and upkeep that come with them.</p>
+        </div>
+        <div class="slide" role="group" aria-roledescription="slide" aria-label="2 of 3">
+          <p class="h-slogan"><span class="eyebrow">Mobile friendly</span><span class="hero-title">Looks right on every screen</span></p>
+          <p class="lead">Pages that read well and work on phones, tablets, and desktop screens, so your customers find what they need.</p>
+        </div>
+        <div class="slide" role="group" aria-roledescription="slide" aria-label="3 of 3">
+          <p class="h-slogan"><span class="eyebrow">Start to finish</span><span class="hero-title">From domain to contact form</span></p>
+          <p class="lead">We help you pick a domain, set up hosting, connect your contact form, and keep your site up to date after launch.</p>
+        </div>
+      </div>
       <div class="btn-row">
         <a class="btn btn-primary btn-lg" href="#contact">Tell Us About Your Website</a>
-        <a class="btn btn-outline btn-lg" href="#services">What We Do</a>
+        <a class="btn btn-ghost btn-lg" href="#services">What We Do</a>
+      </div>
+      <div class="dots" role="tablist" aria-label="Choose slide">
+        <button type="button" class="dot is-active" aria-label="Show slide 1"></button>
+        <button type="button" class="dot" aria-label="Show slide 2"></button>
+        <button type="button" class="dot" aria-label="Show slide 3"></button>
       </div>
     </div>
   </section>
@@ -84,12 +102,22 @@
   <section id="clients" class="band band-border" aria-labelledby="clients-h">
     <div class="container-x">
       <h2 id="clients-h" class="section-h font-display">Our Clients</h2>
+      <div class="marquee">
+      <div class="marquee-track">
       <ul class="clients">
         <li><a class="client" href="https://auratavira.com" rel="noopener" aria-label="Aura Tavira"><img src="assets/clients/aura-tavira.webp" alt="Aura Tavira" loading="lazy"><span class="client-cap">auratavira.com</span></a></li>
         <li><a class="client" href="https://sapperadvanced.com" rel="noopener" aria-label="Sapper Advanced Technologies"><img class="mark" src="assets/clients/sapper-advanced.webp" alt="" loading="lazy"><span class="client-name font-display">Sapper Advanced</span><span class="client-cap">sapperadvanced.com</span></a></li>
         <li><a class="client" href="https://flavorjay.org" rel="noopener" aria-label="Flavor Jay's"><span class="client-wordmark">Jay&rsquo;s Catering</span><span class="client-cap">flavorjay.org</span></a></li>
         <li><a class="client" href="https://aurawines.pt" rel="noopener" aria-label="Aura Wines"><img src="assets/clients/aura-wines.svg" alt="Aura Wines" loading="lazy"><span class="client-cap">aurawines.pt</span></a></li>
       </ul>
+      <ul class="clients" aria-hidden="true">
+        <li aria-hidden="true"><a class="client" tabindex="-1" href="https://auratavira.com" rel="noopener" aria-label="Aura Tavira"><img src="assets/clients/aura-tavira.webp" alt="Aura Tavira" loading="lazy"><span class="client-cap">auratavira.com</span></a></li>
+        <li aria-hidden="true"><a class="client" tabindex="-1" href="https://sapperadvanced.com" rel="noopener" aria-label="Sapper Advanced Technologies"><img class="mark" src="assets/clients/sapper-advanced.webp" alt="" loading="lazy"><span class="client-name font-display">Sapper Advanced</span><span class="client-cap">sapperadvanced.com</span></a></li>
+        <li aria-hidden="true"><a class="client" tabindex="-1" href="https://flavorjay.org" rel="noopener" aria-label="Flavor Jay's"><span class="client-wordmark">Jay&rsquo;s Catering</span><span class="client-cap">flavorjay.org</span></a></li>
+        <li aria-hidden="true"><a class="client" tabindex="-1" href="https://aurawines.pt" rel="noopener" aria-label="Aura Wines"><img src="assets/clients/aura-wines.svg" alt="Aura Wines" loading="lazy"><span class="client-cap">aurawines.pt</span></a></li>
+      </ul>
+      </div>
+      </div>
       <p class="muted clients-note">Websites we build and look after.</p>
     </div>
   </section>
@@ -181,6 +209,20 @@
     </div>
   </div>
 </footer>
+<script>
+(function(){
+  var slides=[].slice.call(document.querySelectorAll(".slide")),dots=[].slice.call(document.querySelectorAll(".dot")),i=0,timer,box=document.querySelector(".hero-slides");
+  function show(n){i=(n+slides.length)%slides.length;slides.forEach(function(s,k){s.classList.toggle("is-active",k===i)});dots.forEach(function(d,k){d.classList.toggle("is-active",k===i)});}
+  function start(){stop();if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches)timer=setInterval(function(){show(i+1)},5500);}
+  function stop(){clearInterval(timer);}
+  dots.forEach(function(d,k){d.addEventListener("click",function(){show(k);start();});});
+  box.addEventListener("mouseenter",stop);box.addEventListener("mouseleave",start);box.addEventListener("focusin",stop);box.addEventListener("focusout",start);
+  start();
+  document.documentElement.classList.add("js");
+  var els=[].slice.call(document.querySelectorAll(".band .container-x, .item, .steps li, .facts>div"));
+  if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.12});els.forEach(function(el){el.classList.add("reveal");io.observe(el);});}
+})();
+</script>
 <script>
 document.getElementById("contact-form").addEventListener("submit",function(ev){
   ev.preventDefault();
