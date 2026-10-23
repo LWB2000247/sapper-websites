@@ -86,8 +86,8 @@ html:has(body.home){scroll-behavior:auto}
   .home .work-logo{height:40px}
 }
 .home .work-list h3{margin:0;min-width:0;max-width:100%;overflow-wrap:anywhere;font-size:clamp(32px,3.4vw,56px)}
+.home .work-card h3 a{display:inline;min-height:44px;margin:0;color:#1D4ED8;font:inherit;letter-spacing:inherit;line-height:inherit;text-decoration:underline;text-underline-offset:.12em}
 .home .work-list p{margin:0}
-.home .work-list a{display:inline-flex;align-items:center;gap:.45rem;min-height:44px;margin-top:.15rem;color:#1D4ED8;font-size:16px;font-weight:600;text-decoration:underline;text-underline-offset:.15em}
 
 .home .price-card{margin-top:0;width:100%;background:transparent;border-radius:0;padding:0}
 .home .price-lines{display:block}
