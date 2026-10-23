@@ -97,9 +97,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .contact{background:var(--blue);padding:1.75rem clamp(1.25rem,4vw,3rem) 2.75rem;min-height:100svh;display:flex;align-items:flex-start}
 .contact-grid{width:100%;max-width:80rem;margin:0 auto;display:grid;gap:1.5rem;min-width:0}
 .contact-form{min-width:0}
-.form-slogan{margin:0 0 1.15rem;font-family:Unbounded,Inter,sans-serif;font-weight:700;font-size:clamp(1.2rem,2.2vw,1.5rem);letter-spacing:-.02em;line-height:1.35;color:#fff}
-.form-slogan span{white-space:nowrap}
-.form-slogan .accent{color:var(--sky)}
 @media(min-width:56rem){.contact-grid{grid-template-columns:1fr 1fr;gap:4rem;align-items:start}.contact-intro{position:sticky;top:5.5rem}}
 .contact h2{font-size:clamp(2.1rem,6vw,4.6rem);font-weight:700;letter-spacing:-.03em;line-height:1}
 .muted{margin-top:1.5rem;opacity:.85;font-size:1.05rem}.small{font-size:.85rem;opacity:.7;margin-top:1rem}
