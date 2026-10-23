@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
 <link rel="stylesheet" href="assets/style.css">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ProfessionalService","name":"{{brand_name}}","url":"https://{{domain}}/","description":"{{description}}","email":"{{email}}","telephone":"{{phone_tel}}","parentOrganization":{"@type":"Organization","name":"{{legal_name}}","url":"{{parent_site_url}}"},"address":{"@type":"PostalAddress","streetAddress":"{{address_street}}","addressLocality":"{{address_city}}","addressRegion":"{{address_state}}","postalCode":"{{address_zip}}","addressCountry":"US"}}
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"{{brand_name}}","url":"https://{{domain}}/","description":"{{description}}","telephone":"{{phone_tel}}","parentOrganization":{"@type":"Organization","name":"{{legal_name}}","url":"{{parent_site_url}}"},"address":{"@type":"PostalAddress","streetAddress":"{{address_street}}","addressLocality":"{{address_city}}","addressRegion":"{{address_state}}","postalCode":"{{address_zip}}","addressCountry":"US"}}
 </script>
 </head>
 <body>
@@ -38,7 +38,7 @@
       <a href="#facts">Key Facts</a>
       <a href="#contact">Contact</a>
     </nav>
-    <a class="btn btn-primary btn-sm" href="mailto:{{email}}?subject=Website%20inquiry%20for%20{{brand_name_url}}">Email Us</a>
+    <a class="btn btn-primary btn-sm" href="#contact">Contact Us</a>
   </div>
 </header>
 
@@ -48,7 +48,7 @@
       <h1 class="h-slogan"><span class="eyebrow">{{brand_name}}</span><span class="hero-title">{{tagline}}</span></h1>
       <p class="lead">We design and build clear, mobile-friendly websites, and we help with the domain, hosting, forms, and upkeep that come with them.</p>
       <div class="btn-row">
-        <a class="btn btn-primary btn-lg" href="mailto:{{email}}?subject=Website%20inquiry%20for%20{{brand_name_url}}">Email Us About Your Website</a>
+        <a class="btn btn-primary btn-lg" href="#contact">Tell Us About Your Website</a>
         <a class="btn btn-outline btn-lg" href="#services">What We Do</a>
       </div>
     </div>
@@ -117,22 +117,30 @@
         <div><dt>Location</dt><dd>{{address_city}}, {{address_state}}</dd></div>
         <div><dt>Services</dt><dd>Website design and build, mobile-friendly layouts, domain and hosting setup help, forms and email notifications, maintenance</dd></div>
         <div><dt>Phone</dt><dd><a href="tel:{{phone_tel}}">{{phone_display}}</a></dd></div>
-        <div><dt>Email</dt><dd><a href="mailto:{{email}}">{{email}}</a></dd></div>
+        <div><dt>Contact</dt><dd><a href="#contact">Use the contact form</a></dd></div>
         <div><dt>Parent company</dt><dd><a href="{{parent_site_url}}">{{legal_name}}</a></dd></div>
       </dl>
     </div>
   </section>
 
   <section id="contact" class="band band-border" aria-labelledby="contact-h">
-    <div class="container-x contact-row">
+    <div class="container-x contact-grid">
       <div>
         <h2 id="contact-h" class="section-h font-display">Contact {{brand_name}}</h2>
-        <p class="muted">Tell us what you need and we will take it from there.</p>
+        <p class="muted">Tell us what you need and we will take it from there. Or call <a class="link-plain" href="tel:{{phone_tel}}">{{phone_display}}</a>.</p>
       </div>
-      <div class="btn-row">
-        <a class="btn btn-primary btn-md" href="mailto:{{email}}?subject=Website%20inquiry%20for%20{{brand_name_url}}">Email Us</a>
-        <a class="link-plain" href="tel:{{phone_tel}}">Call {{phone_display}}</a>
-      </div>
+      <form id="contact-form" class="form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="{{form_access_key}}">
+        <input type="hidden" name="subject" value="New website inquiry for {{brand_name}}">
+        <input type="hidden" name="from_name" value="{{brand_name}} website">
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" style="display:none">
+        <label>Name<input type="text" name="name" required autocomplete="name"></label>
+        <label>Email<input type="email" name="email" required autocomplete="email"></label>
+        <label>Phone (optional)<input type="tel" name="phone" autocomplete="tel"></label>
+        <label>How can we help?<textarea name="message" rows="5" required></textarea></label>
+        <button class="btn btn-primary btn-lg" type="submit">Send Message</button>
+        <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+      </form>
     </div>
   </section>
 </main>
@@ -145,7 +153,7 @@
         <span class="brand-text"><span class="brand-name font-display">{{brand_name}}</span><span class="brand-sub">A DBA of {{legal_name}}</span></span>
       </a>
       <p class="foot-slogan font-display">{{tagline}}</p>
-      <address>{{address_name}}<br>{{address_street}}<br>{{address_city}}, {{address_state}} {{address_zip}}<br><a href="tel:{{phone_tel}}">{{phone_display}}</a><br><a href="mailto:{{email}}">{{email}}</a></address>
+      <address>{{address_name}}<br>{{address_street}}<br>{{address_city}}, {{address_state}} {{address_zip}}<br><a href="tel:{{phone_tel}}">{{phone_display}}</a><br><a href="#contact">Contact form</a></address>
     </div>
     <div>
       <h3 class="foot-h">Site</h3>
@@ -172,5 +180,18 @@
     </div>
   </div>
 </footer>
+<script>
+document.getElementById("contact-form").addEventListener("submit",function(ev){
+  ev.preventDefault();
+  var f=ev.target,s=document.getElementById("form-status"),b=f.querySelector("button");
+  b.disabled=true;s.textContent="Sending...";
+  fetch(f.action,{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(Object.fromEntries(new FormData(f)))})
+  .then(function(r){return r.json()}).then(function(d){
+    if(d.success){s.textContent="Thank you! We got your message and will get back to you soon.";f.reset();}
+    else{s.textContent="Something went wrong. Please call us or try again.";}
+    b.disabled=false;
+  }).catch(function(){s.textContent="Something went wrong. Please call us or try again.";b.disabled=false;});
+});
+</script>
 </body>
 </html>
