@@ -29,8 +29,8 @@
  "legal_notice_url": "legal-notice.html",
  "nav_links": [
   {"label": "About", "href": "#about"},
-  {"label": "Our work", "href": "#work"},
   {"label": "Services", "href": "#services"},
+  {"label": "Our work", "href": "#work"},
   {"label": "Pricing", "href": "#pricing"},
   {"label": "The group", "href": "#group"}
  ],
