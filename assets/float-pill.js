@@ -1,7 +1,7 @@
-/* Phones (<=600px): in-flow bottom bar, hidden while the hero or its
-   button is on screen, and hidden again over Pricing, the form, and the footer.
-   From 601px to 45rem: the older fixed pill, same hide rules as before.
-   Wider than 45rem the pill stays off via CSS. */
+/* Phones (<=600px): fixed white bottom strip on the normal document
+   scroller. Hidden while the hero or its button is on screen, and hidden
+   again over Pricing, the form, and the footer.
+   Wider screens keep the fixed pill. */
 (function () {
   "use strict";
   var pill = document.querySelector(".float-cta");
@@ -238,8 +238,6 @@
     schedule();
     apply();
   });
-  var scroller = document.querySelector(".page-scroll");
-  if (scroller) scroller.addEventListener("scroll", schedule, { passive: true });
   if (phoneQuery.addEventListener) phoneQuery.addEventListener("change", function () { schedule(); apply(); });
   if (wideQuery.addEventListener) wideQuery.addEventListener("change", function () { schedule(); apply(); });
 })();
