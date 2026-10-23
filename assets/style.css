@@ -95,9 +95,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 .work-card p,.group-card p{margin-top:.5rem;color:#334155}
 .work-card a,.group-source a{display:inline-flex;align-items:center;min-height:44px;margin-top:.35rem;color:#1D4ED8;font-weight:600;text-decoration:underline;text-underline-offset:.15em}
 .group-source{margin-top:1rem}
-.price-card{margin-top:1.5rem;max-width:36rem;background:#F4F6F9;border-radius:16px;padding:1.75rem 1.75rem 1.5rem}
-.price-card .section-intro{margin-top:0}
-.price-card .btn{margin-top:1.25rem}
+.price-card{margin-top:1.5rem;width:100%;background:#F4F6F9;border-radius:16px;padding:1.75rem}
+.price-lines{display:grid;gap:1.25rem}
+@media(min-width:48rem){.price-lines{grid-template-columns:1fr 1fr 1fr;gap:1.5rem;align-items:start}}
+.price-lines li{font-size:1.05rem;line-height:1.5;color:#334155}
+.price-lines strong{display:block;margin-bottom:.35rem;color:#0B1220;font-weight:700}
+.price-card .btn{margin-top:1.5rem}
 
 .contact{background:var(--blue);color:#fff;padding-block:96px}
 .contact-grid{display:grid;gap:2rem;align-items:start}
