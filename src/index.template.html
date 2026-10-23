@@ -74,7 +74,6 @@
         <h2 id="contact-h">Let&rsquo;s build<br>yours.</h2>
         <p class="muted">Tell us what you need. We read every message and answer it ourselves.</p>
         <p class="hint">Four short parts. Only the starred answers are required.</p>
-        <p class="muted small"><a class="mail-link" href="mailto:{{form_email}}">{{form_email}}</a></p>
       </div>
       <div class="contact-form">
       <form data-clarity-mask="True" id="start" class="form" action="https://formsubmit.co/{{form_email}}" method="POST" accept-charset="UTF-8" aria-labelledby="contact-h">
@@ -310,7 +309,6 @@
   <section id="facts" class="group" aria-labelledby="facts-h">
     <h2 id="facts-h" class="label">Key facts</h2>
     <p class="reveal-words group-lead" data-reveal>A privately held group of U.S. engineering, packaging and logistics companies based in Piketon, Ohio. {{brand_name}} is a DBA of {{legal_name}}.</p>
-    <p class="facts-email"><a class="mail-link" href="mailto:{{form_email}}">{{form_email}}</a></p>
     <ul class="group-list">
       <li><h3>Sapper Advanced Technologies</h3><p>Metal fabrication, racks, and industrial packaging.</p></li>
       <li><h3>Sapper Plastics</h3><p>Advanced packaging for EV batteries, industrial components, and sensitive goods.</p></li>
@@ -323,6 +321,7 @@
 <footer class="site-footer">
   <p>{{dba_text}}.</p>
   <p>{{address_name}}, {{address_street}}, {{address_city}}, {{address_state}} {{address_zip}}</p>
+  <p><a href="mailto:{{form_email}}">Email us</a></p>
   <p><a href="{{terms_url}}">{{terms_label}}</a> &middot; <a href="{{privacy_url}}">{{privacy_label}}</a></p>
   <p>&copy; {{year}} {{legal_name}} &middot; <a href="{{parent_site_url}}">sapperadvanced.com</a></p>
 </footer>

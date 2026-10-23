@@ -29,8 +29,10 @@ def render(t):
 (root / "index.html").write_text(render((root / "src/index.template.html").read_text()))
 (root / "thanks.html").write_text(render((root / "src/thanks.template.html").read_text()))
 soon_src = (root / "src/coming-soon.template.html").read_text()
-# The Clarity paragraph is only on the privacy page. Terms stays the placeholder.
+# Terms gets a short contact line. Privacy gets the Clarity paragraph and its own contact line.
+cfg["terms_note"] = "1"
 (root / "terms.html").write_text(render(soon_src))
+del cfg["terms_note"]
 cfg["privacy_note"] = "1"
 (root / "privacy.html").write_text(render(soon_src))
 del cfg["privacy_note"]

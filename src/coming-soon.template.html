@@ -31,12 +31,14 @@
   <div class="soon-inner">
     <h1>Coming soon</h1>
     {{#privacy_note}}<p>We use Microsoft Clarity, an analytics service provided by Microsoft, to understand how visitors use our website. Clarity uses cookies and similar technologies and collects usage data such as pages viewed, clicks, scrolling, device and browser information, and approximate location, and may record anonymized session replays. We mask the text you type into our forms. This data is processed by Microsoft on our behalf under the Microsoft Clarity terms and Microsoft Privacy Statement. You can block cookies in your browser settings.</p>
-    <p>For privacy requests, use the contact form on {{domain}} or write to {{legal_name}}, {{address_street}}, {{address_city}}, {{address_state}} {{address_zip}}.</p>{{/privacy_note}}
+    <p>For privacy requests, use the contact form on {{domain}}, <a href="mailto:{{form_email}}">Email us</a>, or write to {{legal_name}}, {{address_street}}, {{address_city}}, {{address_state}} {{address_zip}}.</p>{{/privacy_note}}
+    {{#terms_note}}<p>Use the contact form on {{domain}} or <a href="mailto:{{form_email}}">Email us</a>.</p>{{/terms_note}}
   </div>
 </main>
 <footer class="site-footer">
   <p>{{dba_text}}.</p>
   <p>{{address_name}}, {{address_street}}, {{address_city}}, {{address_state}} {{address_zip}}</p>
+  <p><a href="mailto:{{form_email}}">Email us</a></p>
   <p><a href="{{terms_url}}">{{terms_label}}</a> &middot; <a href="{{privacy_url}}">{{privacy_label}}</a></p>
   <p>&copy; {{year}} {{legal_name}} &middot; <a href="{{parent_site_url}}">sapperadvanced.com</a></p>
 </footer>
