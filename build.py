@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Render the static site from site.config.json (the single place to change brand name,
-domain, footer/DBA text, contact details, and form_email). Usage: python3 build.py
+domain, footer/DBA text, contact details, form_email, and clarity_id). Usage: python3 build.py
 Writes index.html, thanks.html, terms.html, privacy.html, sitemap.xml, robots.txt
 (and CNAME if write_cname is true).
 thanks.html, terms.html and privacy.html are noindex and are not added to the sitemap."""
