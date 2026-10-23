@@ -28,9 +28,12 @@ def render(t):
     return t
 (root / "index.html").write_text(render((root / "src/index.template.html").read_text()))
 (root / "thanks.html").write_text(render((root / "src/thanks.template.html").read_text()))
-soon = render((root / "src/coming-soon.template.html").read_text())
-(root / "terms.html").write_text(soon)
-(root / "privacy.html").write_text(soon)
+soon_src = (root / "src/coming-soon.template.html").read_text()
+# The Clarity paragraph is only on the privacy page. Terms stays the placeholder.
+(root / "terms.html").write_text(render(soon_src))
+cfg["privacy_note"] = "1"
+(root / "privacy.html").write_text(render(soon_src))
+del cfg["privacy_note"]
 d = cfg["domain"]
 # Homepage only. thanks.html, terms.html and privacy.html are noindex.
 (root / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url><loc>https://{d}/</loc></url>\n</urlset>\n')
