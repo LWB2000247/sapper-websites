@@ -134,6 +134,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 .btn-lg{height:56px;padding-inline:32px}
 .hero .btn-primary,.band .btn-primary,.float-cta{background:#0B1220;color:#fff}
 .hero .btn-primary:hover,.band .btn-primary:hover,.float-cta:hover{background:#1D4ED8;color:#fff}
+.float-cta:active{background:#1E3A8A;color:#fff}
 
 .site-footer{background:#06101f;color:#fff;padding-block:2rem 3rem;font-size:14px;line-height:1.5}
 .site-footer a{display:inline-flex;align-items:center;min-height:44px;min-width:44px;padding:.5rem .15rem;text-decoration:underline;text-underline-offset:.15em}
@@ -141,8 +142,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 .site-footer p+p{margin-top:.1rem}
 .page-scroll{display:contents}
 .float-bar{display:contents}
-.float-cta{display:none;position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:45;border-radius:999px;min-height:56px;padding:0 32px;font-size:1rem;font-weight:600;white-space:nowrap;box-shadow:0 10px 30px rgba(0,0,0,.28);opacity:1;visibility:visible;transition:opacity .2s ease,visibility 0s linear}
-@media(max-width:45rem) and (min-width:601px){.float-cta{display:inline-flex}body:has(.float-cta) .site-footer{padding-bottom:calc(96px + env(safe-area-inset-bottom))}}
+.float-cta{display:none;box-sizing:border-box;position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:45;height:52px;min-height:52px;padding:0 24px;gap:8px;align-items:center;justify-content:center;flex-direction:row;border:0;border-radius:999px;background:#0B1220;color:#fff;font-family:Inter,system-ui,sans-serif;font-size:16px;font-weight:600;line-height:1;letter-spacing:0;white-space:nowrap;text-decoration:none;box-shadow:0 6px 16px rgba(11,18,32,.16);opacity:1;visibility:visible;transition:background-color .2s ease,opacity .2s ease,visibility 0s linear}
+.float-cta-label{display:block;margin:0;padding:0;font-size:16px;font-weight:600;line-height:1;letter-spacing:0}
+.float-cta-icon{display:block;width:20px;height:20px;flex:0 0 20px;margin:0;padding:0}
+@media(min-width:601px){.float-cta{display:inline-flex}}
+@media(max-width:45rem) and (min-width:601px){body:has(.float-cta) .site-footer{padding-bottom:calc(96px + env(safe-area-inset-bottom))}}
 @media(max-width:600px){
   body:has(.page-scroll){display:flex;flex-direction:column;height:100dvh;overflow:hidden}
   body:has(.page-scroll) .page-scroll{display:block;flex:1 1 auto;min-height:0;overflow:auto}
