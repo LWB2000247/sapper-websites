@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;700;800&amp;family=Inter:wght@400;500;600&amp;family=Cormorant+Garamond:wght@600;700&amp;display=swap">
-<link rel="stylesheet" href="assets/style.css?v=24">
+<link rel="stylesheet" href="assets/style.css?v=25">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","name":"{{brand_name}}","url":"https://{{domain}}/","description":"{{description}}","parentOrganization":{"@type":"Organization","name":"{{legal_name}}","url":"{{parent_site_url}}"},"address":{"@type":"PostalAddress","streetAddress":"{{address_street}}","addressLocality":"{{address_city}}","addressRegion":"{{address_state}}","postalCode":"{{address_zip}}","addressCountry":"US"}}
 </script>
@@ -153,6 +153,7 @@
       <div class="contact-intro">
         <h2 id="contact-h">Let&rsquo;s build<br>yours.</h2>
         <p class="muted">Tell us what you need. We read every message and answer it ourselves.</p>
+        <p class="hint">Four short parts. Only the starred answers are required.</p>
         <p class="muted small">{{address_name}}, {{address_street}}, {{address_city}}, {{address_state}} {{address_zip}}</p>
       </div>
       <form id="start" class="form" action="https://formsubmit.co/{{form_email}}" method="POST" accept-charset="UTF-8" aria-labelledby="contact-h">
@@ -161,62 +162,290 @@
         <input type="hidden" name="_captcha" value="true">
         <input type="hidden" name="_next" value="https://{{domain}}/thanks.html">
         <p class="sr-only">Required fields are marked with an asterisk.</p>
-        <div class="form-row">
-          <div class="field">
-            <label for="f-name">Your name <span class="req" aria-hidden="true">*</span></label>
-            <input id="f-name" name="Your name" type="text" required aria-required="true" autocomplete="name" maxlength="200" aria-describedby="f-name-err">
-            <p id="f-name-err" class="field-error">Please enter your name.</p>
-          </div>
-          <div class="field">
-            <label for="f-email">Email <span class="req" aria-hidden="true">*</span></label>
-            <input id="f-email" name="Email" type="email" required aria-required="true" autocomplete="email" autocapitalize="none" spellcheck="false" maxlength="200" aria-describedby="f-email-err">
-            <p id="f-email-err" class="field-error">Please enter a valid email address.</p>
-          </div>
-        </div>
-        <div class="form-row">
+        <p class="step-bar"><span class="step-count">Step <span data-step-num>1</span> of 4</span> <span class="step-label">Business</span></p>
+
+        <fieldset class="block" data-title="Business">
+          <legend tabindex="-1">1. Business</legend>
           <div class="field">
             <label for="f-business">Business name <span class="req" aria-hidden="true">*</span></label>
             <input id="f-business" name="Business name" type="text" required aria-required="true" autocomplete="organization" maxlength="200" aria-describedby="f-business-err">
-            <p id="f-business-err" class="field-error">Please enter your business name.</p>
+            <p id="f-business-err" class="field-error">Please enter the business name.</p>
           </div>
           <div class="field">
-            <label for="f-does">What does your business do? <span class="opt">(one sentence)</span> <span class="req" aria-hidden="true">*</span></label>
-            <input id="f-does" name="What does your business do?" type="text" required aria-required="true" maxlength="200" aria-describedby="f-does-err">
-            <p id="f-does-err" class="field-error">Please tell us what your business does.</p>
+            <label for="f-offer">What you offer <span class="req" aria-hidden="true">*</span></label>
+            <textarea id="f-offer" name="What you offer" rows="2" required aria-required="true" maxlength="400" placeholder="We repair boats and sell used parts." aria-describedby="f-offer-hint f-offer-err"></textarea>
+            <p id="f-offer-hint" class="hint">One or two sentences is enough.</p>
+            <p id="f-offer-err" class="field-error">Please say what the business offers.</p>
           </div>
-        </div>
-        <fieldset class="choices">
-          <legend>What do you need? <span class="req" aria-hidden="true">*</span></legend>
-          <div class="choice-list">
-            <label class="choice"><input type="radio" name="What do you need?" value="New website" required aria-required="true"> <span>New website</span></label>
-            <label class="choice"><input type="radio" name="What do you need?" value="Redesign" required aria-required="true"> <span>Redesign</span></label>
-            <label class="choice"><input type="radio" name="What do you need?" value="Just updates" required aria-required="true"> <span>Just updates</span></label>
+          <div class="form-row">
+            <div class="field">
+              <label for="f-city">City or region you serve <span class="opt">(optional)</span></label>
+              <input id="f-city" name="City or region" type="text" maxlength="120" placeholder="Columbus and nearby towns">
+            </div>
+            <div class="field">
+              <label for="f-customers">Who your customers are <span class="opt">(optional)</span></label>
+              <input id="f-customers" name="Who your customers are" type="text" maxlength="160" placeholder="Local homeowners" aria-describedby="f-customers-hint">
+              <p id="f-customers-hint" class="hint">For example, homeowners or other local shops.</p>
+            </div>
           </div>
-          <p id="f-need-err" class="field-error">Please choose what you need.</p>
+          <div class="step-nav">
+            <button type="button" class="btn btn-ghost btn-lg" data-back hidden>Back</button>
+            <button type="button" class="btn btn-primary btn-lg" data-next>Next</button>
+          </div>
         </fieldset>
-        <div class="form-row">
-          <div class="field">
-            <label for="f-website">Your current website or domain <span class="opt">(optional)</span></label>
-            <input id="f-website" name="Your current website or domain" type="text" autocomplete="url" autocapitalize="none" spellcheck="false" maxlength="300" placeholder="example.com">
+
+        <fieldset class="block" data-title="Project">
+          <legend tabindex="-1">2. Project</legend>
+          <fieldset class="choices">
+            <legend>What do you need? <span class="req" aria-hidden="true">*</span></legend>
+            <div class="choice-list">
+              <label class="choice"><input type="radio" name="What do you need?" value="New site" required aria-required="true"> <span>New site</span></label>
+              <label class="choice"><input type="radio" name="What do you need?" value="Redesign" required aria-required="true"> <span>Redesign</span></label>
+              <label class="choice"><input type="radio" name="What do you need?" value="Changes" required aria-required="true"> <span>Changes</span></label>
+            </div>
+            <p class="hint">Changes means updates to a site you already have.</p>
+            <p id="f-project-err" class="field-error">Please choose one.</p>
+          </fieldset>
+          <fieldset class="choices">
+            <legend>Goal of the site <span class="opt">(optional)</span></legend>
+            <div class="choice-list">
+              <label class="choice"><input type="checkbox" name="Goal: Get calls" value="Yes"> <span>Get calls</span></label>
+              <label class="choice"><input type="checkbox" name="Goal: Get bookings" value="Yes"> <span>Get bookings</span></label>
+              <label class="choice"><input type="checkbox" name="Goal: Show work" value="Yes"> <span>Show work</span></label>
+              <label class="choice"><input type="checkbox" name="Goal: Sell online" value="Yes"> <span>Sell online</span></label>
+              <label class="choice"><input type="checkbox" name="Goal: Other" value="Yes"> <span>Other</span></label>
+            </div>
+            <div class="field">
+              <label for="f-goal-other">Other goal <span class="opt">(optional)</span></label>
+              <input id="f-goal-other" name="Other goal" type="text" maxlength="160" placeholder="A simple page for a weekend market">
+            </div>
+          </fieldset>
+          <fieldset class="choices">
+            <legend>Pages you want <span class="opt">(optional)</span></legend>
+            <div class="choice-list">
+              <label class="choice"><input type="checkbox" name="Page: Home" value="Yes" checked> <span>Home</span></label>
+              <label class="choice"><input type="checkbox" name="Page: About" value="Yes"> <span>About</span></label>
+              <label class="choice"><input type="checkbox" name="Page: Services" value="Yes"> <span>Services</span></label>
+              <label class="choice"><input type="checkbox" name="Page: Gallery" value="Yes"> <span>Gallery</span></label>
+              <label class="choice"><input type="checkbox" name="Page: Contact" value="Yes" checked> <span>Contact</span></label>
+              <label class="choice"><input type="checkbox" name="Page: Pricing" value="Yes"> <span>Pricing</span></label>
+              <label class="choice"><input type="checkbox" name="Page: Blog" value="Yes"> <span>Blog</span></label>
+              <label class="choice"><input type="checkbox" name="Page: Other" value="Yes"> <span>Other</span></label>
+            </div>
+            <p class="hint">Home and Contact start selected. Uncheck anything you do not want.</p>
+            <div class="field">
+              <label for="f-pages-other">Other pages <span class="opt">(optional)</span></label>
+              <input id="f-pages-other" name="Other pages" type="text" maxlength="200" placeholder="Menu, booking, careers">
+            </div>
+          </fieldset>
+          <fieldset class="choices">
+            <legend>Features <span class="opt">(optional)</span></legend>
+            <div class="choice-list">
+              <label class="choice"><input type="checkbox" name="Feature: Contact form" value="Yes"> <span>Contact form</span></label>
+              <label class="choice"><input type="checkbox" name="Feature: Booking link" value="Yes"> <span>Booking link</span></label>
+              <label class="choice"><input type="checkbox" name="Feature: Online shop" value="Yes"> <span>Online shop</span></label>
+              <label class="choice"><input type="checkbox" name="Feature: Map" value="Yes"> <span>Map</span></label>
+              <label class="choice"><input type="checkbox" name="Feature: Social links" value="Yes"> <span>Social links</span></label>
+              <label class="choice"><input type="checkbox" name="Feature: Newsletter signup" value="Yes"> <span>Newsletter signup</span></label>
+              <label class="choice"><input type="checkbox" name="Feature: Multilingual" value="Yes"> <span>Multilingual</span></label>
+            </div>
+            <p class="hint">Leave these blank if you are not sure yet.</p>
+          </fieldset>
+          <div class="form-row">
+            <div class="field">
+              <label for="f-lang">Languages <span class="opt">(optional)</span></label>
+              <select id="f-lang" name="Languages" aria-describedby="f-lang-hint">
+                <option selected>English</option>
+                <option>English and another language</option>
+                <option>More than two languages</option>
+                <option>Not sure</option>
+              </select>
+              <p id="f-lang-hint" class="hint">What the pages should be written in.</p>
+            </div>
+            <div class="field">
+              <label for="f-lang-other">Which languages <span class="opt">(optional)</span></label>
+              <input id="f-lang-other" name="Which languages" type="text" maxlength="120" placeholder="Spanish, Portuguese">
+            </div>
+          </div>
+          <div class="step-nav">
+            <button type="button" class="btn btn-ghost btn-lg" data-back>Back</button>
+            <button type="button" class="btn btn-primary btn-lg" data-next>Next</button>
+          </div>
+        </fieldset>
+
+        <fieldset class="block" data-title="Assets">
+          <legend tabindex="-1">3. Assets</legend>
+          <div class="form-row">
+            <div class="field">
+              <label for="f-website">Existing website <span class="opt">(optional)</span></label>
+              <input id="f-website" name="Existing website" type="text" autocapitalize="none" spellcheck="false" maxlength="300" placeholder="https://example.com" autocomplete="url">
+            </div>
+            <div class="field">
+              <label for="f-domain-name">Domain name <span class="opt">(optional)</span></label>
+              <input id="f-domain-name" name="Domain name" type="text" autocapitalize="none" spellcheck="false" maxlength="200" placeholder="yoursite.com" aria-describedby="f-domain-hint">
+              <p id="f-domain-hint" class="hint">The address you want, even if the site is not live yet.</p>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="f-domain">Do you own that domain? <span class="opt">(optional)</span></label>
+              <select id="f-domain" name="Do you own the domain?">
+                <option>I already own it</option>
+                <option>I need one</option>
+                <option selected>Not sure</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-registrar">Where it is registered <span class="opt">(optional)</span></label>
+              <input id="f-registrar" name="Where it is registered" type="text" maxlength="120" placeholder="GoDaddy, Namecheap, or Google" aria-describedby="f-registrar-hint">
+              <p id="f-registrar-hint" class="hint">Only if you already own the domain.</p>
+            </div>
+          </div>
+          <div class="form-row thirds">
+            <div class="field">
+              <label for="f-logo">Logo <span class="opt">(optional)</span></label>
+              <select id="f-logo" name="Logo">
+                <option>Have one</option>
+                <option>Need one</option>
+                <option selected>Not sure</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-text">Text <span class="opt">(optional)</span></label>
+              <select id="f-text" name="Text">
+                <option>Have it</option>
+                <option>Need help</option>
+                <option selected>Not sure</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-photos">Photos <span class="opt">(optional)</span></label>
+              <select id="f-photos" name="Photos">
+                <option>Have them</option>
+                <option>Need them</option>
+                <option selected>Not sure</option>
+              </select>
+            </div>
+          </div>
+          <fieldset class="choices">
+            <legend>Websites you like <span class="opt">(optional, up to 3)</span></legend>
+            <p class="hint">One link, and one thing you like about it.</p>
+            <div class="form-row">
+              <div class="field">
+                <label for="f-like-1">Link 1</label>
+                <input id="f-like-1" name="Website you like 1" type="text" autocapitalize="none" spellcheck="false" maxlength="300" placeholder="https://">
+              </div>
+              <div class="field">
+                <label for="f-like-1-why">What you like</label>
+                <input id="f-like-1-why" name="What you like 1" type="text" maxlength="160" placeholder="The menu is easy to read">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="f-like-2">Link 2</label>
+                <input id="f-like-2" name="Website you like 2" type="text" autocapitalize="none" spellcheck="false" maxlength="300" placeholder="https://">
+              </div>
+              <div class="field">
+                <label for="f-like-2-why">What you like</label>
+                <input id="f-like-2-why" name="What you like 2" type="text" maxlength="160" placeholder="Clear prices on the first page">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="f-like-3">Link 3</label>
+                <input id="f-like-3" name="Website you like 3" type="text" autocapitalize="none" spellcheck="false" maxlength="300" placeholder="https://">
+              </div>
+              <div class="field">
+                <label for="f-like-3-why">What you like</label>
+                <input id="f-like-3-why" name="What you like 3" type="text" maxlength="160" placeholder="Photos of the real shop">
+              </div>
+            </div>
+          </fieldset>
+          <div class="step-nav">
+            <button type="button" class="btn btn-ghost btn-lg" data-back>Back</button>
+            <button type="button" class="btn btn-primary btn-lg" data-next>Next</button>
+          </div>
+        </fieldset>
+
+        <fieldset class="block" data-title="Logistics">
+          <legend tabindex="-1">4. Logistics</legend>
+          <div class="form-row">
+            <div class="field">
+              <label for="f-name">Your name <span class="req" aria-hidden="true">*</span></label>
+              <input id="f-name" name="Your name" type="text" required aria-required="true" autocomplete="name" maxlength="200" aria-describedby="f-name-err">
+              <p id="f-name-err" class="field-error">Please enter your name.</p>
+            </div>
+            <div class="field">
+              <label for="f-email">Email <span class="req" aria-hidden="true">*</span></label>
+              <input id="f-email" name="Email" type="email" required aria-required="true" autocomplete="email" autocapitalize="none" spellcheck="false" maxlength="200" aria-describedby="f-email-err">
+              <p id="f-email-err" class="field-error">Please enter a valid email address.</p>
+            </div>
           </div>
           <div class="field">
-            <label for="f-likes">Websites you like (links) <span class="opt">(optional)</span></label>
-            <input id="f-likes" name="Websites you like" type="text" autocapitalize="none" spellcheck="false" maxlength="500" placeholder="https://">
+            <label for="f-phone">Phone <span class="opt">(optional)</span></label>
+            <input id="f-phone" name="Phone" type="tel" autocomplete="tel" maxlength="40" aria-describedby="f-phone-hint">
+            <p id="f-phone-hint" class="hint">Add a number only if you want a call or a text.</p>
           </div>
-        </div>
-        <div class="consent">
-          <input id="f-consent" name="Agreement" type="checkbox" value="{{consent_label}}" required aria-required="true" aria-describedby="f-consent-err">
-          <label for="f-consent">I agree to the <a href="{{terms_url}}">{{terms_label}}</a> and <a href="{{privacy_url}}">{{privacy_label}}</a>.</label>
-          <p id="f-consent-err" class="field-error">Please agree to the Terms and Privacy Policy.</p>
-        </div>
-        <div class="form-submit">
-          <button class="btn btn-primary btn-lg" type="submit">Send request</button>
-          <p class="form-after">We answer by email with a quote. No call needed.</p>
-        </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="f-reach">Best way to reach you <span class="opt">(optional)</span></label>
+              <select id="f-reach" name="Best way to reach you">
+                <option selected>Email</option>
+                <option>Phone</option>
+                <option>Either</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-time">Best time <span class="opt">(optional)</span></label>
+              <select id="f-time" name="Best time to reach you">
+                <option selected>Anytime</option>
+                <option>Morning</option>
+                <option>Afternoon</option>
+                <option>Evening</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="f-launch">Desired launch <span class="opt">(optional)</span></label>
+              <select id="f-launch" name="Desired launch" aria-describedby="f-launch-hint">
+                <option>ASAP</option>
+                <option>Within a month</option>
+                <option>1 to 3 months</option>
+                <option selected>Flexible</option>
+              </select>
+              <p id="f-launch-hint" class="hint">A preference, not a deadline we promise.</p>
+            </div>
+            <div class="field">
+              <label for="f-budget">Rough budget <span class="opt">(optional)</span></label>
+              <select id="f-budget" name="Rough budget" aria-describedby="f-budget-hint">
+                <option selected>Not sure, send me an offer</option>
+                <option>Under $2,000</option>
+                <option>$2,000 to $5,000</option>
+                <option>$5,000 to $10,000</option>
+                <option>Over $10,000</option>
+              </select>
+              <p id="f-budget-hint" class="hint">Your range for the build. This is not our price list.</p>
+            </div>
+          </div>
+          <div class="consent">
+            <input id="f-consent" name="Agreement" type="checkbox" value="{{consent_label}}" required aria-required="true" aria-describedby="f-consent-err">
+            <label for="f-consent">I agree to the <a href="{{terms_url}}">{{terms_label}}</a> and <a href="{{privacy_url}}">{{privacy_label}}</a>.</label>
+            <p id="f-consent-err" class="field-error">Please agree to the Terms and Privacy Policy.</p>
+          </div>
+          <div class="form-submit">
+            <div class="step-nav">
+              <button type="button" class="btn btn-ghost btn-lg" data-back>Back</button>
+            </div>
+            <button class="btn btn-primary btn-lg" type="submit">Send request</button>
+            <p class="form-after">We reply by email with a quote and the next step. No call is needed.</p>
+          </div>
+        </fieldset>
         <p class="hp" aria-hidden="true">
           <label>Leave this field empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label>
         </p>
       </form>
+
     </div>
   </section>
 </main>
@@ -247,7 +476,7 @@
 })();
 </script>
 <script>
-/* Do not cancel submit: the POST, captcha and thank-you redirect work with JavaScript off. */
+/* Steps are optional. Without JavaScript every block is visible and the form still posts. */
 (function(){
   var f=document.getElementById("start");
   if(!f)return;
@@ -256,9 +485,7 @@
     if(!next)return;
     try{next.value=new URL("thanks.html",window.location.href).href;}catch(e){}
   }
-  pointNext();
-  f.addEventListener("submit",function(){
-    pointNext();
+  function replyTo(){
     var email=f.querySelector('input[type="email"]');
     if(!email||!email.value)return;
     var reply=f.querySelector('input[name="_replyto"]');
@@ -269,8 +496,63 @@
       f.appendChild(reply);
     }
     reply.value=email.value;
+  }
+  var blocks=[].slice.call(f.querySelectorAll(":scope > .block"));
+  var stepped=false;
+  function show(n, moveFocus){
+    blocks.forEach(function(b,idx){b.classList.toggle("is-current",idx===n);});
+    var num=f.querySelector("[data-step-num]");
+    var lab=f.querySelector(".step-label");
+    if(num)num.textContent=String(n+1);
+    if(lab)lab.textContent=blocks[n].getAttribute("data-title")||"";
+    if(!moveFocus)return;
+    var legend=blocks[n].querySelector("legend");
+    if(legend)legend.focus();
+  }
+  /* The submit event does not fire while a later required field is invalid.
+     Reveal that step during the invalid event so the message is visible. */
+  f.addEventListener("invalid",function(ev){
+    if(!stepped)return;
+    var block=ev.target.closest(".block");
+    var idx=blocks.indexOf(block);
+    if(idx>=0)show(idx);
+  },true);
+  f.addEventListener("keydown",function(ev){
+    if(ev.key!=="Enter"||!stepped)return;
+    if(ev.target.tagName==="TEXTAREA")return;
+    var block=ev.target.closest(".block");
+    var idx=blocks.indexOf(block);
+    if(idx<0||idx===blocks.length-1)return;
+    var nbtn=block.querySelector("[data-next]");
+    if(!nbtn)return;
+    ev.preventDefault();
+    nbtn.click();
   });
+  f.addEventListener("submit",function(){
+    pointNext();
+    replyTo();
+  });
+  if(blocks.length<2)return;
+  pointNext();
+  f.classList.add("is-stepped");
+  stepped=true;
+  blocks.forEach(function(b,idx){
+    var nbtn=b.querySelector("[data-next]");
+    var bbtn=b.querySelector("[data-back]");
+    if(nbtn)nbtn.addEventListener("click",function(){
+      var bad=b.querySelector(":invalid");
+      if(bad){bad.reportValidity();return;}
+      show(idx+1, true);
+      f.scrollIntoView({block:"start"});
+    });
+    if(bbtn)bbtn.addEventListener("click",function(){
+      show(idx-1, true);
+      f.scrollIntoView({block:"start"});
+    });
+  });
+  show(0);
 })();
 </script>
+
 </body>
 </html>

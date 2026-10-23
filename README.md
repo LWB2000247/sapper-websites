@@ -11,7 +11,7 @@ Edit `site.config.json`, then run:
 
     python3 build.py
 
-This regenerates `index.html`, `thanks.html`, `sitemap.xml` and `robots.txt` (canonical, Open Graph and sitemap URLs use `domain`). The request form is delivered to `form_email`. Commit and push. No dependencies beyond Python 3.
+This regenerates `index.html`, `thanks.html`, `terms.html`, `privacy.html`, `sitemap.xml` and `robots.txt` (canonical, Open Graph and sitemap URLs use `domain`). The request form is delivered to `form_email`. Commit and push. No dependencies beyond Python 3.
 
 ## Hosting notes
 
@@ -21,7 +21,7 @@ This regenerates `index.html`, `thanks.html`, `sitemap.xml` and `robots.txt` (ca
 
 ## Website request form
 
-The contact section (`#contact`, form at `#start`) is one short form. The header and floating buttons link there. It posts to [FormSubmit](https://formsubmit.co) at `https://formsubmit.co/<form_email>`. To switch the inbox, change `form_email` in `site.config.json` and run `python3 build.py`.
+The contact section (`#contact`, form at `#start`) is the quote form, in four labelled parts: Business, Project, Assets, and Logistics. With JavaScript those parts are steps. Without it, every part is on the page and the form still posts. It posts to [FormSubmit](https://formsubmit.co) at `https://formsubmit.co/<form_email>`. To switch the inbox, change `form_email` in `site.config.json` and run `python3 build.py`.
 
 The agreement checkbox reads “I agree to the Terms and Privacy Policy.” The sentence is in `src/index.template.html`. `consent_label`, `terms_label`, `terms_url`, `privacy_label` and `privacy_url` are in `site.config.json`. The links are `terms.html` and `privacy.html` (relative, so they work on GitHub Pages and on the custom domain). Both pages are `noindex`, say only “Coming soon”, and are not in the sitemap.
 
