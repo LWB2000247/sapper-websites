@@ -66,7 +66,7 @@ html:has(body.home){scroll-behavior:auto}
 .home .work-list{margin-top:1.5rem}
 .home .work-list li{display:grid;grid-template-columns:1fr;gap:.35rem;padding:28px 0;border-top:1px solid rgba(43,34,32,.12);align-items:center}
 .home .work-list li:last-child{border-bottom:1px solid rgba(43,34,32,.12)}
-.home .work-list h3{margin:0;font-size:clamp(32px,3.4vw,56px)}
+.home .work-list h3{margin:0;min-width:0;overflow-wrap:anywhere;font-size:clamp(32px,3.4vw,56px)}
 .home .work-list p{margin:0}
 .home .work-list a{display:inline-flex;align-items:center;gap:.45rem;min-height:44px;margin-top:.15rem;color:#1D4ED8;font-size:16px;font-weight:600;text-decoration:underline;text-underline-offset:.15em}
 .home .work-list .arrow{width:18px;height:18px;flex:0 0 auto}
