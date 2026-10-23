@@ -135,8 +135,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 .site-footer a{display:inline-flex;align-items:center;min-height:44px;min-width:44px;padding:.5rem .15rem;text-decoration:underline;text-underline-offset:.15em}
 .site-footer a:hover{color:var(--sky)}
 .site-footer p+p{margin-top:.1rem}
-.float-cta{display:none;position:fixed;left:50%;bottom:1.25rem;transform:translateX(-50%);z-index:45;border-radius:999px;min-height:56px;padding:0 32px;font-size:1rem;font-weight:600;white-space:nowrap;box-shadow:0 10px 30px rgba(0,0,0,.28)}
-@media(max-width:45rem){.float-cta{display:inline-flex}body:has(.float-cta) .site-footer{padding-bottom:7rem}}
+.float-cta{display:none;position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:45;border-radius:999px;min-height:56px;padding:0 32px;font-size:1rem;font-weight:600;white-space:nowrap;box-shadow:0 10px 30px rgba(0,0,0,.28)}
+@media(max-width:45rem){.float-cta{display:inline-flex}body:has(.float-cta) .site-footer{padding-bottom:calc(96px + env(safe-area-inset-bottom))}}
 .float-cta.hide{opacity:0;pointer-events:none}
 .site-header:has(.main-nav.is-open)~.float-cta,.site-header:has(.main-nav.is-open)~main~.float-cta,.site-header:has(.main-nav.is-open)~main~footer~.float-cta{visibility:hidden}
 
