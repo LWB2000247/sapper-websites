@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.clarity.ms https://*.clarity.ms; style-src 'self'; font-src 'self' data:; img-src 'self' data: https://*.clarity.ms https://www.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://www.clarity.ms https://fonts.googleapis.com https://fonts.gstatic.com; form-action https://formsubmit.co; base-uri 'self'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.clarity.ms https://*.clarity.ms; style-src 'self'; font-src 'self' data:; img-src 'self' data: https://*.clarity.ms https://www.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://www.clarity.ms; form-action https://formsubmit.co; base-uri 'self'; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Websites for Small Businesses | Sapper Websites</title>
 <meta name="description" content="We design and build clear, mobile-friendly websites for small businesses, and help with domain, hosting, forms and updates. Send a short form to get started.">
@@ -26,8 +26,8 @@
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/Archivo-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/style.css?v=46">
-<link rel="stylesheet" href="assets/home.css?v=46">
+<link rel="stylesheet" href="assets/style.css?v=49">
+<link rel="stylesheet" href="assets/home.css?v=49">
 <script>document.documentElement.classList.add("js");window.__formOpened=Date.now();</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","name":"Sapper Websites","url":"https://sapperwebsites.com/","description":"We design and build clear, mobile-friendly websites for small businesses, and help with domain, hosting, forms and updates. Send a short form to get started.","parentOrganization":{"@type":"Organization","name":"Sapper Advanced Technologies LLC","url":"https://sapperadvanced.com"},"address":{"@type":"PostalAddress","streetAddress":"4239 U.S. 23","addressLocality":"Piketon","addressRegion":"OH","postalCode":"45661","addressCountry":"US"}}
@@ -44,6 +44,7 @@
   </div>
 </header>
 
+<div class="page-scroll">
 <main id="main">
   <section class="hero" id="top">
     <div class="container hero-grid">
@@ -127,17 +128,17 @@
         </li>
         <li>
           <h3>Sapper Advanced</h3>
-          <p>Group website</p>
+          <p>Metal fabrication, racks and industrial packaging</p>
           <a href="https://sapperadvanced.com" target="_blank" rel="noopener">sapperadvanced.com<span class="sr-only"> (opens in a new tab)</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </li>
         <li>
           <h3>Sapper Plastics</h3>
-          <p>Group website</p>
+          <p>Advanced packaging for EV batteries and industrial components</p>
           <a href="https://sapperplastics.com" target="_blank" rel="noopener">sapperplastics.com<span class="sr-only"> (opens in a new tab)</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </li>
         <li>
           <h3>f-s-s-i.com</h3>
-          <p>Group website</p>
+          <p>Procurement and logistics</p>
           <a href="https://f-s-s-i.com" target="_blank" rel="noopener">f-s-s-i.com<span class="sr-only"> (opens in a new tab)</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </li>
       </ul>
@@ -284,7 +285,10 @@
     <p>&copy; 2026 Sapper Advanced Technologies LLC &middot; <a href="https://sapperadvanced.com" rel="noopener noreferrer">sapperadvanced.com</a></p>
   </div>
 </footer>
-<a class="float-cta" href="#start"><span class="pill-chip" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" focusable="false"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Get my website</a>
+</div>
+<div class="float-bar hide">
+<a class="float-cta" href="#start"><span class="float-cta-label">Get my website</span><svg class="float-cta-icon" aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" focusable="false"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+</div>
 <script src="assets/form-guard.js"></script>
 <script>
 /* Applies the checks in assets/form-guard.js. If JavaScript is off, or this fails, the form still posts to FormSubmit. _captcha stays on. _next stays the live thank-you page. */
@@ -365,9 +369,9 @@
   });
 })();
 </script>
-<script src="assets/float-pill.js?v=46"></script>
-<script src="assets/site.js?v=46"></script>
-<script src="assets/consent.js?v=46"></script>
-<script src="assets/home-motion.js?v=46"></script>
+<script src="assets/float-pill.js?v=49"></script>
+<script src="assets/site.js?v=49"></script>
+<script src="assets/consent.js?v=49"></script>
+<script src="assets/home-motion.js?v=49"></script>
 </body>
 </html>
