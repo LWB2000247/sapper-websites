@@ -1,59 +1,132 @@
-/* Hides the mobile "Get my website" pill outside the hero and early sections.
-   External file: the page script-src allows 'self' and not a new inline script. */
+/* Phones (<=600px): in-flow bottom bar, hidden while the hero or its
+   button is on screen, and hidden again over Pricing, the form, and the footer.
+   From 601px to 45rem: the older fixed pill, same hide rules as before.
+   Wider than 45rem the pill stays off via CSS. */
 (function () {
   "use strict";
   var pill = document.querySelector(".float-cta");
   if (!pill || typeof IntersectionObserver !== "function") return;
+  var bar = pill.closest(".float-bar") || pill;
 
-  var reasons = Object.create(null);
-  var count = 0;
+  var phoneQuery = window.matchMedia("(max-width: 600px)");
+  var wideQuery = window.matchMedia("(max-width: 45rem)");
 
-  function setReason(key, on) {
-    var had = !!reasons[key];
+  var phoneReasons = Object.create(null);
+  var phoneCount = 0;
+  var wideReasons = Object.create(null);
+  var wideCount = 0;
+
+  function bump(store, key, on) {
+    var countKey = store === phoneReasons ? "phone" : "wide";
+    var had = !!store[key];
+    var delta = 0;
     if (on && !had) {
-      reasons[key] = true;
-      count += 1;
+      store[key] = true;
+      delta = 1;
     } else if (!on && had) {
-      delete reasons[key];
-      count -= 1;
+      delete store[key];
+      delta = -1;
     }
-    pill.classList.toggle("hide", count > 0);
+    if (!delta) return;
+    if (countKey === "phone") phoneCount += delta;
+    else wideCount += delta;
+    apply();
   }
 
-  var sections = ["work", "pricing", "group", "strengths", "steps"].map(function (id) {
+  function apply() {
+    if (phoneQuery.matches) {
+      var hide = phoneCount > 0;
+      bar.classList.toggle("hide", hide);
+      pill.classList.toggle("hide", hide);
+    } else {
+      bar.classList.remove("hide");
+      pill.classList.toggle("hide", wideCount > 0);
+    }
+  }
+
+  /* ----- phone bar ----- */
+  var phoneSections = ["pricing"].map(function (id) {
     return document.querySelector('[aria-labelledby="' + id + '"]');
   });
-  sections.push(document.getElementById("contact"));
-  sections.push(document.querySelector(".site-footer"));
-  sections = sections.filter(Boolean);
+  phoneSections.push(document.getElementById("contact"));
+  phoneSections.push(document.querySelector(".site-footer"));
+  phoneSections = phoneSections.filter(Boolean);
 
-  function near(el) {
+  function near(el, extra) {
     var rect = el.getBoundingClientRect();
     var vh = window.innerHeight || 0;
-    return rect.bottom > 0 && rect.top < vh + 96;
+    return rect.bottom > 0 && rect.top < vh + extra;
   }
 
-  sections.forEach(function (el) {
+  phoneSections.forEach(function (el) {
     var key = el.id || el.getAttribute("aria-labelledby") || "footer";
-    setReason("section:" + key, near(el));
+    bump(phoneReasons, "section:" + key, near(el, 72));
   });
 
-  var sectionObserver = new IntersectionObserver(function (entries) {
+  var phoneObserver = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       var el = entry.target;
       var key = el.id || el.getAttribute("aria-labelledby") || "footer";
-      setReason("section:" + key, entry.isIntersecting);
+      bump(phoneReasons, "section:" + key, entry.isIntersecting);
+    });
+  }, { root: null, threshold: 0, rootMargin: "0px 0px 72px 0px" });
+  phoneSections.forEach(function (el) { phoneObserver.observe(el); });
+
+  var priceCta = document.querySelector(".price-card .btn");
+  if (priceCta) {
+    var priceObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        bump(phoneReasons, "cta:pricing", entry.isIntersecting);
+      });
+    }, { root: null, threshold: 0, rootMargin: "0px 0px 72px 0px" });
+    priceObserver.observe(priceCta);
+    bump(phoneReasons, "cta:pricing", near(priceCta, 72));
+  }
+
+  var hero = document.querySelector(".hero");
+  var heroCta = document.querySelector(".hero-cta");
+
+  function heroBlocksBar() {
+    if (!phoneQuery.matches) {
+      bump(phoneReasons, "hero", false);
+      return;
+    }
+    var vh = window.innerHeight || 0;
+    var heroInView = false;
+    var ctaStillHere = false;
+    if (hero) {
+      var hr = hero.getBoundingClientRect();
+      heroInView = hr.bottom > 1 && hr.top < vh - 1;
+    }
+    if (heroCta) ctaStillHere = heroCta.getBoundingClientRect().bottom > 1;
+    bump(phoneReasons, "hero", heroInView || ctaStillHere);
+  }
+
+  /* ----- fixed pill, 601px to 45rem ----- */
+  var wideSections = ["work", "pricing", "group", "strengths", "steps"].map(function (id) {
+    return document.querySelector('[aria-labelledby="' + id + '"]');
+  });
+  wideSections.push(document.getElementById("contact"));
+  wideSections.push(document.querySelector(".site-footer"));
+  wideSections = wideSections.filter(Boolean);
+
+  wideSections.forEach(function (el) {
+    var key = el.id || el.getAttribute("aria-labelledby") || "footer";
+    bump(wideReasons, "section:" + key, near(el, 96));
+  });
+
+  var wideObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      var el = entry.target;
+      var key = el.id || el.getAttribute("aria-labelledby") || "footer";
+      bump(wideReasons, "section:" + key, entry.isIntersecting);
     });
   }, { root: null, threshold: 0, rootMargin: "0px 0px 96px 0px" });
-  sections.forEach(function (el) { sectionObserver.observe(el); });
+  wideSections.forEach(function (el) { wideObserver.observe(el); });
 
-  var ctas = [];
-  var heroCta = document.querySelector(".hero-cta");
-  var priceCta = document.querySelector(".price-card .btn");
-  if (heroCta) ctas.push(heroCta);
-  if (priceCta) ctas.push(priceCta);
-
-  var ctaObserver = null;
+  var wideCtas = [];
+  if (heroCta) wideCtas.push(heroCta);
+  if (priceCta) wideCtas.push(priceCta);
 
   function ctaMargin() {
     var band = 96;
@@ -61,34 +134,26 @@
     return "-" + cut + "px 0px 0px 0px";
   }
 
+  var ctaObserver = null;
   function watchCtas() {
     if (ctaObserver) ctaObserver.disconnect();
     ctaObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        setReason("cta:" + (entry.target.classList.contains("hero-cta") ? "hero" : "pricing"), entry.isIntersecting);
+        bump(wideReasons, "cta:" + (entry.target.classList.contains("hero-cta") ? "hero" : "pricing"), entry.isIntersecting);
       });
     }, { root: null, threshold: 0, rootMargin: ctaMargin() });
-    ctas.forEach(function (el) { ctaObserver.observe(el); });
+    wideCtas.forEach(function (el) { ctaObserver.observe(el); });
   }
 
-  ctas.forEach(function (el) {
+  wideCtas.forEach(function (el) {
     var rect = el.getBoundingClientRect();
     var vh = window.innerHeight || 0;
     var inBand = rect.bottom > vh - 96 && rect.top < vh && rect.bottom > 0;
-    setReason("cta:" + (el.classList.contains("hero-cta") ? "hero" : "pricing"), inBand);
+    bump(wideReasons, "cta:" + (el.classList.contains("hero-cta") ? "hero" : "pricing"), inBand);
   });
+  if (wideCtas.length) watchCtas();
 
-  if (ctas.length) {
-    watchCtas();
-    window.addEventListener("resize", watchCtas);
-  }
-
-  var phoneQuery = window.matchMedia("(max-width: 45rem)");
-  var hero = document.querySelector(".hero");
-  var layout = {
-    HTML: 1, BODY: 1, MAIN: 1, SECTION: 1, HEADER: 1, FOOTER: 1
-  };
-
+  var layout = { HTML: 1, BODY: 1, MAIN: 1, SECTION: 1, HEADER: 1, FOOTER: 1 };
   function isLayout(el) {
     if (!el || el === pill) return true;
     if (layout[el.tagName]) return true;
@@ -97,29 +162,28 @@
   }
 
   function heroOutOfView() {
-    if (!phoneQuery.matches || !hero) {
-      setReason("outside-hero", false);
+    if (!wideQuery.matches || phoneQuery.matches || !hero) {
+      bump(wideReasons, "outside-hero", false);
       return;
     }
     var rect = hero.getBoundingClientRect();
     var vh = window.innerHeight || 0;
-    var inView = rect.bottom > 0 && rect.top < vh;
-    setReason("outside-hero", !inView);
+    bump(wideReasons, "outside-hero", !(rect.bottom > 0 && rect.top < vh));
   }
 
   function contentUnderPill() {
-    if (!phoneQuery.matches) {
-      setReason("content", false);
+    if (!wideQuery.matches || phoneQuery.matches) {
+      bump(wideReasons, "content", false);
       return;
     }
     var style = window.getComputedStyle(pill);
-    if (style.display === "none") {
-      setReason("content", false);
+    if (style.display === "none" || style.visibility === "hidden") {
+      bump(wideReasons, "content", false);
       return;
     }
     var rect = pill.getBoundingClientRect();
     if (rect.width < 2 || rect.height < 2) {
-      setReason("content", false);
+      bump(wideReasons, "content", false);
       return;
     }
     var prevVis = pill.style.visibility;
@@ -148,23 +212,34 @@
     }
     pill.style.visibility = prevVis;
     pill.style.pointerEvents = prevPe;
-    setReason("content", blocked);
+    bump(wideReasons, "content", blocked);
   }
 
-  var pillTick = false;
-  function schedulePill() {
-    if (pillTick) return;
-    pillTick = true;
+  var ticking = false;
+  function schedule() {
+    if (ticking) return;
+    ticking = true;
     window.requestAnimationFrame(function () {
-      pillTick = false;
+      ticking = false;
+      heroBlocksBar();
       heroOutOfView();
       contentUnderPill();
     });
   }
 
+  heroBlocksBar();
   heroOutOfView();
   contentUnderPill();
-  window.addEventListener("scroll", schedulePill, { passive: true });
-  window.addEventListener("resize", schedulePill);
-  if (phoneQuery.addEventListener) phoneQuery.addEventListener("change", schedulePill);
+  apply();
+
+  window.addEventListener("scroll", schedule, { passive: true });
+  window.addEventListener("resize", function () {
+    watchCtas();
+    schedule();
+    apply();
+  });
+  var scroller = document.querySelector(".page-scroll");
+  if (scroller) scroller.addEventListener("scroll", schedule, { passive: true });
+  if (phoneQuery.addEventListener) phoneQuery.addEventListener("change", function () { schedule(); apply(); });
+  if (wideQuery.addEventListener) wideQuery.addEventListener("change", function () { schedule(); apply(); });
 })();
