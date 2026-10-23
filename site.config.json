@@ -24,5 +24,7 @@
  "terms_label": "Terms of Service",
  "terms_url": "terms.html",
  "privacy_label": "Privacy Policy",
- "privacy_url": "privacy.html"
+ "privacy_url": "privacy.html",
+ "legal_notice_label": "Legal Notice",
+ "legal_notice_url": "legal-notice.html"
 }

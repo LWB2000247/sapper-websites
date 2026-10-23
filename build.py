@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Render the static site from site.config.json (the single place to change brand name,
 domain, footer/DBA text, contact details, form_email, and clarity_id). Usage: python3 build.py
-Writes index.html, thanks.html, terms.html, privacy.html, sitemap.xml, robots.txt
+Writes index.html, thanks.html, terms.html, privacy.html, legal-notice.html, sitemap.xml, robots.txt
 (and CNAME if write_cname is true).
-thanks.html, terms.html and privacy.html are noindex and are not added to the sitemap."""
+terms.html, privacy.html and legal-notice.html are rendered from src/legal/*.html (final texts from the Lawyer,
+inserted unchanged) and are indexable and in the sitemap. thanks.html is noindex and not in the sitemap."""
 import json, pathlib, re, urllib.parse, html
 root = pathlib.Path(__file__).parent
 cfg = json.loads((root / "site.config.json").read_text())
@@ -28,17 +29,24 @@ def render(t):
     return t
 (root / "index.html").write_text(render((root / "src/index.template.html").read_text()))
 (root / "thanks.html").write_text(render((root / "src/thanks.template.html").read_text()))
-soon_src = (root / "src/coming-soon.template.html").read_text()
-# Terms gets a short contact line. Privacy gets the Clarity paragraph and its own contact line.
-cfg["terms_note"] = "1"
-(root / "terms.html").write_text(render(soon_src))
-del cfg["terms_note"]
-cfg["privacy_note"] = "1"
-(root / "privacy.html").write_text(render(soon_src))
-del cfg["privacy_note"]
+legal_src = (root / "src/legal.template.html").read_text()
+legal_pages = [
+    ("terms.html", "Terms of Service", "The terms for using the Sapper Websites site and requesting a website from us."),
+    ("privacy.html", "Privacy Policy", "How Sapper Websites collects, uses and shares personal information."),
+    ("legal-notice.html", "Legal Notice", "Who operates Sapper Websites, and how to contact us."),
+]
+for fname, title, desc in legal_pages:
+    body = (root / "src/legal" / fname).read_text().strip()
+    page = render(legal_src.replace("{{legal_body}}", "@@LEGAL_BODY@@")
+                  .replace("{{legal_title}}", html.escape(title, quote=True))
+                  .replace("{{legal_description}}", html.escape(desc, quote=True))
+                  .replace("{{legal_file}}", fname))
+    (root / fname).write_text(page.replace("@@LEGAL_BODY@@", body))
 d = cfg["domain"]
-# Homepage only. thanks.html, terms.html and privacy.html are noindex.
-(root / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url><loc>https://{d}/</loc></url>\n</urlset>\n')
+# Indexable pages: home plus the three legal pages. thanks.html is noindex and not listed.
+urls = [f"https://{d}/"] + [f"https://{d}/{f}" for f, _, _ in legal_pages]
+entries = "\n".join(f"  <url><loc>{u}</loc></url>" for u in urls)
+(root / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{entries}\n</urlset>\n')
 (root / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: https://{d}/sitemap.xml\n")
 cname = root / "CNAME"
 if cfg.get("write_cname"):

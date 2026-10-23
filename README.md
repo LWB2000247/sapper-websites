@@ -25,7 +25,7 @@ The contact section (`#contact`, form at `#start`) is a short quote form: name, 
 
 The form does not ask for card or payment details, and it does not list prices. `reply_time` in `site.config.json` is empty by default. Leave it empty and the thank-you page does not mention a reply time. Set it (for example to `one business day`) to add the sentence “We reply within one business day.”
 
-The agreement sentence is in `src/index.template.html`, with `consent_label`, `terms_label`, `terms_url`, `privacy_label` and `privacy_url` in `site.config.json`. The links are `terms.html` and `privacy.html` (relative, so they work on GitHub Pages and on the custom domain). Both pages are `noindex`. Terms says “Coming soon” plus a contact line. Privacy adds the Clarity paragraph. Neither page is in the sitemap.
+The agreement sentence is in `src/index.template.html`, with `consent_label`, `terms_label`, `terms_url`, `privacy_label` and `privacy_url` in `site.config.json`. The links are `terms.html` and `privacy.html` (relative, so they work on GitHub Pages and on the custom domain). The final legal texts live in `src/legal/*.html` (terms, privacy, legal notice) and are rendered unchanged into `terms.html`, `privacy.html` and `legal-notice.html` by `build.py`. These three pages are indexable, have a canonical URL, and are listed in the sitemap. `thanks.html` stays `noindex`.
 
 `thanks.html` is where people land after a successful send. It is marked `noindex`, says we email to confirm the contract and then send the payment link, and is not in the sitemap.
 
