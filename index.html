@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
 <link rel="stylesheet" href="assets/style.css">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ProfessionalService","name":"Sapper Websites","url":"https://sapperwebsites.com/","description":"Sapper Websites designs and builds mobile-friendly websites for small businesses, with help on domain and hosting setup, contact forms, and ongoing maintenance. Based in Piketon, Ohio.","email":"info@sappersolution.com","telephone":"+17402595954","parentOrganization":{"@type":"Organization","name":"Sapper Advanced Technologies LLC","url":"https://sapperadvanced.com"},"address":{"@type":"PostalAddress","streetAddress":"4239 U.S. 23","addressLocality":"Piketon","addressRegion":"OH","postalCode":"45661","addressCountry":"US"}}
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Sapper Websites","url":"https://sapperwebsites.com/","description":"Sapper Websites designs and builds mobile-friendly websites for small businesses, with help on domain and hosting setup, contact forms, and ongoing maintenance. Based in Piketon, Ohio.","telephone":"+17402595954","parentOrganization":{"@type":"Organization","name":"Sapper Advanced Technologies LLC","url":"https://sapperadvanced.com"},"address":{"@type":"PostalAddress","streetAddress":"4239 U.S. 23","addressLocality":"Piketon","addressRegion":"OH","postalCode":"45661","addressCountry":"US"}}
 </script>
 </head>
 <body>
@@ -38,7 +38,7 @@
       <a href="#facts">Key Facts</a>
       <a href="#contact">Contact</a>
     </nav>
-    <a class="btn btn-primary btn-sm" href="mailto:info@sappersolution.com?subject=Website%20inquiry%20for%20Sapper%20Websites">Email Us</a>
+    <a class="btn btn-primary btn-sm" href="#contact">Contact Us</a>
   </div>
 </header>
 
@@ -48,7 +48,7 @@
       <h1 class="h-slogan"><span class="eyebrow">Sapper Websites</span><span class="hero-title">Websites built with purpose</span></h1>
       <p class="lead">We design and build clear, mobile-friendly websites, and we help with the domain, hosting, forms, and upkeep that come with them.</p>
       <div class="btn-row">
-        <a class="btn btn-primary btn-lg" href="mailto:info@sappersolution.com?subject=Website%20inquiry%20for%20Sapper%20Websites">Email Us About Your Website</a>
+        <a class="btn btn-primary btn-lg" href="#contact">Tell Us About Your Website</a>
         <a class="btn btn-outline btn-lg" href="#services">What We Do</a>
       </div>
     </div>
@@ -117,22 +117,30 @@
         <div><dt>Location</dt><dd>Piketon, OH</dd></div>
         <div><dt>Services</dt><dd>Website design and build, mobile-friendly layouts, domain and hosting setup help, forms and email notifications, maintenance</dd></div>
         <div><dt>Phone</dt><dd><a href="tel:+17402595954">740-259-5954</a></dd></div>
-        <div><dt>Email</dt><dd><a href="mailto:info@sappersolution.com">info@sappersolution.com</a></dd></div>
+        <div><dt>Contact</dt><dd><a href="#contact">Use the contact form</a></dd></div>
         <div><dt>Parent company</dt><dd><a href="https://sapperadvanced.com">Sapper Advanced Technologies LLC</a></dd></div>
       </dl>
     </div>
   </section>
 
   <section id="contact" class="band band-border" aria-labelledby="contact-h">
-    <div class="container-x contact-row">
+    <div class="container-x contact-grid">
       <div>
         <h2 id="contact-h" class="section-h font-display">Contact Sapper Websites</h2>
-        <p class="muted">Tell us what you need and we will take it from there.</p>
+        <p class="muted">Tell us what you need and we will take it from there. Or call <a class="link-plain" href="tel:+17402595954">740-259-5954</a>.</p>
       </div>
-      <div class="btn-row">
-        <a class="btn btn-primary btn-md" href="mailto:info@sappersolution.com?subject=Website%20inquiry%20for%20Sapper%20Websites">Email Us</a>
-        <a class="link-plain" href="tel:+17402595954">Call 740-259-5954</a>
-      </div>
+      <form id="contact-form" class="form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="PLACEHOLDER_ACCESS_KEY">
+        <input type="hidden" name="subject" value="New website inquiry for Sapper Websites">
+        <input type="hidden" name="from_name" value="Sapper Websites website">
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" style="display:none">
+        <label>Name<input type="text" name="name" required autocomplete="name"></label>
+        <label>Email<input type="email" name="email" required autocomplete="email"></label>
+        <label>Phone (optional)<input type="tel" name="phone" autocomplete="tel"></label>
+        <label>How can we help?<textarea name="message" rows="5" required></textarea></label>
+        <button class="btn btn-primary btn-lg" type="submit">Send Message</button>
+        <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+      </form>
     </div>
   </section>
 </main>
@@ -145,7 +153,7 @@
         <span class="brand-text"><span class="brand-name font-display">Sapper Websites</span><span class="brand-sub">A DBA of Sapper Advanced Technologies LLC</span></span>
       </a>
       <p class="foot-slogan font-display">Websites built with purpose</p>
-      <address>Sapper Solution HQ<br>4239 U.S. 23<br>Piketon, OH 45661<br><a href="tel:+17402595954">740-259-5954</a><br><a href="mailto:info@sappersolution.com">info@sappersolution.com</a></address>
+      <address>Sapper Solution HQ<br>4239 U.S. 23<br>Piketon, OH 45661<br><a href="tel:+17402595954">740-259-5954</a><br><a href="#contact">Contact form</a></address>
     </div>
     <div>
       <h3 class="foot-h">Site</h3>
@@ -172,5 +180,18 @@
     </div>
   </div>
 </footer>
+<script>
+document.getElementById("contact-form").addEventListener("submit",function(ev){
+  ev.preventDefault();
+  var f=ev.target,s=document.getElementById("form-status"),b=f.querySelector("button");
+  b.disabled=true;s.textContent="Sending...";
+  fetch(f.action,{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(Object.fromEntries(new FormData(f)))})
+  .then(function(r){return r.json()}).then(function(d){
+    if(d.success){s.textContent="Thank you! We got your message and will get back to you soon.";f.reset();}
+    else{s.textContent="Something went wrong. Please call us or try again.";}
+    b.disabled=false;
+  }).catch(function(){s.textContent="Something went wrong. Please call us or try again.";b.disabled=false;});
+});
+</script>
 </body>
 </html>
