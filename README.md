@@ -23,7 +23,7 @@ This regenerates `index.html`, `thanks.html`, `sitemap.xml` and `robots.txt` (ca
 
 The contact section (`#contact`, form at `#start`) is one short form. The header and floating buttons link there. It posts to [FormSubmit](https://formsubmit.co) at `https://formsubmit.co/<form_email>`. To switch the inbox, change `form_email` in `site.config.json` and run `python3 build.py`.
 
-The agreement checkbox label is in `src/index.template.html`. Its link text and URLs are `terms_label`, `terms_url`, `privacy_label` and `privacy_url` in `site.config.json`, so a later split into two checkboxes is a template change and the destinations stay in config. Those links currently open the existing Sapper Advanced Technologies terms and privacy pages.
+The agreement checkbox reads “I agree to the Terms and Privacy Policy.” The sentence is in `src/index.template.html`. `consent_label`, `terms_label`, `terms_url`, `privacy_label` and `privacy_url` are in `site.config.json`. The links are `terms.html` and `privacy.html` (relative, so they work on GitHub Pages and on the custom domain). Both pages are `noindex`, say only “Coming soon”, and are not in the sitemap.
 
 `thanks.html` is where people land after a successful send. It is marked `noindex` and is not listed in the sitemap.
 

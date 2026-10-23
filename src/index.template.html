@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;700;800&amp;family=Inter:wght@400;500;600&amp;family=Cormorant+Garamond:wght@600;700&amp;display=swap">
-<link rel="stylesheet" href="assets/style.css?v=23">
+<link rel="stylesheet" href="assets/style.css?v=24">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","name":"{{brand_name}}","url":"https://{{domain}}/","description":"{{description}}","parentOrganization":{"@type":"Organization","name":"{{legal_name}}","url":"{{parent_site_url}}"},"address":{"@type":"PostalAddress","streetAddress":"{{address_street}}","addressLocality":"{{address_city}}","addressRegion":"{{address_state}}","postalCode":"{{address_zip}}","addressCountry":"US"}}
 </script>
@@ -194,18 +194,24 @@
           </div>
           <p id="f-need-err" class="field-error">Please choose what you need.</p>
         </fieldset>
-        <div class="field">
-          <label for="f-website">Your current website or domain <span class="opt">(optional)</span></label>
-          <input id="f-website" name="Your current website or domain" type="text" autocomplete="url" autocapitalize="none" spellcheck="false" maxlength="300" placeholder="example.com">
+        <div class="form-row">
+          <div class="field">
+            <label for="f-website">Your current website or domain <span class="opt">(optional)</span></label>
+            <input id="f-website" name="Your current website or domain" type="text" autocomplete="url" autocapitalize="none" spellcheck="false" maxlength="300" placeholder="example.com">
+          </div>
+          <div class="field">
+            <label for="f-likes">Websites you like (links) <span class="opt">(optional)</span></label>
+            <input id="f-likes" name="Websites you like" type="text" autocapitalize="none" spellcheck="false" maxlength="500" placeholder="https://">
+          </div>
         </div>
         <div class="consent">
-          <input id="f-consent" name="Agreement" type="checkbox" value="I agree to the Terms of Service and Privacy Policy." required aria-required="true" aria-describedby="f-consent-err">
-          <label for="f-consent">I agree to the <a href="{{terms_url}}" target="_blank" rel="noopener">{{terms_label}}<span class="sr-only"> (opens in a new tab)</span></a> and <a href="{{privacy_url}}" target="_blank" rel="noopener">{{privacy_label}}<span class="sr-only"> (opens in a new tab)</span></a>.</label>
-          <p id="f-consent-err" class="field-error">Please agree to the Terms of Service and Privacy Policy.</p>
+          <input id="f-consent" name="Agreement" type="checkbox" value="{{consent_label}}" required aria-required="true" aria-describedby="f-consent-err">
+          <label for="f-consent">I agree to the <a href="{{terms_url}}">{{terms_label}}</a> and <a href="{{privacy_url}}">{{privacy_label}}</a>.</label>
+          <p id="f-consent-err" class="field-error">Please agree to the Terms and Privacy Policy.</p>
         </div>
         <div class="form-submit">
           <button class="btn btn-primary btn-lg" type="submit">Send request</button>
-          <p class="form-after">Short and simple. We follow up by email with a few questions.</p>
+          <p class="form-after">We answer by email with a quote. No call needed.</p>
         </div>
         <p class="hp" aria-hidden="true">
           <label>Leave this field empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label>
@@ -216,7 +222,8 @@
 </main>
 
 <footer class="site-footer">
-  <p><strong>{{brand_name}}</strong> &middot; {{dba_text}}.</p>
+  <p>{{dba_text}}.</p>
+  <p>{{address_name}}, {{address_street}}, {{address_city}}, {{address_state}} {{address_zip}}</p>
   <p>&copy; {{year}} {{legal_name}} &middot; <a href="{{parent_site_url}}">sapperadvanced.com</a></p>
 </footer>
 <a class="float-cta" href="#contact">Tell us about your website</a>

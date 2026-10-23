@@ -16,8 +16,9 @@
  "year": "2026",
  "write_cname": false,
  "form_email": "info@sappersolution.com",
- "terms_label": "Terms of Service",
- "terms_url": "https://sapperadvanced.com/terms",
+ "consent_label": "I agree to the Terms and Privacy Policy.",
+ "terms_label": "Terms",
+ "terms_url": "terms.html",
  "privacy_label": "Privacy Policy",
- "privacy_url": "https://sapperadvanced.com/privacy"
+ "privacy_url": "privacy.html"
 }
