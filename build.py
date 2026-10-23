@@ -9,6 +9,12 @@ root = pathlib.Path(__file__).parent
 cfg = json.loads((root / "site.config.json").read_text())
 vals = {k: html.escape(str(v), quote=True) for k, v in cfg.items()}
 vals["brand_name_url"] = urllib.parse.quote(cfg["brand_name"])
+# The slogan is three short beats. The last one is the accent line in the hero.
+beats = [part.strip() + "." for part in str(cfg.get("slogan", "")).split(".") if part.strip()]
+while len(beats) < 3:
+    beats.append("")
+for i, beat in enumerate(beats[:3], start=1):
+    vals["slogan_line_%d" % i] = html.escape(beat, quote=True)
 def render(t):
     # {{#key}}...{{/key}} is omitted when that config value is empty.
     def keep(m):
