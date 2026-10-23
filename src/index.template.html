@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{brand_name}} | {{tagline}}</title>
+<title>{{page_title}}</title>
 <meta name="description" content="{{description}}">
 <link rel="canonical" href="https://{{domain}}/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="{{brand_name}}">
-<meta property="og:title" content="{{brand_name}} | {{tagline}}">
+<meta property="og:title" content="{{page_title}}">
 <meta property="og:description" content="{{description}}">
 <meta property="og:url" content="https://{{domain}}/">
 <meta property="og:image" content="https://{{domain}}/assets/eagle-mark.webp">
@@ -17,128 +17,119 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;700;800&amp;family=Inter:wght@400;500;600&amp;family=Cormorant+Garamond:wght@600;700&amp;display=swap">
-<link rel="stylesheet" href="assets/style.css?v=20">
+<link rel="stylesheet" href="assets/style.css?v=32">
+<script>document.documentElement.classList.add("js");</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","name":"{{brand_name}}","url":"https://{{domain}}/","description":"{{description}}","parentOrganization":{"@type":"Organization","name":"{{legal_name}}","url":"{{parent_site_url}}"},"address":{"@type":"PostalAddress","streetAddress":"{{address_street}}","addressLocality":"{{address_city}}","addressRegion":"{{address_state}}","postalCode":"{{address_zip}}","addressCountry":"US"}}
 </script>
-</head>
+{{#clarity_id}}<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "{{clarity_id}}");
+</script>
+{{/clarity_id}}</head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
-  <a class="brand" href="./" aria-label="{{brand_name}} home"><img src="assets/eagle-mark.webp" alt="" width="28" height="28"><span>{{brand_name}}</span></a>
+  <a class="brand" href="./" aria-label="{{brand_name}} home"><img src="assets/eagle-mark.webp" alt="Eagle logo of {{brand_name}}" width="28" height="28"><span>{{brand_name}}</span></a>
   <nav class="main-nav" aria-label="Main">
-    <a href="#about">About</a><a href="#work">Our work</a><a href="#services">Services</a><a href="#pricing">Pricing</a><a href="#group">The group</a>
+    <a href="#strengths">Strengths</a><a href="#steps">How it works</a>
   </nav>
-  <a class="nav-cta" href="#contact">Contact</a>
+  <a class="nav-cta" href="#start">Get my website</a>
 </header>
 
 <main id="main">
   <section class="hero" id="top">
-    <div class="hero-bg" aria-hidden="true">
-      <img class="bg is-active" src="assets/work/aura-tavira.webp" alt="">
-      <img class="bg" src="assets/work/sapper-advanced.webp" alt="">
-      <img class="bg" src="assets/work/jays-catering.webp" alt="">
-      <img class="bg" src="assets/work/aura-wines.webp" alt="">
-    </div>
-    <div class="hero-shade" aria-hidden="true"></div>
     <div class="hero-inner">
-      <p class="kicker">Web design from Piketon, Ohio</p>
-      <h1>Websites that<br>mean business.</h1>
-      <p class="hero-sub">Design, domain, hosting, contact form and upkeep. One small team, start to finish.</p>
-    </div>
-    <p class="scroll-hint" aria-hidden="true">Scroll</p>
-  </section>
-
-  <section id="about" class="statement">
-    <div class="statement-inner">
-      <p class="reveal-words" data-reveal>{{brand_name}} is the web design arm of the Sapper Solution Group. We design, build and look after websites for small businesses, and we stay with you after launch.</p>
+      <h1><span>{{slogan_line_1}}</span> <span>{{slogan_line_2}}</span> <span class="accent">{{slogan_line_3}}</span></h1>
+      <p class="hero-sub">We design and build clear, mobile-friendly websites for small businesses, and help with domain, hosting, forms and updates.</p>
+      <a class="btn btn-primary btn-lg hero-cta" href="#start">Get my website</a>
     </div>
   </section>
 
-  <section id="work" class="work" aria-label="Our work">
-    <h2 class="sr-only">Our work and clients</h2>
-    <article class="panel p1">
-      <div class="panel-text">
-        <p class="panel-no">01 / 04</p>
-        <h3>Aura Tavira</h3>
-        <p>A wine boutique in Tavira, Portugal. Bookings, events and a shop.</p>
-        <a class="panel-link" href="https://auratavira.com" rel="noopener">auratavira.com &rarr;</a>
-        <span class="chip"><img src="assets/clients/aura-tavira.webp" alt="Aura Tavira logo"></span>
-      </div>
-      <div class="panel-shot"><div class="frame"><div class="bar"><i></i><i></i><i></i><span>auratavira.com</span></div><img src="assets/work/aura-tavira.webp" alt="Homepage of auratavira.com" width="1100" height="413" loading="lazy"></div></div>
-    </article>
-    <article class="panel p2">
-      <div class="panel-text">
-        <p class="panel-no">02 / 04</p>
-        <h3>Sapper Advanced</h3>
-        <p>Metal fabrication, racks and industrial packaging, with a quote request flow.</p>
-        <a class="panel-link" href="https://sapperadvanced.com" rel="noopener">sapperadvanced.com &rarr;</a>
-        <span class="chip"><img class="mark" src="assets/clients/sapper-advanced.webp" alt="Sapper Advanced logo"></span>
-      </div>
-      <div class="panel-shot"><div class="frame"><div class="bar"><i></i><i></i><i></i><span>sapperadvanced.com</span></div><img src="assets/work/sapper-advanced.webp" alt="Homepage of sapperadvanced.com" width="1100" height="413" loading="lazy"></div></div>
-    </article>
-    <article class="panel p3">
-      <div class="panel-text">
-        <p class="panel-no">03 / 04</p>
-        <h3>Jay&rsquo;s Catering</h3>
-        <p>Private catering in the Algarve, with menus and a quote form.</p>
-        <a class="panel-link" href="https://flavorjay.org" rel="noopener">flavorjay.org &rarr;</a>
-        <span class="chip"><span class="client-wordmark">Jay&rsquo;s Catering</span></span>
-      </div>
-      <div class="panel-shot"><div class="frame"><div class="bar"><i></i><i></i><i></i><span>flavorjay.org</span></div><img src="assets/work/jays-catering.webp" alt="Homepage of flavorjay.org" width="1100" height="413" loading="lazy"></div></div>
-    </article>
-    <article class="panel p4">
-      <div class="panel-text">
-        <p class="panel-no">04 / 04</p>
-        <h3>Aura Wines</h3>
-        <p>A Portuguese wine house selling to restaurants and hotels across Europe.</p>
-        <a class="panel-link" href="https://aurawines.pt" rel="noopener">aurawines.pt &rarr;</a>
-        <span class="chip"><img src="assets/clients/aura-wines.svg" alt="Aura Wines logo"></span>
-      </div>
-      <div class="panel-shot"><div class="frame"><div class="bar"><i></i><i></i><i></i><span>aurawines.pt</span></div><img src="assets/work/aura-wines.webp" alt="Homepage of aurawines.pt" width="1100" height="413" loading="lazy"></div></div>
-    </article>
-  </section>
-
-  <section id="services" class="big-list" aria-labelledby="services-h">
-    <h2 id="services-h" class="label">What we do</h2>
+  <section id="strengths" class="big-list" aria-labelledby="strengths-h">
+    <h2 id="strengths-h" class="label">Strengths</h2>
     <ul>
-      <li><span>01</span><div><h3>Design and build</h3><p>Made around your business, written and built by hand.</p></div></li>
-      <li><span>02</span><div><h3>Made for phones</h3><p>Every page is checked on a phone first.</p></div></li>
-      <li><span>03</span><div><h3>Domain and hosting</h3><p>We pick, set up and connect them for you.</p></div></li>
-      <li><span>04</span><div><h3>Contact forms</h3><p>Each message goes straight to your inbox.</p></div></li>
-      <li><span>05</span><div><h3>Upkeep</h3><p>New text, new photos, fixes. Just write to us.</p></div></li>
+      <li><span>1</span><div><h3>Clear design</h3><p>A site built around what your business does and what visitors need to find.</p></div></li>
+      <li><span>2</span><div><h3>Works on every screen</h3><p>Phones, tablets and desktops.</p></div></li>
+      <li><span>3</span><div><h3>We help with the rest</h3><p>Domain, hosting, contact form and updates available after launch.</p></div></li>
     </ul>
   </section>
 
-  <section id="pricing" class="pricing" aria-labelledby="pricing-h">
-    <h2 id="pricing-h" class="label">How we charge</h2>
-    <div class="price-grid">
-      <article class="price-card">
-        <p class="panel-no">The build</p>
-        <h3>A quote for your project</h3>
-        <p>Every site is custom, so every price is too. Tell us what you need and we send you an offer.</p>
-      </article>
-      <article class="price-card hot">
-        <p class="panel-no">After launch</p>
-        <h3>$100 a month</h3>
-        <p>Hosting, your domain connection and all changes to your site are included. Texts, photos and small updates: you write, we do it.</p>
-      </article>
-    </div>
-    <p class="honest"><strong>No hidden fees. 100% transparency.</strong> Your quote lists everything before we start. If something costs extra, such as a domain name, we tell you before you decide.</p>
-  </section>
-
-  <section id="process" class="big-list alt" aria-labelledby="process-h">
-    <h2 id="process-h" class="label">How it works</h2>
+  <section id="steps" class="big-list alt" aria-labelledby="steps-h">
+    <h2 id="steps-h" class="label">How it works</h2>
+    <p class="steps-line">Tell us. We build. You launch.</p>
     <ul>
-      <li><span>1</span><div><h3>You write to us</h3><p>A few sentences about your business are enough.</p></div></li>
-      <li><span>2</span><div><h3>We build it</h3><p>You look at the pages and tell us what to change.</p></div></li>
-      <li><span>3</span><div><h3>We put it online</h3><p>Domain, hosting and a tested contact form.</p></div></li>
-      <li><span>4</span><div><h3>We stay around</h3><p>Changes are included in your monthly plan. One message and we do it.</p></div></li>
+      <li><span>1</span><div><h3>Send a short form.</h3><p>Tell us about your business.</p></div></li>
+      <li><span>2</span><div><h3>We build it.</h3><p>You review the pages.</p></div></li>
+      <li><span>3</span><div><h3>We help you go live.</h3><p>Updates available after launch.</p></div></li>
     </ul>
   </section>
 
-  <section id="group" class="group" aria-labelledby="group-h">
-    <h2 id="group-h" class="label">Part of the Sapper Solution Group</h2>
+  <section id="contact" class="contact" aria-labelledby="contact-h">
+    <div class="contact-grid">
+      <div class="contact-intro">
+        <h2 id="contact-h">Let&rsquo;s build<br>yours.</h2>
+        <p class="muted">Tell us what you need. We read every message and answer it ourselves.</p>
+        <p class="hint">Only the starred answers are required.</p>
+      </div>
+      <div class="contact-form">
+      <form data-clarity-mask="True" id="start" class="form" action="https://formsubmit.co/{{form_email}}" method="POST" accept-charset="UTF-8" aria-labelledby="contact-h">
+        <input type="hidden" name="_subject" value="New website request" data-clarity-mask="True">
+        <input type="hidden" name="_template" value="table" data-clarity-mask="True">
+        <input type="hidden" name="_captcha" value="true" data-clarity-mask="True">
+        <input type="hidden" name="_next" value="https://{{domain}}/thanks.html" data-clarity-mask="True">
+        <p class="sr-only">Required fields are marked with an asterisk.</p>
+        <div class="field">
+          <label for="f-name">Your name <span class="req" aria-hidden="true">*</span></label>
+          <input id="f-name" name="Your name" type="text" required aria-required="true" autocomplete="name" maxlength="200" aria-describedby="f-name-err" data-clarity-mask="True">
+          <p id="f-name-err" class="field-error">Please enter your name.</p>
+        </div>
+        <div class="field">
+          <label for="f-email">Email <span class="req" aria-hidden="true">*</span></label>
+          <input id="f-email" name="Email" type="email" required aria-required="true" autocomplete="email" autocapitalize="none" spellcheck="false" maxlength="200" aria-describedby="f-email-err" data-clarity-mask="True">
+          <p id="f-email-err" class="field-error">Please enter a valid email address.</p>
+        </div>
+        <div class="field">
+          <label for="f-phone">Phone <span class="opt">(optional)</span></label>
+          <input id="f-phone" name="Phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="40" data-clarity-mask="True">
+        </div>
+        <div class="field">
+          <label for="f-business">Business name <span class="req" aria-hidden="true">*</span></label>
+          <input id="f-business" name="Business name" type="text" required aria-required="true" autocomplete="organization" maxlength="200" aria-describedby="f-business-err" data-clarity-mask="True">
+          <p id="f-business-err" class="field-error">Please enter the business name.</p>
+        </div>
+        <div class="field">
+          <label for="f-need">What you need <span class="req" aria-hidden="true">*</span></label>
+          <textarea id="f-need" name="What you need" rows="4" required aria-required="true" maxlength="2000" aria-describedby="f-need-err" data-clarity-mask="True"></textarea>
+          <p id="f-need-err" class="field-error">Please say what you need.</p>
+        </div>
+        <div class="field">
+          <label for="f-site">Current site or domain <span class="opt">(optional)</span></label>
+          <input id="f-site" name="Current site or domain" type="text" autocapitalize="none" spellcheck="false" maxlength="300" placeholder="https://example.com or example.com" data-clarity-mask="True">
+        </div>
+        <div class="consent">
+          <input id="f-consent" name="Agreement" type="checkbox" value="{{consent_label}}" required aria-required="true" aria-describedby="f-consent-err" data-clarity-mask="True">
+          <label for="f-consent">I agree to the <a href="{{terms_url}}">{{terms_label}}</a> and <a href="{{privacy_url}}">{{privacy_label}}</a>.</label>
+          <p id="f-consent-err" class="field-error">Please agree to the Terms of Service and Privacy Policy.</p>
+        </div>
+        <div class="form-submit">
+          <button class="btn btn-primary btn-lg" type="submit">Send request</button>
+          <p class="form-after">We reply by email, no call needed. Everything we need is in this form.</p>
+        </div>
+        <p class="hp" aria-hidden="true">
+          <label>Leave this field empty<input type="text" name="_honey" tabindex="-1" autocomplete="off" data-clarity-mask="True"></label>
+        </p>
+      </form>
+      </div>
+
+
+    </div>
+  </section>
+  <section id="facts" class="group" aria-labelledby="facts-h">
+    <h2 id="facts-h" class="label">Key facts</h2>
     <p class="reveal-words group-lead" data-reveal>A privately held group of U.S. engineering, packaging and logistics companies based in Piketon, Ohio. {{brand_name}} is a DBA of {{legal_name}}.</p>
     <ul class="group-list">
       <li><h3>Sapper Advanced Technologies</h3><p>Metal fabrication, racks, and industrial packaging.</p></li>
@@ -147,47 +138,28 @@
       <li><h3>Sapper Waste</h3><p>Roll off dumpster rentals and waste removal services.</p></li>
     </ul>
   </section>
-
-  <section id="contact" class="contact" aria-labelledby="contact-h">
-    <div class="contact-grid">
-      <div>
-        <h2 id="contact-h">Let&rsquo;s build<br>yours.</h2>
-        <p class="muted">Tell us what you need. We read every message and answer it ourselves.</p>
-        <p class="muted small">{{address_name}}, {{address_street}}, {{address_city}}, {{address_state}} {{address_zip}}</p>
-      </div>
-      <form id="contact-form" class="form" action="https://api.web3forms.com/submit" method="POST">
-        <input type="hidden" name="access_key" value="{{form_access_key}}">
-        <input type="hidden" name="subject" value="New website inquiry for {{brand_name}}">
-        <input type="hidden" name="from_name" value="{{brand_name}} website">
-        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" style="display:none">
-        <label>Name<input type="text" name="name" required autocomplete="name"></label>
-        <label>Email<input type="email" name="email" required autocomplete="email"></label>
-        <label>Phone (optional)<input type="tel" name="phone" autocomplete="tel"></label>
-        <label>How can we help?<textarea name="message" rows="5" required></textarea></label>
-        <button class="btn btn-primary btn-lg" type="submit">Send Message</button>
-        <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
-      </form>
-    </div>
-  </section>
 </main>
 
 <footer class="site-footer">
-  <p><strong>{{brand_name}}</strong> &middot; {{dba_text}}.</p>
+  <p>{{dba_text}}.</p>
+  <p>{{address_name}}, {{address_street}}, {{address_city}}, {{address_state}} {{address_zip}}</p>
+  <p><a href="mailto:{{form_email}}">Email us</a></p>
+  <p><a href="{{terms_url}}">{{terms_label}}</a> &middot; <a href="{{privacy_url}}">{{privacy_label}}</a></p>
   <p>&copy; {{year}} {{legal_name}} &middot; <a href="{{parent_site_url}}">sapperadvanced.com</a></p>
 </footer>
-<a class="float-cta" href="#contact">Tell us about your website</a>
+<a class="float-cta" href="#start">Get my website</a>
 <script>
 (function(){
   var reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   /* hero background crossfade */
   var bgs=[].slice.call(document.querySelectorAll(".hero-bg .bg")),k=0;
-  if(!reduce)setInterval(function(){bgs[k].classList.remove("is-active");k=(k+1)%bgs.length;bgs[k].classList.add("is-active");},4500);
+  if(!reduce&&bgs.length)setInterval(function(){bgs[k].classList.remove("is-active");k=(k+1)%bgs.length;bgs[k].classList.add("is-active");},4500);
   /* words that light up while scrolling */
   var blocks=[].slice.call(document.querySelectorAll("[data-reveal]"));
   blocks.forEach(function(p){var w=p.textContent.trim().split(/\s+/);p.setAttribute("aria-label",p.textContent.trim());p.innerHTML=w.map(function(x){return '<span class="w" aria-hidden="true">'+x+'</span>';}).join(" ");});
   function update(){var vh=window.innerHeight;blocks.forEach(function(p){var ws=p.querySelectorAll(".w"),r=p.getBoundingClientRect(),prog=(vh*0.85-r.top)/(vh*0.55+r.height*0.6);prog=Math.max(0,Math.min(1,prog));var n=Math.round(prog*ws.length);for(var i=0;i<ws.length;i++)ws[i].classList.toggle("on",reduce||i<n);});
     document.querySelector(".site-header").classList.toggle("solid",window.scrollY>vh*0.6);
-    var fc=document.querySelector(".float-cta"),c=document.getElementById("contact").getBoundingClientRect();fc.classList.toggle("hide",window.scrollY<vh*0.5||c.top<vh*0.7);}
+    var fc=document.querySelector(".float-cta"),c=document.getElementById("contact").getBoundingClientRect();fc.classList.toggle("hide",c.top<vh*0.75&&c.bottom>vh*0.35);}
   window.addEventListener("scroll",update,{passive:true});window.addEventListener("resize",update);update();
   /* fade-up for panels and list rows */
   document.documentElement.classList.add("js");
@@ -196,17 +168,36 @@
 })();
 </script>
 <script>
-document.getElementById("contact-form").addEventListener("submit",function(ev){
-  ev.preventDefault();
-  var f=ev.target,s=document.getElementById("form-status"),b=f.querySelector("button");
-  b.disabled=true;s.textContent="Sending...";
-  fetch(f.action,{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(Object.fromEntries(new FormData(f)))})
-  .then(function(r){return r.json()}).then(function(d){
-    if(d.success){s.textContent="Thank you! We got your message and will get back to you soon.";f.reset();}
-    else{s.textContent="Something went wrong. Please try again in a moment.";}
-    b.disabled=false;
-  }).catch(function(){s.textContent="Something went wrong. Please try again in a moment.";b.disabled=false;});
-});
+/* Points the thank-you page at this site and sets the reply address. The form still posts with JavaScript off. */
+(function(){
+  var f=document.getElementById("start");
+  if(!f)return;
+  var next=f.querySelector('input[name="_next"]');
+  function pointNext(){
+    if(!next)return;
+    try{next.value=new URL("thanks.html",window.location.href).href;}catch(e){}
+  }
+  function replyTo(){
+    var email=document.getElementById("f-email");
+    if(!email||!email.value)return;
+    var reply=f.querySelector('input[name="_replyto"]');
+    if(!reply){
+      reply=document.createElement("input");
+      reply.type="hidden";
+      reply.name="_replyto";
+      reply.setAttribute("data-clarity-mask","True");
+      f.appendChild(reply);
+    }
+    reply.value=email.value;
+  }
+  pointNext();
+  f.addEventListener("submit",function(){
+    pointNext();
+    replyTo();
+  });
+})();
 </script>
+
+
 </body>
 </html>

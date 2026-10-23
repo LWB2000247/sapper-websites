@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Request received | {{brand_name}}</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;700;800&amp;family=Inter:wght@400;500;600&amp;family=Cormorant+Garamond:wght@600;700&amp;display=swap">
+<link rel="stylesheet" href="assets/style.css?v=32">
+{{#clarity_id}}<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "{{clarity_id}}");
+</script>
+{{/clarity_id}}</head>
+<body>
+<a class="skip" href="#thanks">Skip to content</a>
+<header class="site-header solid">
+  <a class="brand" href="./" aria-label="{{brand_name}} home"><img src="assets/eagle-mark.webp" alt="Eagle logo of {{brand_name}}" width="28" height="28"><span>{{brand_name}}</span></a>
+  <nav class="main-nav" aria-label="Main">
+    <a href="./#strengths">Strengths</a><a href="./#steps">How it works</a>
+  </nav>
+  <a class="nav-cta" href="./#start">Get my website</a>
+</header>
+<main id="thanks" class="thanks">
+  <div class="thanks-inner">
+    <p class="kicker">Request received</p>
+    <h1>Thank you.</h1>
+    <p>We email you to confirm the contract. After you confirm, we send the payment link.</p>
+    {{#reply_time}}<p>We reply within {{reply_time}}.</p>{{/reply_time}}
+    <a class="btn btn-primary btn-lg" href="./">Back to the site</a>
+  </div>
+</main>
+<footer class="site-footer">
+  <p>{{dba_text}}.</p>
+  <p>{{address_name}}, {{address_street}}, {{address_city}}, {{address_state}} {{address_zip}}</p>
+  <p><a href="mailto:{{form_email}}">Email us</a></p>
+  <p><a href="{{terms_url}}">{{terms_label}}</a> &middot; <a href="{{privacy_url}}">{{privacy_label}}</a></p>
+  <p>&copy; {{year}} {{legal_name}} &middot; <a href="{{parent_site_url}}">sapperadvanced.com</a></p>
+</footer>
+</body>
+</html>

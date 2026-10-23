@@ -4,8 +4,10 @@
  "legal_name": "Sapper Advanced Technologies LLC",
  "dba_text": "Sapper Websites is a DBA of Sapper Advanced Technologies LLC",
  "parent_site_url": "https://sapperadvanced.com",
- "tagline": "Websites built with purpose",
- "description": "Sapper Websites designs and builds mobile-friendly websites for small businesses, with help on domain and hosting setup, contact forms, and ongoing maintenance. Based in Piketon, Ohio.",
+ "slogan": "Your business. Your website. No hassle.",
+ "page_title": "Websites for Small Businesses | Sapper Websites",
+ "description": "We design and build clear, mobile-friendly websites for small businesses, and help with domain, hosting, forms and updates. Send a short form to get started.",
+ "clarity_id": "z29nk8iu7w",
  "phone_display": "740-259-5954",
  "phone_tel": "+17402595954",
  "address_name": "Sapper Solution HQ",
@@ -14,6 +16,13 @@
  "address_state": "OH",
  "address_zip": "45661",
  "year": "2026",
- "write_cname": false,
- "form_access_key": "PLACEHOLDER_ACCESS_KEY"
+ "write_cname": true,
+ "form_email": "leon@baldridge.info",
+ "reply_time": "",
+ "consent_label": "I agree to the Terms of Service and Privacy Policy.",
+ "rights_label": "I confirm I own the rights to all texts and images I provide.",
+ "terms_label": "Terms of Service",
+ "terms_url": "terms.html",
+ "privacy_label": "Privacy Policy",
+ "privacy_url": "privacy.html"
 }
