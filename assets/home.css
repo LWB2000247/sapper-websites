@@ -82,7 +82,10 @@ html:has(body.home){scroll-behavior:auto}
 }
 .home .work-notes{display:grid;gap:1.25rem;margin:1.75rem 0 0;padding:0;list-style:none}
 @media(min-width:48rem){
-  .home .work-notes{grid-template-columns:repeat(3,minmax(0,1fr));column-gap:1.5rem}
+  .home .work-notes{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:1.5rem}
+}
+@media(min-width:64rem){
+  .home .work-notes{grid-template-columns:repeat(4,minmax(0,1fr))}
 }
 .home .work-notes a{display:inline-flex;align-items:center;min-height:44px;color:#1D4ED8;font-size:16px;font-weight:600;text-decoration:underline;text-underline-offset:.15em}
 .home .work-notes p{margin:.15rem 0 0;color:#6B605C;font-size:16px;line-height:1.45}
