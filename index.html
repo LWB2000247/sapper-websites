@@ -24,16 +24,16 @@
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
-<link rel="stylesheet" href="assets/style.css?v=42">
+<link rel="preload" href="assets/fonts/Archivo-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/style.css?v=43">
+<link rel="stylesheet" href="assets/home.css?v=43">
 <script>document.documentElement.classList.add("js");window.__formOpened=Date.now();</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","name":"Sapper Websites","url":"https://sapperwebsites.com/","description":"We design and build clear, mobile-friendly websites for small businesses, and help with domain, hosting, forms and updates. Send a short form to get started.","parentOrganization":{"@type":"Organization","name":"Sapper Advanced Technologies LLC","url":"https://sapperadvanced.com"},"address":{"@type":"PostalAddress","streetAddress":"4239 U.S. 23","addressLocality":"Piketon","addressRegion":"OH","postalCode":"45661","addressCountry":"US"}}
 </script>
 </head>
-<body>
+<body class="home">
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="container header-inner">
@@ -88,65 +88,68 @@
 
   <section class="band alt" aria-labelledby="about">
     <div class="container">
+      <p class="kicker" aria-hidden="true">About</p>
       <h2 id="about">About Sapper Websites</h2>
+      <div class="home-copy">
       <p class="section-intro">Sapper Websites is the web design arm of the Sapper Solution Group. We design, build and look after websites for small businesses, and we stay with you after launch.</p>
+      </div>
     </div>
   </section>
 
   <section class="band" aria-labelledby="services">
     <div class="container">
+      <p class="kicker" aria-hidden="true">Services</p>
       <h2 id="services">Services: websites, domain and hosting, forms, updates</h2>
+      <div class="home-copy">
       <p class="section-intro">What we do.</p>
       <ul class="num-list">
-        <li><span>01</span><div><h3>Design and build</h3><p>Made around your business, written and built by hand.</p></div></li>
-        <li><span>02</span><div><h3>Made for phones</h3><p>Every page is checked on a phone first.</p></div></li>
-        <li><span>03</span><div><h3>Domain and hosting</h3><p>We help you choose, set up and connect them.</p></div></li>
-        <li><span>04</span><div><h3>Contact forms</h3><p>Messages from your form are sent to the email address you choose.</p></div></li>
-        <li><span>05</span><div><h3>Upkeep</h3><p>New text, new photos, fixes. Just write to us.</p></div></li>
+        <li><div><span>01</span><h3>Design and build</h3></div><p>Made around your business, written and built by hand.</p></li>
+        <li><div><span>02</span><h3>Made for phones</h3></div><p>Every page is checked on a phone first.</p></li>
+        <li><div><span>03</span><h3>Domain and hosting</h3></div><p>We help you choose, set up and connect them.</p></li>
+        <li><div><span>04</span><h3>Contact forms</h3></div><p>Messages from your form are sent to the email address you choose.</p></li>
+        <li><div><span>05</span><h3>Upkeep</h3></div><p>New text, new photos, fixes. Just write to us.</p></li>
       </ul>
+      </div>
     </div>
   </section>
 
   <section class="band alt" aria-labelledby="work">
     <div class="container">
+      <p class="kicker" aria-hidden="true">Our work</p>
       <h2 id="work">Our work: real projects</h2>
+      <div class="home-copy">
       <p class="section-intro">Projects from our own group and affiliated businesses</p>
-      <div class="work-grid">
-        <article class="work-card">
-          <div class="card-body">
-            <h3>Sapper Solution</h3>
-            <p>Group website</p>
-            <a href="https://sappersolution.com" target="_blank" rel="noopener">sappersolution.com<span class="sr-only"> (opens in a new tab)</span></a>
-          </div>
-        </article>
-        <article class="work-card">
-          <div class="card-body">
-            <h3>Sapper Advanced</h3>
-            <p>Group website</p>
-            <a href="https://sapperadvanced.com" target="_blank" rel="noopener">sapperadvanced.com<span class="sr-only"> (opens in a new tab)</span></a>
-          </div>
-        </article>
-        <article class="work-card">
-          <div class="card-body">
-            <h3>Sapper Plastics</h3>
-            <p>Group website</p>
-            <a href="https://sapperplastics.com" target="_blank" rel="noopener">sapperplastics.com<span class="sr-only"> (opens in a new tab)</span></a>
-          </div>
-        </article>
-        <article class="work-card">
-          <div class="card-body">
-            <h3>f-s-s-i.com</h3>
-            <p>Group website</p>
-            <a href="https://f-s-s-i.com" target="_blank" rel="noopener">f-s-s-i.com<span class="sr-only"> (opens in a new tab)</span></a>
-          </div>
-        </article>
+      <ul class="work-list">
+        <li>
+          <h3>Sapper Solution</h3>
+          <p>Group website</p>
+          <a href="https://sappersolution.com" target="_blank" rel="noopener">sappersolution.com<span class="sr-only"> (opens in a new tab)</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </li>
+        <li>
+          <h3>Sapper Advanced</h3>
+          <p>Group website</p>
+          <a href="https://sapperadvanced.com" target="_blank" rel="noopener">sapperadvanced.com<span class="sr-only"> (opens in a new tab)</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </li>
+        <li>
+          <h3>Sapper Plastics</h3>
+          <p>Group website</p>
+          <a href="https://sapperplastics.com" target="_blank" rel="noopener">sapperplastics.com<span class="sr-only"> (opens in a new tab)</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </li>
+        <li>
+          <h3>f-s-s-i.com</h3>
+          <p>Group website</p>
+          <a href="https://f-s-s-i.com" target="_blank" rel="noopener">f-s-s-i.com<span class="sr-only"> (opens in a new tab)</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </li>
+      </ul>
       </div>
     </div>
   </section>
 
   <section class="band" aria-labelledby="pricing">
     <div class="container">
+      <p class="kicker" aria-hidden="true">Pricing</p>
       <h2 id="pricing">Pricing: hosting, changes and a tailored quote</h2>
+      <div class="home-copy">
       <div class="price-card">
         <ul class="price-lines">
           <li><strong>Hosting:</strong> $100 per month, in US dollars.</li>
@@ -156,12 +159,15 @@
         <a class="btn btn-primary btn-lg" href="#start">Get my website</a>
       </div>
       <p class="price-note">Full terms are in your written agreement.</p>
+      </div>
     </div>
   </section>
 
   <section class="band alt" aria-labelledby="group">
     <div class="container">
+      <p class="kicker" aria-hidden="true">The group</p>
       <h2 id="group">The group: Sapper Solution Group</h2>
+      <div class="home-copy">
       <p class="section-intro">Sapper Websites is a DBA of Sapper Advanced Technologies LLC, an Ohio company based in Piketon, Ohio, part of the Sapper Solution Group. Your agreement is with Sapper Advanced Technologies LLC, not with other group companies.</p>
       <p class="group-source"><a href="https://sappersolution.com" rel="noopener noreferrer">Sapper Solution Group</a></p>
       <ul class="group-grid">
@@ -170,29 +176,36 @@
         <li class="group-card"><h3>F&middot;S&middot;S&middot;I Federal Supply Services International</h3><p>Procurement, compliant logistics, and industrial supply chain operations.</p></li>
         <li class="group-card"><h3>Sapper Waste</h3><p>Roll off dumpster rentals and waste removal services.</p></li>
       </ul>
+      </div>
     </div>
   </section>
 
   <section class="band" aria-labelledby="strengths">
     <div class="container">
+      <p class="kicker" aria-hidden="true">Strengths</p>
       <h2 id="strengths">Strengths</h2>
+      <div class="home-copy">
       <ul class="num-list">
-        <li><span>1</span><div><h3>Clear design</h3><p>A site built around what your business does and what visitors need to find.</p></div></li>
-        <li><span>2</span><div><h3>Works on every screen</h3><p>Phones, tablets and desktops.</p></div></li>
-        <li><span>3</span><div><h3>We help with the rest</h3><p>Domain, hosting, contact form and updates available after launch.</p></div></li>
+        <li><div><span>1</span><h3>Clear design</h3></div><p>A site built around what your business does and what visitors need to find.</p></li>
+        <li><div><span>2</span><h3>Works on every screen</h3></div><p>Phones, tablets and desktops.</p></li>
+        <li><div><span>3</span><h3>We help with the rest</h3></div><p>Domain, hosting, contact form and updates available after launch.</p></li>
       </ul>
+      </div>
     </div>
   </section>
 
   <section class="band alt" aria-labelledby="steps">
     <div class="container">
+      <p class="kicker" aria-hidden="true">How it works</p>
       <h2 id="steps">How it works</h2>
+      <div class="home-copy">
       <p class="section-intro">Tell us. We build. You launch.</p>
       <ul class="num-list">
-        <li><span>1</span><div><h3>Send a short form.</h3><p>Tell us about your business.</p></div></li>
-        <li><span>2</span><div><h3>We build it.</h3><p>You review the pages.</p></div></li>
-        <li><span>3</span><div><h3>We help you go live.</h3><p>Updates available after launch.</p></div></li>
+        <li><div><span>1</span><h3>Send a short form.</h3></div><p>Tell us about your business.</p></li>
+        <li><div><span>2</span><h3>We build it.</h3></div><p>You review the pages.</p></li>
+        <li><div><span>3</span><h3>We help you go live.</h3></div><p>Updates available after launch.</p></li>
       </ul>
+      </div>
     </div>
   </section>
 
@@ -271,7 +284,7 @@
     <p>&copy; 2026 Sapper Advanced Technologies LLC &middot; <a href="https://sapperadvanced.com" rel="noopener noreferrer">sapperadvanced.com</a></p>
   </div>
 </footer>
-<a class="float-cta" href="#start">Get my website</a>
+<a class="float-cta" href="#start"><span class="pill-chip" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" focusable="false"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Get my website</a>
 <script src="assets/form-guard.js"></script>
 <script>
 /* Applies the checks in assets/form-guard.js. If JavaScript is off, or this fails, the form still posts to FormSubmit. _captcha stays on. _next stays the live thank-you page. */
@@ -352,8 +365,9 @@
   });
 })();
 </script>
-<script src="assets/float-pill.js?v=42"></script>
-<script src="assets/site.js?v=42"></script>
-<script src="assets/consent.js?v=42"></script>
+<script src="assets/float-pill.js?v=43"></script>
+<script src="assets/site.js?v=43"></script>
+<script src="assets/consent.js?v=43"></script>
+<script src="assets/home-motion.js?v=43"></script>
 </body>
 </html>

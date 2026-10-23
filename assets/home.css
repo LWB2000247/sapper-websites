@@ -1,0 +1,128 @@
+/* Home page only. Legal pages and the thank-you page do not link this file. */
+@font-face{font-family:Archivo;font-style:normal;font-weight:100 900;font-stretch:62% 125%;font-display:swap;src:url("fonts/Archivo-Variable.woff2") format("woff2")}
+@font-face{font-family:Inter;font-style:normal;font-weight:100 900;font-display:swap;src:url("fonts/Inter-Variable.woff2") format("woff2")}
+
+html:has(body.home){scroll-behavior:auto}
+.home{background:#FFFcf8;color:#0B1220;font-family:Inter,system-ui,sans-serif;font-size:18px;line-height:1.5}
+.home .container{max-width:none;padding-inline:clamp(20px,6.67vw,96px)}
+
+.home .site-header{background:#FFFcf8;border-bottom:1px solid rgba(43,34,32,.12)}
+.home .brand{font-family:Archivo,Inter,sans-serif;font-weight:500;font-stretch:125%;font-size:15px;letter-spacing:-.03em}
+.home .main-nav a,.home .nav-toggle{font-size:15px;font-weight:500}
+.home .nav-cta{font-size:15px}
+
+.home .hero,.home .band,.home .contact,.home .site-footer{border-top:1px solid rgba(43,34,32,.12)}
+.home .hero{min-height:100svh;align-items:center;background:#FFFcf8;padding:calc(4.5rem + clamp(28px,5vw,64px)) 0 clamp(64px,8vw,120px)}
+.home .band{background:#FFFcf8;padding-block:clamp(88px,12vw,180px)}
+.home section[aria-labelledby="about"],.home section[aria-labelledby="group"]{background:#FAF5EC}
+.home section[aria-labelledby="work"],.home section[aria-labelledby="steps"]{background:#F2EADB}
+.home .contact{background:#1c4f9c;color:#fff;padding-block:clamp(88px,12vw,180px)}
+
+.home h1,.home h2,.home h3,.home .price-lines strong,.home .work-list h3,.home .group-card h3{font-family:Archivo,Inter,sans-serif;font-weight:500;font-stretch:125%;letter-spacing:-.04em;line-height:.95;color:#0B1220}
+.home h1{font-size:clamp(40px,5vw,72px)}
+.home h1 span{white-space:nowrap}
+.home h2{font-size:clamp(34px,4.4vw,64px);scroll-margin-top:5.5rem}
+.home .kicker{margin:0 0 .7rem;font-family:Inter,system-ui,sans-serif;font-size:13px;font-weight:700;letter-spacing:.08em;line-height:1.3;text-transform:uppercase;color:#6B605C}
+.home .hero-sub,.home .section-intro,.home .num-list p,.home .work-list p,.home .group-card p,.home .price-lines li,.home .price-note,.home .proof{color:#6B605C;font-size:18px;line-height:1.5}
+.home .hero-sub{max-width:36rem;margin-top:1.5rem}
+.home .section-intro{max-width:40rem;margin-top:0}
+.home .proof{margin-top:1.75rem;gap:1rem}
+.home .proof li{font-size:18px;color:#6B605C;grid-template-columns:24px minmax(0,1fr);gap:.75rem}
+.home .proof strong{color:#0B1220}
+.home .proof svg{width:24px;height:24px;margin-top:.15rem}
+
+.home .hero-grid{align-items:center;gap:clamp(2rem,4vw,5rem)}
+@media(max-width:60rem){
+  .home .hero-visual{display:flex;flex-direction:column}
+  .home .proof{order:1}
+  .home .example{order:2}
+}
+.home .browser{width:100%;aspect-ratio:5/4;display:flex;flex-direction:column;background:#FFFcf8;border:1px solid rgba(43,34,32,.12);border-radius:20px;box-shadow:none}
+.home .browser-bar{background:#F2EADB;color:#6B605C;font-size:16px;font-weight:600;padding:.85rem 1rem}
+.home .browser-bar i{background:#6B605C}
+.home .sample{flex:1;display:flex;flex-direction:column;background:#FFFcf8;padding:1.25rem}
+.home .sample-nav,.home .sample-block,.home .sample-lines span,.home .sample-cards i{background:#F2EADB}
+.home .sample-block{flex:1;min-height:72px;height:auto}
+.home .hero-actions{margin-top:2rem}
+.home .hero .btn-primary,.home .band .btn-primary{background:#0B1220;color:#fff}
+.home .hero .btn-primary:hover,.home .band .btn-primary:hover{background:#1D4ED8;color:#fff}
+.home .quiet-link{color:#1D4ED8;font-size:16px}
+
+@media(min-width:60rem){
+  .home .band>.container{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:clamp(40px,4vw,96px);align-items:start}
+  .home .band>.container>.kicker{grid-column:1;grid-row:1}
+  .home .band>.container>h2{grid-column:1;grid-row:2;margin-top:.35rem}
+  .home .home-copy{grid-column:2;grid-row:1/span 2}
+  .home .contact-grid{width:100%;max-width:none;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:clamp(40px,4vw,96px)}
+  .home .contact h2{white-space:normal}
+}
+
+.home .num-list{margin-top:1.5rem}
+.home .num-list li{display:grid;grid-template-columns:1fr;gap:.45rem;padding:28px 0;border-top:1px solid rgba(43,34,32,.12);align-items:start;min-height:44px}
+.home .num-list li:last-child{border-bottom:1px solid rgba(43,34,32,.12)}
+.home .num-list li>div{display:flex;gap:.8rem;align-items:baseline}
+.home .num-list li>span{color:#1D4ED8;font-weight:700;font-size:16px}
+.home .num-list h3{font-size:clamp(26px,2.2vw,36px);margin:0}
+.home .num-list p{margin:0;max-width:none}
+@media(min-width:40rem){
+  .home .num-list li{grid-template-columns:1fr 2fr;column-gap:clamp(24px,3vw,64px);align-items:baseline}
+}
+
+.home .work-list{margin-top:1.5rem}
+.home .work-list li{display:grid;grid-template-columns:1fr;gap:.35rem;padding:28px 0;border-top:1px solid rgba(43,34,32,.12);align-items:center}
+.home .work-list li:last-child{border-bottom:1px solid rgba(43,34,32,.12)}
+.home .work-list h3{margin:0;font-size:clamp(32px,3.4vw,56px)}
+.home .work-list p{margin:0}
+.home .work-list a{display:inline-flex;align-items:center;gap:.45rem;min-height:44px;margin-top:.15rem;color:#1D4ED8;font-size:16px;font-weight:600;text-decoration:underline;text-underline-offset:.15em}
+.home .work-list .arrow{width:18px;height:18px;flex:0 0 auto}
+@media(min-width:40rem){
+  .home .work-list li{grid-template-columns:minmax(0,1fr) auto;column-gap:1.5rem}
+  .home .work-list h3{grid-column:1}
+  .home .work-list p{grid-column:1}
+  .home .work-list a{grid-column:2;grid-row:1/span 2;margin-top:0}
+}
+
+.home .price-card{margin-top:0;width:100%;background:transparent;border-radius:0;padding:0}
+.home .price-lines{display:block}
+.home .price-lines li{padding:28px 0;border-top:1px solid rgba(43,34,32,.12)}
+.home .price-lines li:last-child{border-bottom:1px solid rgba(43,34,32,.12)}
+.home .price-lines strong{display:block;margin:0 0 .7rem;font-size:clamp(36px,4vw,64px)}
+.home .price-card .btn{margin-top:1.75rem}
+.home .price-note{margin-top:1.25rem;font-size:16px;line-height:1.5}
+
+.home .group-source{margin-top:1.25rem}
+.home .group-source a{font-size:16px;color:#1D4ED8}
+.home .group-grid{display:block;margin-top:1.5rem}
+.home .group-card{display:grid;grid-template-columns:1fr;gap:.45rem;background:transparent;border:0;border-radius:0;border-top:1px solid rgba(43,34,32,.12);padding:28px 0;min-height:44px}
+.home .group-card:last-child{border-bottom:1px solid rgba(43,34,32,.12)}
+.home .group-card h3{margin:0;font-size:clamp(26px,2.4vw,40px)}
+.home .group-card p{margin:0}
+@media(min-width:40rem){
+  .home .group-card{grid-template-columns:1fr 2fr;column-gap:clamp(24px,3vw,64px);align-items:baseline}
+}
+
+.home .contact h2{color:#fff}
+.home .contact .muted,.home .contact .hint,.home .contact .form-after,.home .contact .field label,.home .contact .consent label{color:#fff}
+.home .consent label,.home .consent a{font-size:16px}
+.home .consent a{color:#d6e6fc}
+.home .hint,.home .field label,.home .field-error,.home .form-after,.home .opt{font-size:16px;line-height:1.45}
+.home .field label{display:inline-flex;align-items:center;min-height:44px}
+.home .field input,.home .field textarea{font-size:16px;min-height:48px}
+.home .contact :focus-visible{outline-color:#fff}
+
+.home .site-footer{background:#0B1220;color:#F2EADB;font-size:16px;padding-top:clamp(88px,12vw,140px)}
+.home .site-footer a,.home .cookie-settings{font-size:14px;color:#fff}
+.home .site-footer a:hover,.home .cookie-settings:hover{color:#F2EADB}
+@media(min-width:45.01rem){.home .site-footer{padding-bottom:clamp(88px,12vw,140px)}}
+
+.home .consent-banner p{font-size:16px;line-height:1.45}
+.home .float-cta{height:48px;min-height:48px;bottom:calc(32px + env(safe-area-inset-bottom));padding:0 18px 0 6px;gap:8px;background:#0B1220;color:#fff}
+.home .float-cta.blocked{opacity:0;visibility:hidden;pointer-events:none}
+.home .pill-chip{width:36px;height:36px;border-radius:999px;background:#fff;color:#0B1220;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto}
+.home .pill-chip svg{display:block;width:16px;height:16px}
+@media(max-width:45rem){.home .hero{padding-bottom:calc(96px + env(safe-area-inset-bottom))}}
+
+@media(prefers-reduced-motion:no-preference){
+  .home main section:not(.hero).is-in{animation:home-rise .8s ease both}
+}
+@keyframes home-rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
