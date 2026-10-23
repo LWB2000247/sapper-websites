@@ -73,7 +73,7 @@
       <div class="contact-intro">
         <h2 id="contact-h">Let&rsquo;s build<br>yours.</h2>
         <p class="muted">Tell us what you need. We read every message and answer it ourselves.</p>
-        <p class="hint">Four short parts. Only the starred answers are required.</p>
+        <p class="hint">Only the starred answers are required.</p>
       </div>
       <div class="contact-form">
       <form data-clarity-mask="True" id="start" class="form" action="https://formsubmit.co/{{form_email}}" method="POST" accept-charset="UTF-8" aria-labelledby="contact-h">
@@ -82,221 +82,43 @@
         <input type="hidden" name="_captcha" value="true" data-clarity-mask="True">
         <input type="hidden" name="_next" value="https://{{domain}}/thanks.html" data-clarity-mask="True">
         <p class="sr-only">Required fields are marked with an asterisk.</p>
-        <p class="step-bar"><span class="step-count">Step <span data-step-num>1</span> of 4</span> <span class="step-label">You</span></p>
-
-        <fieldset class="block" data-title="You">
-          <legend tabindex="-1">1. You</legend>
-          <div class="form-row">
-            <div class="field">
-              <label for="f-name">Your name <span class="req" aria-hidden="true">*</span></label>
-              <input id="f-name" name="Your name" type="text" required aria-required="true" autocomplete="name" maxlength="200" aria-describedby="f-name-err" data-clarity-mask="True">
-              <p id="f-name-err" class="field-error">Please enter your name.</p>
-            </div>
-            <div class="field">
-              <label for="f-email">Email <span class="req" aria-hidden="true">*</span></label>
-              <input id="f-email" name="Email" type="email" required aria-required="true" autocomplete="email" autocapitalize="none" spellcheck="false" maxlength="200" aria-describedby="f-email-err" data-clarity-mask="True">
-              <p id="f-email-err" class="field-error">Please enter a valid email address.</p>
-            </div>
-          </div>
-          <div class="field">
-            <label for="f-phone">Phone <span class="opt">(optional)</span></label>
-            <input id="f-phone" name="Phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="40" data-clarity-mask="True">
-          </div>
-          <div class="field">
-            <label for="f-signer">Person authorized to sign <span class="req" aria-hidden="true">*</span></label>
-            <input id="f-signer" name="Person authorized to sign" type="text" required aria-required="true" autocomplete="section-signer name" maxlength="200" aria-describedby="f-signer-hint f-signer-err" data-clarity-mask="True">
-            <p id="f-signer-hint" class="hint">Full name of the person who can sign for the company. Your name is fine if that is you.</p>
-            <p id="f-signer-err" class="field-error">Please enter the signer’s full name.</p>
-          </div>
-          <div class="field">
-            <label for="f-billing">Billing email <span class="req" aria-hidden="true">*</span></label>
-            <input id="f-billing" name="Billing email" type="email" required aria-required="true" autocomplete="section-billing email" autocapitalize="none" spellcheck="false" maxlength="200" aria-describedby="f-billing-hint f-billing-err" data-clarity-mask="True">
-            <p id="f-billing-hint" class="hint">For the contract and the payment link. Use your email above if it is the same.</p>
-            <p id="f-billing-err" class="field-error">Please enter a valid billing email.</p>
-          </div>
-          <div class="step-nav">
-            <button type="button" class="btn btn-ghost btn-lg" data-back hidden>Back</button>
-            <button type="button" class="btn btn-primary btn-lg" data-next>Next</button>
-          </div>
-        </fieldset>
-
-        <fieldset class="block" data-title="Business">
-          <legend tabindex="-1">2. Business</legend>
-          <div class="field">
-            <label for="f-business">Business name <span class="req" aria-hidden="true">*</span></label>
-            <input id="f-business" name="Business name" type="text" required aria-required="true" autocomplete="organization" maxlength="200" aria-describedby="f-business-err" data-clarity-mask="True">
-            <p id="f-business-err" class="field-error">Please enter the business name.</p>
-          </div>
-          <div class="field">
-            <label for="f-legal">Legal company name <span class="req" aria-hidden="true">*</span></label>
-            <input id="f-legal" name="Legal company name" type="text" required aria-required="true" autocomplete="section-legal organization" maxlength="200" aria-describedby="f-legal-hint f-legal-err" data-clarity-mask="True">
-            <p id="f-legal-hint" class="hint">The legal name on the contract. Same as the business name if there is no separate one.</p>
-            <p id="f-legal-err" class="field-error">Please enter the legal company name.</p>
-          </div>
-          <div class="field">
-            <label for="f-does">What your business does <span class="req" aria-hidden="true">*</span></label>
-            <textarea id="f-does" name="What your business does" rows="2" required aria-required="true" maxlength="400" placeholder="We repair boats and sell used parts." aria-describedby="f-does-hint f-does-err" data-clarity-mask="True"></textarea>
-            <p id="f-does-hint" class="hint">One or two sentences is enough.</p>
-            <p id="f-does-err" class="field-error">Please say what the business does.</p>
-          </div>
-          <div class="field">
-            <label for="f-where">Where you work <span class="req" aria-hidden="true">*</span></label>
-            <input id="f-where" name="Where you work" type="text" required aria-required="true" maxlength="160" placeholder="Columbus, or online" aria-describedby="f-where-hint f-where-err" data-clarity-mask="True">
-            <p id="f-where-hint" class="hint">A city or region, or “online”.</p>
-            <p id="f-where-err" class="field-error">Please say where you work.</p>
-          </div>
-          <div class="step-nav">
-            <button type="button" class="btn btn-ghost btn-lg" data-back>Back</button>
-            <button type="button" class="btn btn-primary btn-lg" data-next>Next</button>
-          </div>
-        </fieldset>
-
-        <fieldset class="block" data-title="Project">
-          <legend tabindex="-1">3. Project</legend>
-          <div class="form-row">
-            <div class="field">
-              <label for="f-has-site">Existing website <span class="opt">(optional)</span></label>
-              <select id="f-has-site" name="Existing website" data-clarity-mask="True">
-                <option value="" selected>Choose one</option>
-                <option>Yes</option>
-                <option>No</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="f-website">Website link <span class="opt">(if yes)</span></label>
-              <input id="f-website" name="Website link" type="text" inputmode="url" autocapitalize="none" spellcheck="false" maxlength="300" placeholder="https://example.com" autocomplete="url" aria-describedby="f-website-hint" data-clarity-mask="True">
-              <p id="f-website-hint" class="hint">Paste the link if you already have a site.</p>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="field">
-              <label for="f-has-domain">Domain <span class="opt">(optional)</span></label>
-              <select id="f-has-domain" name="Domain" data-clarity-mask="True">
-                <option value="" selected>Choose one</option>
-                <option>Yes</option>
-                <option>No, help me choose</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="f-domain-name">Domain name <span class="opt">(if yes)</span></label>
-              <input id="f-domain-name" name="Domain name" type="text" autocapitalize="none" spellcheck="false" maxlength="200" placeholder="yoursite.com" aria-describedby="f-domain-hint" data-clarity-mask="True">
-              <p id="f-domain-hint" class="hint">If you have one, write the name. Otherwise choose “No, help me choose.”</p>
-            </div>
-          </div>
-          <fieldset class="choices">
-            <legend>Domain and hosting already in place? <span class="req" aria-hidden="true">*</span></legend>
-            <div class="choice-list">
-              <label class="choice"><input type="radio" name="Domain and hosting already in place" value="Yes" required aria-required="true" data-clarity-mask="True"> <span>Yes</span></label>
-              <label class="choice"><input type="radio" name="Domain and hosting already in place" value="No" required aria-required="true" data-clarity-mask="True"> <span>No</span></label>
-            </div>
-            <p class="hint">Yes only if both the domain and the hosting are already set up.</p>
-            <p class="field-error">Please choose yes or no.</p>
-          </fieldset>
-          <fieldset class="choices" data-required-group>
-            <legend>What do you need? <span class="req" aria-hidden="true">*</span></legend>
-            <div class="choice-list js-checks">
-              <label class="choice"><input type="checkbox" name="Need: New website" value="Yes" disabled data-clarity-mask="True"> <span>New website</span></label>
-              <label class="choice"><input type="checkbox" name="Need: Redesign" value="Yes" disabled data-clarity-mask="True"> <span>Redesign</span></label>
-              <label class="choice"><input type="checkbox" name="Need: Contact form" value="Yes" disabled data-clarity-mask="True"> <span>Contact form</span></label>
-              <label class="choice"><input type="checkbox" name="Need: Domain and hosting help" value="Yes" disabled data-clarity-mask="True"> <span>Domain and hosting help</span></label>
-              <label class="choice"><input type="checkbox" name="Need: Ongoing updates" value="Yes" disabled data-clarity-mask="True"> <span>Ongoing updates</span></label>
-            </div>
-            <div class="field no-js-fallback">
-              <label for="f-need-fallback">Choose at least one</label>
-              <select id="f-need-fallback" name="What you need" required multiple data-clarity-mask="True">
-                <option>New website</option>
-                <option>Redesign</option>
-                <option>Contact form</option>
-                <option>Domain and hosting help</option>
-                <option>Ongoing updates</option>
-              </select>
-            </div>
-            <p class="hint js-hint">Choose every item you want. At least one.</p>
-            <p id="f-need-err" class="field-error">Please choose at least one.</p>
-          </fieldset>
-          <fieldset class="choices" data-required-group>
-            <legend>Pages wanted <span class="req" aria-hidden="true">*</span></legend>
-            <div class="choice-list js-checks">
-              <label class="choice"><input type="checkbox" name="Page: Home" value="Yes" disabled data-clarity-mask="True"> <span>Home</span></label>
-              <label class="choice"><input type="checkbox" name="Page: About" value="Yes" disabled data-clarity-mask="True"> <span>About</span></label>
-              <label class="choice"><input type="checkbox" name="Page: Services" value="Yes" disabled data-clarity-mask="True"> <span>Services</span></label>
-              <label class="choice"><input type="checkbox" name="Page: Gallery" value="Yes" disabled data-clarity-mask="True"> <span>Gallery</span></label>
-              <label class="choice"><input type="checkbox" name="Page: Contact" value="Yes" disabled data-clarity-mask="True"> <span>Contact</span></label>
-              <label class="choice"><input type="checkbox" name="Page: Other" value="Yes" disabled data-clarity-mask="True"> <span>Other</span></label>
-            </div>
-            <div class="field no-js-fallback">
-              <label for="f-pages-fallback">Choose at least one</label>
-              <select id="f-pages-fallback" name="Pages wanted" required multiple data-clarity-mask="True">
-                <option>Home</option>
-                <option>About</option>
-                <option>Services</option>
-                <option>Gallery</option>
-                <option>Contact</option>
-                <option>Other</option>
-              </select>
-            </div>
-            <p class="hint js-hint">Choose at least one.</p>
-            <p id="f-pages-err" class="field-error">Please choose at least one.</p>
-            <div class="field">
-              <label for="f-pages-other">Other pages <span class="opt">(optional)</span></label>
-              <input id="f-pages-other" name="Other pages" type="text" maxlength="200" placeholder="Menu, booking, careers" data-clarity-mask="True">
-            </div>
-          </fieldset>
-          <div class="field">
-            <label for="f-assets">Logo, photos and text <span class="opt">(optional)</span></label>
-            <select id="f-assets" name="Logo, photos and text" aria-describedby="f-assets-hint" data-clarity-mask="True">
-              <option value="" selected>Choose one</option>
-              <option>All</option>
-              <option>Some</option>
-              <option>None, please help</option>
-            </select>
-            <p id="f-assets-hint" class="hint">All means the logo, photos, and text are ready.</p>
-          </div>
-          <div class="step-nav">
-            <button type="button" class="btn btn-ghost btn-lg" data-back>Back</button>
-            <button type="button" class="btn btn-primary btn-lg" data-next>Next</button>
-          </div>
-        </fieldset>
-
-        <fieldset class="block" data-title="Send">
-          <legend tabindex="-1">4. Send</legend>
-          <div class="field">
-            <label for="f-likes">Websites you like <span class="opt">(optional)</span></label>
-            <input id="f-likes" name="Websites you like" type="text" autocapitalize="none" spellcheck="false" maxlength="500" placeholder="https://" aria-describedby="f-likes-hint" data-clarity-mask="True">
-            <p id="f-likes-hint" class="hint">Links only. One or more is fine.</p>
-          </div>
-          <div class="field">
-            <label for="f-launch">When to go live <span class="opt">(optional)</span></label>
-            <select id="f-launch" name="When to go live" aria-describedby="f-launch-hint" data-clarity-mask="True">
-              <option value="" selected>Choose one</option>
-              <option>ASAP</option>
-              <option>2-4 weeks</option>
-              <option>No rush</option>
-            </select>
-            <p id="f-launch-hint" class="hint">A preference, not a date we promise.</p>
-          </div>
-          <div class="field">
-            <label for="f-else">Anything else <span class="opt">(optional)</span></label>
-            <textarea id="f-else" name="Anything else" rows="2" maxlength="600" placeholder="Saturday hours, or a page for a second location." data-clarity-mask="True"></textarea>
-          </div>
-          <div class="consent">
-            <input id="f-rights" name="Rights" type="checkbox" value="{{rights_label}}" required aria-required="true" aria-describedby="f-rights-err" data-clarity-mask="True">
-            <label for="f-rights">{{rights_label}}</label>
-            <p id="f-rights-err" class="field-error">Please confirm you own the rights to the texts and images.</p>
-          </div>
-          <div class="consent">
-            <input id="f-consent" name="Agreement" type="checkbox" value="{{consent_label}}" required aria-required="true" aria-describedby="f-consent-err" data-clarity-mask="True">
-            <label for="f-consent">I agree to the <a href="{{terms_url}}">{{terms_label}}</a> and <a href="{{privacy_url}}">{{privacy_label}}</a>.</label>
-            <p id="f-consent-err" class="field-error">Please agree to the Terms of Service and Privacy Policy.</p>
-          </div>
-          <div class="form-submit">
-            <div class="step-nav">
-              <button type="button" class="btn btn-ghost btn-lg" data-back>Back</button>
-            </div>
-            <button class="btn btn-primary btn-lg" type="submit">Send request</button>
-            <p class="form-after">We reply by email, no call needed. Everything we need is in this form.</p>
-          </div>
-        </fieldset>
+        <div class="field">
+          <label for="f-name">Your name <span class="req" aria-hidden="true">*</span></label>
+          <input id="f-name" name="Your name" type="text" required aria-required="true" autocomplete="name" maxlength="200" aria-describedby="f-name-err" data-clarity-mask="True">
+          <p id="f-name-err" class="field-error">Please enter your name.</p>
+        </div>
+        <div class="field">
+          <label for="f-email">Email <span class="req" aria-hidden="true">*</span></label>
+          <input id="f-email" name="Email" type="email" required aria-required="true" autocomplete="email" autocapitalize="none" spellcheck="false" maxlength="200" aria-describedby="f-email-err" data-clarity-mask="True">
+          <p id="f-email-err" class="field-error">Please enter a valid email address.</p>
+        </div>
+        <div class="field">
+          <label for="f-phone">Phone <span class="opt">(optional)</span></label>
+          <input id="f-phone" name="Phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="40" data-clarity-mask="True">
+        </div>
+        <div class="field">
+          <label for="f-business">Business name <span class="req" aria-hidden="true">*</span></label>
+          <input id="f-business" name="Business name" type="text" required aria-required="true" autocomplete="organization" maxlength="200" aria-describedby="f-business-err" data-clarity-mask="True">
+          <p id="f-business-err" class="field-error">Please enter the business name.</p>
+        </div>
+        <div class="field">
+          <label for="f-need">What you need <span class="req" aria-hidden="true">*</span></label>
+          <textarea id="f-need" name="What you need" rows="4" required aria-required="true" maxlength="2000" aria-describedby="f-need-err" data-clarity-mask="True"></textarea>
+          <p id="f-need-err" class="field-error">Please say what you need.</p>
+        </div>
+        <div class="field">
+          <label for="f-site">Current site or domain <span class="opt">(optional)</span></label>
+          <input id="f-site" name="Current site or domain" type="text" autocapitalize="none" spellcheck="false" maxlength="300" placeholder="https://example.com or example.com" data-clarity-mask="True">
+        </div>
+        <div class="consent">
+          <input id="f-consent" name="Agreement" type="checkbox" value="{{consent_label}}" required aria-required="true" aria-describedby="f-consent-err" data-clarity-mask="True">
+          <label for="f-consent">I agree to the <a href="{{terms_url}}">{{terms_label}}</a> and <a href="{{privacy_url}}">{{privacy_label}}</a>.</label>
+          <p id="f-consent-err" class="field-error">Please agree to the Terms of Service and Privacy Policy.</p>
+        </div>
+        <div class="form-submit">
+          <button class="btn btn-primary btn-lg" type="submit">Send request</button>
+          <p class="form-after">We reply by email, no call needed. Everything we need is in this form.</p>
+        </div>
         <p class="hp" aria-hidden="true">
           <label>Leave this field empty<input type="text" name="_honey" tabindex="-1" autocomplete="off" data-clarity-mask="True"></label>
         </p>
@@ -346,14 +168,10 @@
 })();
 </script>
 <script>
-/* Steps are optional. Without JavaScript every block is visible and the form still posts. */
+/* Points the thank-you page at this site and sets the reply address. The form still posts with JavaScript off. */
 (function(){
   var f=document.getElementById("start");
   if(!f)return;
-  var boxes=[].slice.call(f.querySelectorAll(".js-checks input"));
-  var fallbacks=[].slice.call(f.querySelectorAll(".no-js-fallback select"));
-  for(var i=0;i<boxes.length;i++)boxes[i].disabled=false;
-  for(var j=0;j<fallbacks.length;j++)fallbacks[j].disabled=true;
   var next=f.querySelector('input[name="_next"]');
   function pointNext(){
     if(!next)return;
@@ -372,118 +190,11 @@
     }
     reply.value=email.value;
   }
-  function syncConditional(){
-    var site=document.getElementById("f-has-site");
-    var link=document.getElementById("f-website");
-    if(site&&link){
-      var needLink=site.value==="Yes";
-      link.required=needLink;
-      link.setAttribute("aria-required",needLink?"true":"false");
-      if(!needLink)link.setCustomValidity("");
-    }
-    var dom=document.getElementById("f-has-domain");
-    var name=document.getElementById("f-domain-name");
-    if(dom&&name){
-      var needName=dom.value==="Yes";
-      name.required=needName;
-      name.setAttribute("aria-required",needName?"true":"false");
-      if(!needName)name.setCustomValidity("");
-    }
-  }
-  function invalidGroup(scope){
-    var groups=[].slice.call(scope.querySelectorAll("[data-required-group]"));
-    for(var g=0;g<groups.length;g++){
-      var inputs=[].slice.call(groups[g].querySelectorAll(".js-checks input[type=checkbox]"));
-      if(!inputs.length||inputs[0].disabled)continue;
-      var any=false;
-      for(var k=0;k<inputs.length;k++)if(inputs[k].checked)any=true;
-      if(!any){
-        inputs[0].setCustomValidity("Please choose at least one.");
-        return inputs[0];
-      }
-      for(var n=0;n<inputs.length;n++)inputs[n].setCustomValidity("");
-    }
-    return null;
-  }
-  f.addEventListener("change",function(ev){
-    syncConditional();
-    if(ev.target&&ev.target.type==="checkbox"){
-      var group=ev.target.closest("[data-required-group]");
-      if(!group)return;
-      var inputs=[].slice.call(group.querySelectorAll(".js-checks input[type=checkbox]"));
-      for(var c=0;c<inputs.length;c++)inputs[c].setCustomValidity("");
-    }
-  });
-  syncConditional();
-  var blocks=[].slice.call(f.querySelectorAll(":scope > .block"));
-  var stepped=false;
-  function show(n, moveFocus){
-    blocks.forEach(function(b,idx){b.classList.toggle("is-current",idx===n);});
-    var num=f.querySelector("[data-step-num]");
-    var lab=f.querySelector(".step-label");
-    if(num)num.textContent=String(n+1);
-    if(lab)lab.textContent=blocks[n].getAttribute("data-title")||"";
-    if(!moveFocus)return;
-    var legend=blocks[n].querySelector("legend");
-    if(legend)legend.focus();
-  }
-  var revealing=false;
-  f.addEventListener("invalid",function(ev){
-    if(!stepped||revealing)return;
-    revealing=true;
-    setTimeout(function(){revealing=false;},0);
-    var block=ev.target.closest(".block");
-    var idx=blocks.indexOf(block);
-    if(idx>=0)show(idx);
-  },true);
-  f.addEventListener("keydown",function(ev){
-    if(ev.key!=="Enter"||!stepped)return;
-    if(ev.target.tagName==="TEXTAREA")return;
-    var block=ev.target.closest(".block");
-    var idx=blocks.indexOf(block);
-    if(idx<0||idx===blocks.length-1)return;
-    var nbtn=block.querySelector("[data-next]");
-    if(!nbtn)return;
-    ev.preventDefault();
-    nbtn.click();
-  });
-  f.addEventListener("submit",function(ev){
-    syncConditional();
-    var grouped=invalidGroup(f);
-    if(grouped){
-      ev.preventDefault();
-      if(stepped){
-        var block=grouped.closest(".block");
-        var idx=blocks.indexOf(block);
-        if(idx>=0)show(idx);
-      }
-      grouped.reportValidity();
-      return;
-    }
+  pointNext();
+  f.addEventListener("submit",function(){
     pointNext();
     replyTo();
   });
-  if(blocks.length<2)return;
-  pointNext();
-  f.classList.add("is-stepped");
-  stepped=true;
-  blocks.forEach(function(b,idx){
-    var nbtn=b.querySelector("[data-next]");
-    var bbtn=b.querySelector("[data-back]");
-    if(nbtn)nbtn.addEventListener("click",function(){
-      syncConditional();
-      invalidGroup(b);
-      var bad=b.querySelector(":invalid");
-      if(bad){bad.reportValidity();return;}
-      show(idx+1, true);
-      f.scrollIntoView({block:"start"});
-    });
-    if(bbtn)bbtn.addEventListener("click",function(){
-      show(idx-1, true);
-      f.scrollIntoView({block:"start"});
-    });
-  });
-  show(0);
 })();
 </script>
 
