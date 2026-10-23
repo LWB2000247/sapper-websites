@@ -77,7 +77,7 @@
 
     var text = document.createElement("p");
     text.id = "consent-banner-text";
-    text.textContent = "We use Microsoft Clarity to see how visitors use this site (anonymous session recordings, with form fields masked). It sets cookies only if you accept.";
+    text.textContent = "We use Microsoft Clarity to see how visitors use this site. It sets cookies and records anonymised sessions, with form fields masked. You can accept or decline.";
 
     var actions = document.createElement("div");
     actions.className = "consent-actions";
@@ -93,7 +93,7 @@
     decline.textContent = "Decline";
 
     var privacy = document.createElement("a");
-    privacy.href = "privacy.html";
+    privacy.href = "/privacy.html";
     privacy.textContent = "Privacy Policy";
 
     actions.appendChild(accept);
