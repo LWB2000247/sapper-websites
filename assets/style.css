@@ -139,7 +139,18 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 .float-cta{display:none;position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:45;border-radius:999px;min-height:56px;padding:0 32px;font-size:1rem;font-weight:600;white-space:nowrap;box-shadow:0 10px 30px rgba(0,0,0,.28);opacity:1;visibility:visible;transition:opacity .2s ease,visibility 0s linear}
 @media(max-width:45rem){.float-cta{display:inline-flex}body:has(.float-cta) .site-footer{padding-bottom:calc(96px + env(safe-area-inset-bottom))}}
 .float-cta.hide{opacity:0;pointer-events:none;visibility:hidden;transition:opacity .2s ease,visibility 0s linear .2s}
+html.consent-open .float-cta{opacity:0;visibility:hidden;pointer-events:none}
 .site-header:has(.main-nav.is-open)~.float-cta,.site-header:has(.main-nav.is-open)~main~.float-cta,.site-header:has(.main-nav.is-open)~main~footer~.float-cta{visibility:hidden}
+html:not(.js) .cookie-settings{display:none}
+.cookie-settings{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;padding:.5rem .15rem;background:transparent;color:inherit;border:0;cursor:pointer;font:inherit;font-size:14px;text-decoration:underline;text-underline-offset:.15em}
+.cookie-settings:hover{color:var(--sky)}
+.consent-banner{position:fixed;z-index:60;left:0;right:0;bottom:0;margin:0 auto;width:min(100%,40rem);box-sizing:border-box;padding:1rem 1rem calc(1rem + env(safe-area-inset-bottom));background:#fff;color:#0B1220;border:1px solid rgba(11,18,32,.12);border-radius:16px 16px 0 0;box-shadow:0 -8px 32px rgba(11,18,32,.16);max-height:50vh;overflow:auto}
+.consent-banner p{font-size:15px;line-height:1.45;margin:0}
+.consent-actions{display:flex;gap:.5rem;margin-top:.85rem}
+.consent-choice{flex:1 1 0;min-height:44px;min-width:44px;padding:.6rem 1rem;border:1px solid #0B1220;background:#fff;color:#0B1220;border-radius:999px;font:inherit;font-size:1rem;font-weight:600;cursor:pointer;appearance:none}
+.consent-choice:hover{background:#F4F6F9}
+.consent-banner a{display:inline-flex;align-items:center;min-height:44px;min-width:44px;margin-top:.35rem;color:#1D4ED8;font-weight:600;text-decoration:underline;text-underline-offset:.15em}
+@media(min-width:45rem){.consent-banner{left:auto;right:1.25rem;bottom:1.25rem;width:min(32rem,calc(100% - 2.5rem));border-radius:16px;padding:1.15rem}}
 
 .thanks{background:var(--blue);color:#fff;min-height:100vh;display:flex;align-items:center;padding:7rem 0 4rem}
 .thanks-inner{max-width:40rem}
