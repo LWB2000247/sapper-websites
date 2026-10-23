@@ -16,6 +16,10 @@
     return reduce.matches ? "auto" : "smooth";
   }
 
+  function maxLeft() {
+    return Math.max(0, track.scrollWidth - track.clientWidth);
+  }
+
   function index() {
     var best = 0;
     var bestDist = Infinity;
@@ -32,10 +36,16 @@
 
   function go(i) {
     var count = slides.length;
+    var max = maxLeft();
+    if (i >= count) {
+      track.scrollTo({ left: 0, behavior: motion() });
+      return;
+    }
     var n = ((i % count) + count) % count;
-    var current = index();
-    var behavior = Math.abs(n - current) > 1 ? "auto" : motion();
-    track.scrollTo({ left: slides[n].offsetLeft, behavior: behavior });
+    var dest = Math.min(slides[n].offsetLeft, max);
+    var distance = Math.abs(dest - track.scrollLeft);
+    var behavior = distance > slides[0].getBoundingClientRect().width * 1.4 ? "auto" : motion();
+    track.scrollTo({ left: dest, behavior: behavior });
   }
 
   function updateDots() {
@@ -60,12 +70,19 @@
     if (!playing()) return;
     timer = window.setInterval(function () {
       if (!playing()) return;
-      go(index() + 1);
+      var max = maxLeft();
+      if (max < 2) return;
+      if (track.scrollLeft >= max - 2) go(slides.length);
+      else go(index() + 1);
     }, 4000);
   }
 
   if (prev) prev.addEventListener("click", function () { go(index() - 1); start(); });
-  if (next) next.addEventListener("click", function () { go(index() + 1); start(); });
+  if (next) next.addEventListener("click", function () {
+    if (track.scrollLeft >= maxLeft() - 2) go(slides.length);
+    else go(index() + 1);
+    start();
+  });
   dots.forEach(function (dot, n) {
     dot.addEventListener("click", function () { go(n); start(); });
   });
