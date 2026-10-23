@@ -6,11 +6,6 @@ html:has(body.home){scroll-behavior:auto}
 .home{background:#FFFcf8;color:#0B1220;font-family:Inter,system-ui,sans-serif;font-size:18px;line-height:1.5}
 .home .container{max-width:none;padding-inline:clamp(20px,6.67vw,96px)}
 
-.home .site-header{background:#FFFcf8;border-bottom:1px solid rgba(43,34,32,.12)}
-.home .brand{font-family:Archivo,Inter,sans-serif;font-weight:500;font-stretch:125%;font-size:15px;letter-spacing:-.03em}
-.home .main-nav a,.home .nav-toggle{font-size:15px;font-weight:500}
-.home .nav-cta{font-size:15px}
-
 .home .hero,.home .band,.home .contact,.home .site-footer{border-top:1px solid rgba(43,34,32,.12)}
 .home .hero{min-height:100svh;align-items:center;background:#FFFcf8;padding:calc(4.5rem + clamp(28px,5vw,64px)) 0 clamp(64px,8vw,120px)}
 .home .band{background:#FFFcf8;padding-block:clamp(88px,12vw,180px)}
@@ -95,11 +90,8 @@ html:has(body.home){scroll-behavior:auto}
 .home .group-grid{display:block;margin-top:1.5rem}
 .home .group-card{display:grid;grid-template-columns:1fr;gap:.45rem;background:transparent;border:0;border-radius:0;border-top:1px solid rgba(43,34,32,.12);padding:28px 0;min-height:44px}
 .home .group-card:last-child{border-bottom:1px solid rgba(43,34,32,.12)}
-.home .group-card h3{margin:0;font-size:clamp(26px,2.4vw,40px)}
+.home .group-card h3{margin:0;font-size:clamp(26px,2.4vw,40px);overflow-wrap:normal;word-break:normal;hyphens:none}
 .home .group-card p{margin:0}
-@media(min-width:40rem){
-  .home .group-card{grid-template-columns:1fr 2fr;column-gap:clamp(24px,3vw,64px);align-items:baseline}
-}
 
 .home .contact h2{color:#fff}
 .home .contact .muted,.home .contact .hint,.home .contact .form-after,.home .contact .field label,.home .contact .consent label{color:#fff}
@@ -117,7 +109,6 @@ html:has(body.home){scroll-behavior:auto}
 
 .home .consent-banner p{font-size:16px;line-height:1.45}
 .home .float-cta{height:48px;min-height:48px;bottom:calc(32px + env(safe-area-inset-bottom));padding:0 18px 0 6px;gap:8px;background:#0B1220;color:#fff}
-.home .float-cta.blocked{opacity:0;visibility:hidden;pointer-events:none}
 .home .pill-chip{width:36px;height:36px;border-radius:999px;background:#fff;color:#0B1220;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto}
 .home .pill-chip svg{display:block;width:16px;height:16px}
 @media(max-width:45rem){.home .hero{padding-bottom:calc(96px + env(safe-area-inset-bottom))}}
