@@ -15,5 +15,9 @@
  "address_zip": "45661",
  "year": "2026",
  "write_cname": false,
- "form_access_key": "PLACEHOLDER_ACCESS_KEY"
+ "form_email": "info@sappersolution.com",
+ "terms_label": "Terms of Service",
+ "terms_url": "https://sapperadvanced.com/terms",
+ "privacy_label": "Privacy Policy",
+ "privacy_url": "https://sapperadvanced.com/privacy"
 }

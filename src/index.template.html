@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;700;800&amp;family=Inter:wght@400;500;600&amp;family=Cormorant+Garamond:wght@600;700&amp;display=swap">
-<link rel="stylesheet" href="assets/style.css?v=20">
+<link rel="stylesheet" href="assets/style.css?v=23">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","name":"{{brand_name}}","url":"https://{{domain}}/","description":"{{description}}","parentOrganization":{"@type":"Organization","name":"{{legal_name}}","url":"{{parent_site_url}}"},"address":{"@type":"PostalAddress","streetAddress":"{{address_street}}","addressLocality":"{{address_city}}","addressRegion":"{{address_state}}","postalCode":"{{address_zip}}","addressCountry":"US"}}
 </script>
@@ -150,22 +150,66 @@
 
   <section id="contact" class="contact" aria-labelledby="contact-h">
     <div class="contact-grid">
-      <div>
+      <div class="contact-intro">
         <h2 id="contact-h">Let&rsquo;s build<br>yours.</h2>
         <p class="muted">Tell us what you need. We read every message and answer it ourselves.</p>
         <p class="muted small">{{address_name}}, {{address_street}}, {{address_city}}, {{address_state}} {{address_zip}}</p>
       </div>
-      <form id="contact-form" class="form" action="https://api.web3forms.com/submit" method="POST">
-        <input type="hidden" name="access_key" value="{{form_access_key}}">
-        <input type="hidden" name="subject" value="New website inquiry for {{brand_name}}">
-        <input type="hidden" name="from_name" value="{{brand_name}} website">
-        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" style="display:none">
-        <label>Name<input type="text" name="name" required autocomplete="name"></label>
-        <label>Email<input type="email" name="email" required autocomplete="email"></label>
-        <label>Phone (optional)<input type="tel" name="phone" autocomplete="tel"></label>
-        <label>How can we help?<textarea name="message" rows="5" required></textarea></label>
-        <button class="btn btn-primary btn-lg" type="submit">Send Message</button>
-        <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+      <form id="start" class="form" action="https://formsubmit.co/{{form_email}}" method="POST" accept-charset="UTF-8" aria-labelledby="contact-h">
+        <input type="hidden" name="_subject" value="New website request">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="true">
+        <input type="hidden" name="_next" value="https://{{domain}}/thanks.html">
+        <p class="sr-only">Required fields are marked with an asterisk.</p>
+        <div class="form-row">
+          <div class="field">
+            <label for="f-name">Your name <span class="req" aria-hidden="true">*</span></label>
+            <input id="f-name" name="Your name" type="text" required aria-required="true" autocomplete="name" maxlength="200" aria-describedby="f-name-err">
+            <p id="f-name-err" class="field-error">Please enter your name.</p>
+          </div>
+          <div class="field">
+            <label for="f-email">Email <span class="req" aria-hidden="true">*</span></label>
+            <input id="f-email" name="Email" type="email" required aria-required="true" autocomplete="email" autocapitalize="none" spellcheck="false" maxlength="200" aria-describedby="f-email-err">
+            <p id="f-email-err" class="field-error">Please enter a valid email address.</p>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="f-business">Business name <span class="req" aria-hidden="true">*</span></label>
+            <input id="f-business" name="Business name" type="text" required aria-required="true" autocomplete="organization" maxlength="200" aria-describedby="f-business-err">
+            <p id="f-business-err" class="field-error">Please enter your business name.</p>
+          </div>
+          <div class="field">
+            <label for="f-does">What does your business do? <span class="opt">(one sentence)</span> <span class="req" aria-hidden="true">*</span></label>
+            <input id="f-does" name="What does your business do?" type="text" required aria-required="true" maxlength="200" aria-describedby="f-does-err">
+            <p id="f-does-err" class="field-error">Please tell us what your business does.</p>
+          </div>
+        </div>
+        <fieldset class="choices">
+          <legend>What do you need? <span class="req" aria-hidden="true">*</span></legend>
+          <div class="choice-list">
+            <label class="choice"><input type="radio" name="What do you need?" value="New website" required aria-required="true"> <span>New website</span></label>
+            <label class="choice"><input type="radio" name="What do you need?" value="Redesign" required aria-required="true"> <span>Redesign</span></label>
+            <label class="choice"><input type="radio" name="What do you need?" value="Just updates" required aria-required="true"> <span>Just updates</span></label>
+          </div>
+          <p id="f-need-err" class="field-error">Please choose what you need.</p>
+        </fieldset>
+        <div class="field">
+          <label for="f-website">Your current website or domain <span class="opt">(optional)</span></label>
+          <input id="f-website" name="Your current website or domain" type="text" autocomplete="url" autocapitalize="none" spellcheck="false" maxlength="300" placeholder="example.com">
+        </div>
+        <div class="consent">
+          <input id="f-consent" name="Agreement" type="checkbox" value="I agree to the Terms of Service and Privacy Policy." required aria-required="true" aria-describedby="f-consent-err">
+          <label for="f-consent">I agree to the <a href="{{terms_url}}" target="_blank" rel="noopener">{{terms_label}}<span class="sr-only"> (opens in a new tab)</span></a> and <a href="{{privacy_url}}" target="_blank" rel="noopener">{{privacy_label}}<span class="sr-only"> (opens in a new tab)</span></a>.</label>
+          <p id="f-consent-err" class="field-error">Please agree to the Terms of Service and Privacy Policy.</p>
+        </div>
+        <div class="form-submit">
+          <button class="btn btn-primary btn-lg" type="submit">Send request</button>
+          <p class="form-after">Short and simple. We follow up by email with a few questions.</p>
+        </div>
+        <p class="hp" aria-hidden="true">
+          <label>Leave this field empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label>
+        </p>
       </form>
     </div>
   </section>
@@ -196,17 +240,30 @@
 })();
 </script>
 <script>
-document.getElementById("contact-form").addEventListener("submit",function(ev){
-  ev.preventDefault();
-  var f=ev.target,s=document.getElementById("form-status"),b=f.querySelector("button");
-  b.disabled=true;s.textContent="Sending...";
-  fetch(f.action,{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(Object.fromEntries(new FormData(f)))})
-  .then(function(r){return r.json()}).then(function(d){
-    if(d.success){s.textContent="Thank you! We got your message and will get back to you soon.";f.reset();}
-    else{s.textContent="Something went wrong. Please try again in a moment.";}
-    b.disabled=false;
-  }).catch(function(){s.textContent="Something went wrong. Please try again in a moment.";b.disabled=false;});
-});
+/* Do not cancel submit: the POST, captcha and thank-you redirect work with JavaScript off. */
+(function(){
+  var f=document.getElementById("start");
+  if(!f)return;
+  var next=f.querySelector('input[name="_next"]');
+  function pointNext(){
+    if(!next)return;
+    try{next.value=new URL("thanks.html",window.location.href).href;}catch(e){}
+  }
+  pointNext();
+  f.addEventListener("submit",function(){
+    pointNext();
+    var email=f.querySelector('input[type="email"]');
+    if(!email||!email.value)return;
+    var reply=f.querySelector('input[name="_replyto"]');
+    if(!reply){
+      reply=document.createElement("input");
+      reply.type="hidden";
+      reply.name="_replyto";
+      f.appendChild(reply);
+    }
+    reply.value=email.value;
+  });
+})();
 </script>
 </body>
 </html>

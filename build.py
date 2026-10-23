@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Render the static site from site.config.json (the single place to change brand name,
-domain, footer/DBA text, contact details). Usage: python3 build.py
-Writes index.html, sitemap.xml, robots.txt (and CNAME if write_cname is true)."""
+domain, footer/DBA text, contact details, and form_email). Usage: python3 build.py
+Writes index.html, thanks.html, sitemap.xml, robots.txt (and CNAME if write_cname is true).
+thanks.html is the noindex receipt for the request form and is not added to the sitemap."""
 import json, pathlib, urllib.parse, html
 root = pathlib.Path(__file__).parent
 cfg = json.loads((root / "site.config.json").read_text())
@@ -13,7 +14,9 @@ def render(t):
     assert "{{" not in t, "unresolved placeholder"
     return t
 (root / "index.html").write_text(render((root / "src/index.template.html").read_text()))
+(root / "thanks.html").write_text(render((root / "src/thanks.template.html").read_text()))
 d = cfg["domain"]
+# Homepage only. thanks.html is noindex and must stay out of the sitemap.
 (root / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url><loc>https://{d}/</loc></url>\n</urlset>\n')
 (root / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: https://{d}/sitemap.xml\n")
 cname = root / "CNAME"
