@@ -115,3 +115,14 @@ address{margin-top:1.25rem;font-size:.875rem;line-height:1.6}
 .group-list li{border-left:3px solid var(--primary);padding-left:1rem}
 .group-list h3{font-size:.875rem;font-weight:700;color:var(--charcoal)}
 .group-list p{margin-top:.25rem;font-size:.8125rem;line-height:1.55;color:var(--steel)}
+
+/* Contact form */
+.contact-grid{display:grid;gap:1.5rem 3rem}
+@media(min-width:48rem){.contact-grid{grid-template-columns:1fr 1.2fr}}
+.form{display:grid;gap:1rem}
+.form label{display:grid;gap:.35rem;font-size:.875rem;font-weight:600;color:var(--charcoal)}
+.form input,.form textarea{font:inherit;font-weight:400;padding:.65rem .75rem;border:1px solid var(--input);border-radius:6px;background:var(--background);color:var(--foreground)}
+.form input:focus,.form textarea:focus{outline:2px solid var(--ring);outline-offset:1px}
+.form button{justify-self:start;border:0}
+.form button:disabled{opacity:.6;cursor:wait}
+.form-status{font-size:.875rem;color:var(--steel)}
