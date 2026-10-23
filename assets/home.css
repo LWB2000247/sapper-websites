@@ -63,6 +63,22 @@ html:has(body.home){scroll-behavior:auto}
   .home .num-list li{grid-template-columns:1fr 2fr;column-gap:clamp(24px,3vw,64px);align-items:baseline}
 }
 
+.home .work-marquee{overflow:hidden;max-width:100%;min-width:0;margin-top:1.75rem;height:44px}
+.home .work-track{display:flex;align-items:center;width:max-content;height:44px;animation:work-glide 36s linear infinite}
+.home .work-logo-link{display:inline-flex;align-items:center;flex:0 0 auto;height:44px;padding:0 2rem}
+.home .work-logo-link:focus-visible{outline-offset:-2px}
+.home .work-logo-link img{display:block;height:32px;width:auto;max-width:none;object-fit:contain}
+.home .work-marquee:hover .work-track,.home .work-marquee:focus-within .work-track,.home .work-marquee:active .work-track{animation-play-state:paused}
+@media(min-width:40rem){
+  .home .work-marquee,.home .work-track,.home .work-logo-link{height:48px}
+  .home .work-logo-link img{height:40px}
+}
+@keyframes work-glide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){
+  .home .work-marquee{height:auto;overflow:visible}
+  .home .work-track{animation:none;width:auto;max-width:100%;height:auto;flex-wrap:wrap}
+  .home .work-track [aria-hidden="true"]{display:none}
+}
 .home .work-list{margin-top:1.5rem}
 .home .work-list li{display:grid;grid-template-columns:1fr;gap:.35rem;padding:28px 0;border-top:1px solid rgba(43,34,32,.12);align-items:center}
 .home .work-list li:last-child{border-bottom:1px solid rgba(43,34,32,.12)}
@@ -70,12 +86,6 @@ html:has(body.home){scroll-behavior:auto}
 .home .work-list p{margin:0}
 .home .work-list a{display:inline-flex;align-items:center;gap:.45rem;min-height:44px;margin-top:.15rem;color:#1D4ED8;font-size:16px;font-weight:600;text-decoration:underline;text-underline-offset:.15em}
 .home .work-list .arrow{width:18px;height:18px;flex:0 0 auto}
-@media(min-width:40rem){
-  .home .work-list li{grid-template-columns:minmax(0,1fr) auto;column-gap:1.5rem}
-  .home .work-list h3{grid-column:1}
-  .home .work-list p{grid-column:1}
-  .home .work-list a{grid-column:2;grid-row:1/span 2;margin-top:0}
-}
 
 .home .price-card{margin-top:0;width:100%;background:transparent;border-radius:0;padding:0}
 .home .price-lines{display:block}
