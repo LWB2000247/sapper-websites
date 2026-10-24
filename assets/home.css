@@ -70,7 +70,7 @@ html:has(body.home){scroll-behavior:auto}
 .home .work-lockup{--logo-h:36px;display:inline-flex;align-items:center;justify-content:center;gap:.55rem;height:var(--logo-h);max-height:var(--logo-h);overflow:hidden}
 .home .work-lockup img{display:block;height:var(--logo-h);width:auto;max-width:none;min-height:0;flex:0 0 auto;object-fit:contain;object-position:center}
 .home .work-lockup img.logo-sapper{height:calc(var(--logo-h) * 96 / 90)}
-.home .work-lockup img.logo-flavorjay{height:calc(var(--logo-h) * 0.74)}
+.home .work-lockup img.logo-flavorjay{height:var(--logo-h);max-width:calc(var(--logo-h) * 5409 / 917)}
 .home .work-logo-name{font-family:Inter,system-ui,sans-serif;font-size:13px;font-weight:600;line-height:1.2;color:#0B1220;white-space:nowrap}
 @media(min-width:40rem){
   .home .work-logo-link{padding:.25rem 2rem}

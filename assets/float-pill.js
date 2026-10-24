@@ -1,7 +1,9 @@
 /* Phones (<=600px): fixed white bottom strip on the normal document
    scroller. Hidden while the hero or its button is on screen, and hidden
    again over Pricing, the form, and the footer.
-   Wider screens keep the fixed pill. */
+   Wider screens keep the fixed pill. It stays hidden until the hero
+   button has left the viewport, and the existing Pricing, form, and
+   footer hides still apply. Without JavaScript the pill keeps .hide. */
 (function () {
   "use strict";
   var pill = document.querySelector(".float-cta");
@@ -85,6 +87,24 @@
 
   var hero = document.querySelector(".hero");
   var heroCta = document.querySelector(".hero-cta");
+
+  function heroCtaInView() {
+    if (!heroCta) return;
+    var rect = heroCta.getBoundingClientRect();
+    var vh = window.innerHeight || 0;
+    var visible = rect.width > 0 && rect.height > 0 && rect.bottom > 0 && rect.top < vh;
+    bump(wideReasons, "hero-cta", visible);
+  }
+
+  if (heroCta) {
+    var heroCtaObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        bump(wideReasons, "hero-cta", entry.isIntersecting);
+      });
+    }, { root: null, threshold: 0 });
+    heroCtaObserver.observe(heroCta);
+    heroCtaInView();
+  }
 
   function heroBlocksBar() {
     if (!phoneQuery.matches) {
@@ -223,6 +243,7 @@
       ticking = false;
       heroBlocksBar();
       heroOutOfView();
+      heroCtaInView();
       contentUnderPill();
     });
   }
