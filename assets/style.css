@@ -121,8 +121,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 .field-error.is-on,.field input:user-invalid~.field-error,.field textarea:user-invalid~.field-error,.consent input:user-invalid~.field-error{display:block}
 .consent{display:grid;grid-template-columns:24px minmax(0,1fr);column-gap:.75rem;row-gap:.35rem;align-items:center}
 .consent input{width:24px;height:24px;margin:0;accent-color:#fff}
-.consent label{display:block;min-height:44px;padding-block:.25rem;font-size:.95rem;font-weight:500;line-height:1.45}
-.consent a{display:inline-flex;align-items:center;min-height:44px;min-width:44px;padding:.5rem 0;color:#d6e6fc;text-decoration:underline;text-underline-offset:.15em}
+.consent label{display:block;min-height:44px;padding-block:.25rem;font-size:.95rem;font-weight:500;line-height:1.5}
+.consent a{display:inline;padding:0;color:#d6e6fc;line-height:1.5;text-decoration:underline;text-underline-offset:.15em}
 .consent .field-error{grid-column:2}
 .form-submit{display:grid;gap:.55rem}
 .form-after{font-size:.95rem;line-height:1.45}
@@ -141,6 +141,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 .site-footer a:hover{color:var(--sky)}
 .site-footer p+p{margin-top:.1rem}
 .site-footer .joined{white-space:nowrap}
+@media(max-width:600px){
+  .site-footer .joined{display:block;white-space:normal}
+  .site-footer .sep{display:none}
+}
 .float-bar{display:contents}
 .float-cta{display:none;box-sizing:border-box;position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:45;height:52px;min-height:52px;padding:0 24px;gap:8px;align-items:center;justify-content:center;flex-direction:row;border:0;border-radius:999px;background:#0B1220;color:#fff;font-family:Inter,system-ui,sans-serif;font-size:16px;font-weight:600;line-height:1;letter-spacing:0;white-space:nowrap;text-decoration:none;box-shadow:0 6px 16px rgba(11,18,32,.16);opacity:1;visibility:visible;transition:background-color .2s ease,opacity .2s ease,visibility 0s linear}
 .float-cta-label{display:block;margin:0;padding:0;font-size:16px;font-weight:600;line-height:1;letter-spacing:0}
