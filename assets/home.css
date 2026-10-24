@@ -52,7 +52,7 @@ html:has(body.home){scroll-behavior:auto}
 .home .sample-nav,.home .sample-block,.home .sample-lines span,.home .sample-cards i{background:#F2EADB}
 .home .sample-block{flex:1;min-height:72px;height:auto}
 .home .sample-book{align-self:flex-end;display:inline-flex;align-items:center;height:32px;margin-top:.85rem;padding:0 .9rem;border-radius:999px;background:#0B1220;color:#fff;font-family:Inter,system-ui,sans-serif;font-size:13px;font-weight:600;line-height:1}
-.home .sample-cursor{position:absolute;right:2.15rem;bottom:1.7rem;width:16px;height:16px;pointer-events:none}
+.home .sample-cursor{position:absolute;right:.95rem;bottom:.55rem;width:16px;height:16px;pointer-events:none}
 .home .hero-actions{margin-top:2rem}
 .home .hero .btn-primary,.home .band .btn-primary{background:#0B1220;color:#fff}
 .home .hero .btn-primary:hover,.home .band .btn-primary:hover{background:#1D4ED8;color:#fff}
