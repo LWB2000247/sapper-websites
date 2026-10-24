@@ -18,6 +18,12 @@ html:has(body.home){scroll-behavior:auto}
 .home section[aria-labelledby="strengths"]{background:linear-gradient(180deg,#FAF5EC,#FFFcf8 var(--seam))}
 .home section[aria-labelledby="steps"]{background:linear-gradient(180deg,#FFFcf8,#F2EADB var(--seam))}
 .home .contact{background:linear-gradient(180deg,#F2EADB,#FAF5EC var(--seam));color:#0B1220;padding-block:clamp(88px,12vw,180px);color-scheme:light}
+@media(max-width:600px){
+  .home section[aria-labelledby="group"]{padding-bottom:2.75rem}
+  .home section[aria-labelledby="strengths"]{padding-top:2.75rem}
+  .home section[aria-labelledby="steps"]{padding-bottom:2.75rem}
+  .home .contact{padding-top:2.75rem}
+}
 
 .home h1,.home h2,.home h3,.home .price-lines strong,.home .work-list h3,.home .group-card h3{font-family:Archivo,Inter,sans-serif;font-weight:500;font-stretch:125%;letter-spacing:-.04em;line-height:.95;color:#0B1220}
 .home h1{font-size:clamp(40px,5vw,72px)}
@@ -53,6 +59,8 @@ html:has(body.home){scroll-behavior:auto}
   .home .band>.container{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:clamp(40px,4vw,96px);align-items:start}
   .home .band>.container>.kicker{grid-column:1;grid-row:1}
   .home .band>.container>h2{grid-column:1;grid-row:2;margin-top:.35rem}
+  .home .band-head{grid-column:1;grid-row:1;align-self:start}
+  .home .band-head h2{margin-top:0}
   .home .home-copy{grid-column:2;grid-row:1/span 2}
   .home .contact-grid{width:100%;max-width:none;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:clamp(40px,4vw,96px)}
   .home .contact h2{white-space:normal}
@@ -66,7 +74,7 @@ html:has(body.home){scroll-behavior:auto}
 .home .num-list h3{font-size:clamp(26px,2.2vw,36px);margin:0}
 .home .num-list p{margin:0;max-width:none}
 @media(min-width:40rem){
-  .home .num-list li{grid-template-columns:1fr 2fr;column-gap:clamp(24px,3vw,64px);align-items:baseline}
+  .home .num-list li{grid-template-columns:minmax(13.5rem,1.35fr) minmax(0,1fr);column-gap:clamp(20px,2.4vw,40px);align-items:baseline}
 }
 
 .home .work-marquee{overflow:hidden;min-width:0;max-width:100%;margin-top:1.75rem;contain:paint;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
@@ -104,10 +112,16 @@ html:has(body.home){scroll-behavior:auto}
 }
 
 .home .price-card{margin-top:0;width:100%;background:transparent;border-radius:0;padding:0}
+@media(max-width:59.99rem){
+  .home .price-lines{margin-top:1.5rem}
+}
 .home .price-lines{display:block}
 .home .price-lines li{padding:28px 0;border-top:1px solid rgba(43,34,32,.12)}
 .home .price-lines li:last-child{border-bottom:1px solid rgba(43,34,32,.12)}
 .home .price-lines strong{display:block;margin:0 0 .7rem;font-size:clamp(36px,4vw,64px)}
+@media(min-width:60rem){
+  .home .price-lines strong{font-size:clamp(24px,1.8vw,28px)}
+}
 .home .price-card .btn{margin-top:1.75rem}
 .home .price-note{margin-top:1.25rem;font-size:16px;line-height:1.5}
 
@@ -183,6 +197,11 @@ html.js-motion .home .num-list > li.rise.is-in:nth-child(4),
 html.js-motion .home .work-list > li.rise.is-in:nth-child(4),
 html.js-motion .home .group-card.rise.is-in:nth-child(4){transition-delay:.3s}
 html.js-motion .home .num-list > li.rise.is-in:nth-child(5){transition-delay:.4s}
+html.js-motion .home .site-footer .rise.is-in:nth-child(2){transition-delay:.06s}
+html.js-motion .home .site-footer .rise.is-in:nth-child(3){transition-delay:.12s}
+html.js-motion .home .site-footer .rise.is-in:nth-child(4){transition-delay:.18s}
+html.js-motion .home .site-footer .rise.is-in:nth-child(5){transition-delay:.24s}
+html.js-motion .home .site-footer .rise.is-in:nth-child(6){transition-delay:.3s}
 
 @media(prefers-reduced-motion:no-preference){
   .home .hero::before,.home .hero::after{content:"";position:absolute;z-index:0;pointer-events:none;border-radius:50%;filter:blur(2px)}
@@ -199,9 +218,6 @@ html.js-motion .home .num-list > li.rise.is-in:nth-child(5){transition-delay:.4s
   html.js-motion .home .work-list > li.rise.is-in:hover,
   html.js-motion .home .price-lines > li.rise.is-in:hover,
   html.js-motion .home .group-card.rise.is-in:hover{transform:translateY(-4px);transition-delay:0s}
-  .home .quiet-link,.home .group-source a,.home .work-list a{position:relative;text-decoration:none}
-  .home .quiet-link::after,.home .group-source a::after,.home .work-list a::after{content:"";position:absolute;left:0;right:0;bottom:.55em;height:1px;background:currentColor;transform:scaleX(1);transform-origin:left center;transition:transform .35s ease;pointer-events:none}
-  .home .quiet-link:hover::after,.home .group-source a:hover::after,.home .work-list a:hover::after{transform:scaleX(0);transform-origin:right center}
 }
 @media(min-width:601px) and (prefers-reduced-motion:no-preference){
   .home .float-cta{transition:background-color .2s ease,opacity .2s ease,visibility 0s linear,transform .2s ease}
@@ -215,6 +231,7 @@ html.js-motion .home .num-list > li.rise.is-in:nth-child(5){transition-delay:.4s
   body.home .float-bar .float-cta:hover{transform:translateY(-2px)}
   html.consent-open body.home .float-bar,body.home:has(.main-nav.is-open) .float-bar{display:none;transform:none}
 }
+@keyframes step-pop{from{transform:scale(.84)}to{transform:scale(1)}}
 @keyframes hero-drift{from{transform:translate3d(0,0,0)}to{transform:translate3d(28px,-18px,0)}}
 @keyframes example-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 @keyframes line-mask{from{transform:translateY(110%)}to{transform:translateY(0)}}
@@ -262,12 +279,14 @@ html.js-motion .home .hero::after,
 html.js-motion .home .example{animation:none}
 html.js-motion .home .hero::before{transform:translate3d(calc(var(--hero-p,0) * 40px),calc(var(--hero-p,0) * -22px),0)}
 html.js-motion .home .hero::after{transform:translate3d(calc(var(--hero-p,0) * -26px),calc(var(--hero-p,0) * 18px),0)}
-html.js-motion .home .example{transform:translate3d(0,calc(var(--hero-p,0) * -36px),0) scale(calc(1.08 - var(--hero-p,0) * .08))}
+html.js-motion .home .example{transform:translate3d(0,calc(var(--hero-p,0) * -28px),0) scale(1)}
+html.js-motion .home .price-card,
+html.js-motion .home .group-grid{transform:translate3d(0,calc((.5 - var(--p,.5)) * 16px),0)}
 html.js-motion.view-on .home .work-marquee{animation-name:zoom-settle;animation-duration:1s;animation-timing-function:linear;animation-fill-mode:both;animation-timeline:view();animation-range:cover 0% cover 70%}
 html.js-motion:not(.view-on) .home .work-marquee{transform:translate3d(0,calc((1 - var(--p,0)) * 16px - var(--p,0) * 8px),0) scale(calc(1.08 - var(--p,0) * .08))}
 
 @media(min-width:64rem) and (prefers-reduced-motion:no-preference){
-  html.js-motion .home .steps-scene .steps>li{min-height:62vh;box-sizing:border-box}
+  html.js-motion .home .steps-scene .steps>li{min-height:30vh;box-sizing:border-box}
   html.js-motion .home .steps-pin{position:sticky;top:5.5rem}
   html.js-motion .home .steps{--step:0;position:relative;padding-left:1.35rem}
   html.js-motion .home .steps::before,
@@ -282,11 +301,18 @@ html.js-motion:not(.view-on) .home .work-marquee{transform:translate3d(0,calc((1
   html.js-motion .home .steps[data-step="0"]>li:nth-child(1)>div>span,
   html.js-motion .home .steps[data-step="1"]>li:nth-child(-n+2)>div>span,
   html.js-motion .home .steps[data-step="2"]>li>div>span{color:#1D4ED8}
+  html.js-motion .home .steps>li>div>span{display:inline-block;transform-origin:left center}
+  html.js-motion .home .steps>li.is-live>div>span{animation:step-pop .5s cubic-bezier(.16,.84,.32,1)}
   html.js-motion.motion-settled .home .steps>li{opacity:1;transform:none}
   html.js-motion.motion-settled .home .steps>li>div>span{color:#1D4ED8}
   html.js-motion.motion-settled .home .steps::after{transform:scaleY(1)}
 }
 
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .home .quiet-link,.home .group-source a,.home .work-notes a,.home .site-footer a{position:relative;text-decoration:none}
+  .home .quiet-link::after,.home .group-source a::after,.home .work-notes a::after,.home .site-footer a::after{content:"";position:absolute;left:.15rem;right:.15rem;bottom:.55em;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left center;transition:transform .35s ease;pointer-events:none}
+  .home .quiet-link:hover::after,.home .group-source a:hover::after,.home .work-notes a:hover::after,.home .site-footer a:hover::after,.home .quiet-link:focus-visible::after,.home .group-source a:focus-visible::after,.home .work-notes a:focus-visible::after,.home .site-footer a:focus-visible::after{transform:scaleX(1)}
+}
 @media(hover:hover) and (pointer:fine){
   html.js-glide .home .work-marquee:hover .work-track{animation-play-state:running}
   html.js-glide .home .work-marquee:focus-within .work-track,
@@ -302,6 +328,6 @@ html.js-magnet .home .btn,html.js-magnet .home .nav-cta{transition:transform .18
 }
 
 @media(prefers-reduced-motion:reduce){
-  .home .steps>li,.home h2 .wi,.home .example,.home .work-marquee,.home .hero::before,.home .hero::after{animation:none;transform:none;opacity:1}
+  .home .steps>li,.home .steps>li>div>span,.home h2 .wi,.home .example,.home .work-marquee,.home .hero::before,.home .hero::after,.home .price-card,.home .group-grid{animation:none;transform:none;opacity:1}
   .home .scroll-progress{display:none}
 }

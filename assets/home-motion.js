@@ -69,7 +69,9 @@
     "main .price-lines > li",
     "main .group-card",
     "main .price-note",
-    "main .group-source"
+    "main .group-source",
+    "main .contact-form",
+    "footer.site-footer .container > p"
   ].join(",");
   var nodes = document.querySelectorAll(selector);
   var fold = window.innerHeight || 0;
@@ -114,7 +116,53 @@
   var hero = document.querySelector(".hero");
   var scene = document.querySelector(".steps-scene");
   var steps = scene ? scene.querySelector(".steps") : null;
-  var parallax = hasView ? [] : document.querySelectorAll(".work-marquee");
+  var parallax = document.querySelectorAll(".work-marquee, .price-card, .group-grid");
+  var lastScroll = window.scrollY || root.scrollTop || 0;
+  var scrollSpeed = 0;
+  var marqueeRate = 1;
+  var marqueeTarget = 1;
+  var marqueeHover = false;
+  var rateLoop = false;
+  var track = document.querySelector(".work-track");
+  function setRate(value) {
+    if (!track || !track.getAnimations) return;
+    var anims = track.getAnimations();
+    var n;
+    for (n = 0; n < anims.length; n++) anims[n].playbackRate = value;
+  }
+  function easeRate() {
+    if (!alive) { rateLoop = false; return; }
+    scrollSpeed *= 0.9;
+    if (!marqueeHover) {
+      var extra = scrollSpeed / 36;
+      if (extra > 0.6) extra = 0.6;
+      marqueeTarget = 1 + extra;
+    }
+    marqueeRate += (marqueeTarget - marqueeRate) * 0.12;
+    if (marqueeRate < 0.35) marqueeRate = 0.35;
+    if (marqueeRate > 1.6) marqueeRate = 1.6;
+    setRate(marqueeRate);
+    if (scrollSpeed > 0.35 || Math.abs(marqueeRate - marqueeTarget) > 0.02 || marqueeHover) {
+      window.requestAnimationFrame(easeRate);
+    } else {
+      rateLoop = false;
+      marqueeRate = 1;
+      setRate(1);
+    }
+  }
+  function kickRate() {
+    if (rateLoop) return;
+    rateLoop = true;
+    window.requestAnimationFrame(easeRate);
+  }
+  function revealReached(vh) {
+    var n;
+    for (n = 0; n < below.length; n++) {
+      var item = below[n];
+      if (item.classList.contains("is-in")) continue;
+      if (item.getBoundingClientRect().top < vh) show(item);
+    }
+  }
   var bar = document.createElement("div");
   bar.className = "scroll-progress";
   bar.setAttribute("aria-hidden", "true");
@@ -161,9 +209,37 @@
       if (idx > count - 1) idx = count - 1;
       if (sp > 0.97) idx = count - 1;
       if (steps.getAttribute("data-step") !== String(idx)) steps.setAttribute("data-step", String(idx));
+      var active = steps.children[idx];
+      var seen = false;
+      if (active) {
+        var ar = active.getBoundingClientRect();
+        seen = ar.top < vh * 0.92 && ar.bottom > 0;
+      }
+      var c;
+      for (c = 0; c < steps.children.length; c++) {
+        var step = steps.children[c];
+        if (step === active && seen) {
+          if (!step.classList.contains("is-live")) step.classList.add("is-live");
+        } else if (step.classList.contains("is-live")) {
+          step.classList.remove("is-live");
+        }
+      }
+    }
+
+    var dy = Math.abs(y - lastScroll);
+    lastScroll = y;
+    if (dy > 0.5) {
+      scrollSpeed = scrollSpeed * 0.65 + dy * 0.35;
+      if (!marqueeHover) {
+        var extraNow = scrollSpeed / 36;
+        if (extraNow > 0.6) extraNow = 0.6;
+        marqueeTarget = 1 + extraNow;
+      }
+      kickRate();
     }
 
     revealHeadings(vh);
+    revealReached(vh);
   }
   function onScroll() {
     if (!alive || ticking) return;
@@ -189,22 +265,6 @@
     window.clearTimeout(resizeTimer);
     resizeTimer = window.setTimeout(regroup, 120);
   }, { passive: true });
-
-  window.setTimeout(function () {
-    if (!alive) return;
-    var height = window.innerHeight || 0;
-    for (i = 0; i < below.length; i++) {
-      var item = below[i];
-      if (item.classList.contains("is-in")) continue;
-      var rect = item.getBoundingClientRect();
-      if (rect.top < height && rect.bottom > 0) show(item);
-    }
-  }, 1000);
-  window.setTimeout(function () {
-    if (!alive) return;
-    root.classList.add("motion-settled");
-    showAll();
-  }, 8000);
 
   if (fine.matches) {
     root.classList.add("js-glide");
@@ -245,18 +305,18 @@
     }
 
     var marquee = document.querySelector(".work-marquee");
-    var track = document.querySelector(".work-track");
     if (marquee && track && track.getAnimations) {
-      function rate(value) {
-        var anims = track.getAnimations();
-        var n;
-        for (n = 0; n < anims.length; n++) anims[n].playbackRate = value;
-      }
       marquee.addEventListener("pointerenter", function (event) {
         if (event.pointerType && event.pointerType !== "mouse") return;
-        rate(0.35);
+        marqueeHover = true;
+        marqueeTarget = 0.35;
+        kickRate();
       });
-      marquee.addEventListener("pointerleave", function () { rate(1); });
+      marquee.addEventListener("pointerleave", function () {
+        marqueeHover = false;
+        marqueeTarget = 1;
+        kickRate();
+      });
     }
   }
 
