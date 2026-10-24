@@ -44,13 +44,13 @@ html:has(body.home){scroll-behavior:auto}
   .home .example{order:1}
   .home .proof{order:2}
 }
-.home .browser{width:100%;aspect-ratio:5/4;display:flex;flex-direction:column;background:#FFFcf8;border:1px solid rgba(43,34,32,.12);border-radius:20px;box-shadow:none}
+.home .browser{width:100%;aspect-ratio:auto;height:auto;min-height:18rem;display:flex;flex-direction:column;background:#FFFcf8;border:1px solid rgba(43,34,32,.12);border-radius:20px;box-shadow:none}
 .home .browser-bar{background:#F2EADB;color:#6B605C;font-size:16px;font-weight:600;padding:.85rem 1rem}
 .home .browser-bar i{background:#6B605C}
-.home .sample{flex:1;display:flex;flex-direction:column;background:#FFFcf8;padding:1.25rem}
+.home .sample{flex:none;display:flex;flex-direction:column;background:#FFFcf8;padding:1.25rem}
 .home .sample{position:relative}
 .home .sample-nav,.home .sample-block,.home .sample-lines span,.home .sample-cards i{background:#F2EADB}
-.home .sample-block{flex:1;min-height:72px;height:auto}
+.home .sample-block{flex:none;min-height:72px;height:72px}
 .home .sample-book{align-self:flex-end;display:inline-flex;align-items:center;height:32px;margin-top:.85rem;padding:0 .9rem;border-radius:999px;background:#0B1220;color:#fff;font-family:Inter,system-ui,sans-serif;font-size:13px;font-weight:600;line-height:1}
 .home .sample-cursor{position:absolute;right:.95rem;bottom:.55rem;width:16px;height:16px;pointer-events:none}
 .home .hero-actions{margin-top:2rem}
