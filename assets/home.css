@@ -6,12 +6,18 @@ html:has(body.home){scroll-behavior:auto}
 .home{background:#FFFcf8;color:#0B1220;font-family:Inter,system-ui,sans-serif;font-size:18px;line-height:1.5}
 .home .container{max-width:none;padding-inline:clamp(20px,6.67vw,96px)}
 
-.home .hero,.home .band,.home .contact,.home .site-footer{border-top:1px solid rgba(43,34,32,.12)}
+.home{--seam:clamp(72px,9vw,140px)}
+.home .hero,.home .band,.home .contact,.home .site-footer{border-top:0}
 .home .hero{min-height:100svh;align-items:center;background:#FFFcf8;padding:calc(4.5rem + clamp(28px,5vw,64px)) 0 clamp(64px,8vw,120px)}
 .home .band{background:#FFFcf8;padding-block:clamp(88px,12vw,180px)}
-.home section[aria-labelledby="about"],.home section[aria-labelledby="group"]{background:#FAF5EC}
-.home section[aria-labelledby="work"],.home section[aria-labelledby="steps"]{background:#F2EADB}
-.home .contact{background:#FAF5EC;color:#0B1220;padding-block:clamp(88px,12vw,180px);color-scheme:light}
+.home section[aria-labelledby="about"]{background:linear-gradient(180deg,#FFFcf8,#FAF5EC var(--seam))}
+.home section[aria-labelledby="services"]{background:linear-gradient(180deg,#FAF5EC,#FFFcf8 var(--seam))}
+.home section[aria-labelledby="work"]{background:linear-gradient(180deg,#FFFcf8,#F2EADB var(--seam))}
+.home section[aria-labelledby="pricing"]{background:linear-gradient(180deg,#F2EADB 0,#1A1412 var(--seam),#1A1412 calc(100% - var(--seam)),#FAF5EC 100%);color:#F6EFE6}
+.home section[aria-labelledby="group"]{background:#FAF5EC}
+.home section[aria-labelledby="strengths"]{background:linear-gradient(180deg,#FAF5EC,#FFFcf8 var(--seam))}
+.home section[aria-labelledby="steps"]{background:linear-gradient(180deg,#FFFcf8,#F2EADB var(--seam))}
+.home .contact{background:linear-gradient(180deg,#F2EADB,#FAF5EC var(--seam));color:#0B1220;padding-block:clamp(88px,12vw,180px);color-scheme:light}
 
 .home h1,.home h2,.home h3,.home .price-lines strong,.home .work-list h3,.home .group-card h3{font-family:Archivo,Inter,sans-serif;font-weight:500;font-stretch:125%;letter-spacing:-.04em;line-height:.95;color:#0B1220}
 .home h1{font-size:clamp(40px,5vw,72px)}
@@ -150,7 +156,7 @@ html:has(body.home){scroll-behavior:auto}
 .home .contact :focus-visible{outline:2px solid #1D4ED8;outline-offset:3px}
 .home .contact .field input:-webkit-autofill,.home .contact .field textarea:-webkit-autofill{-webkit-text-fill-color:#0B1220;caret-color:#0B1220;box-shadow:0 0 0 1000px #fff inset}
 
-.home .site-footer{background:#0B1220;color:#F2EADB;font-size:16px;padding-top:clamp(88px,12vw,140px)}
+.home .site-footer{background:linear-gradient(180deg,#FAF5EC 0,#0B1220 calc(clamp(88px,12vw,140px) - 16px),#0B1220 100%);color:#F2EADB;font-size:16px;padding-top:clamp(88px,12vw,140px)}
 .home .site-footer a,.home .cookie-settings{font-size:14px;color:#fff}
 .home .site-footer a:hover,.home .cookie-settings:hover{color:#F2EADB}
 @media(min-width:45.01rem){.home .site-footer{padding-bottom:clamp(88px,12vw,140px)}}
@@ -163,40 +169,31 @@ html:has(body.home){scroll-behavior:auto}
 .home .hero .container{position:relative;z-index:1}
 .home .hero h1,.home .hero h1 span,.home .brand img{animation:none;opacity:1;transform:none}
 
-html.js-motion .home .rise{opacity:0;transform:translateY(12px)}
-html.js-motion .home .rise.is-in{opacity:1;transform:none;transition:opacity .5s ease,transform .5s ease}
+html.js-motion .home .rise{opacity:0;transform:translateY(16px)}
+html.js-motion .home .rise.is-in{opacity:1;transform:none;transition:opacity 1s cubic-bezier(.16,.84,.32,1),transform 1.05s cubic-bezier(.16,.84,.32,1)}
 html.js-motion .home .num-list > li.rise.is-in:nth-child(2),
 html.js-motion .home .work-list > li.rise.is-in:nth-child(2),
 html.js-motion .home .price-lines > li.rise.is-in:nth-child(2),
-html.js-motion .home .group-card.rise.is-in:nth-child(2){transition-delay:.08s}
+html.js-motion .home .group-card.rise.is-in:nth-child(2){transition-delay:.1s}
 html.js-motion .home .num-list > li.rise.is-in:nth-child(3),
 html.js-motion .home .work-list > li.rise.is-in:nth-child(3),
 html.js-motion .home .price-lines > li.rise.is-in:nth-child(3),
-html.js-motion .home .group-card.rise.is-in:nth-child(3){transition-delay:.16s}
+html.js-motion .home .group-card.rise.is-in:nth-child(3){transition-delay:.2s}
 html.js-motion .home .num-list > li.rise.is-in:nth-child(4),
 html.js-motion .home .work-list > li.rise.is-in:nth-child(4),
-html.js-motion .home .group-card.rise.is-in:nth-child(4){transition-delay:.24s}
-html.js-motion .home .num-list > li.rise.is-in:nth-child(5){transition-delay:.32s}
+html.js-motion .home .group-card.rise.is-in:nth-child(4){transition-delay:.3s}
+html.js-motion .home .num-list > li.rise.is-in:nth-child(5){transition-delay:.4s}
 
 @media(prefers-reduced-motion:no-preference){
   .home .hero::before,.home .hero::after{content:"";position:absolute;z-index:0;pointer-events:none;border-radius:50%;filter:blur(2px)}
   .home .hero::before{width:min(46vw,520px);height:min(46vw,520px);left:-12%;top:12%;background:radial-gradient(circle,rgba(242,234,219,.9),rgba(242,234,219,0) 70%);animation:hero-drift 22s ease-in-out infinite alternate}
   .home .hero::after{width:min(38vw,440px);height:min(38vw,440px);right:-10%;bottom:6%;background:radial-gradient(circle,rgba(29,78,216,.12),rgba(29,78,216,0) 68%);animation:hero-drift 28s ease-in-out infinite alternate-reverse}
   .home .example{animation:example-float 7.5s ease-in-out infinite}
-  .home .browser-bar i,.home .sample-nav,.home .sample-block,.home .sample-lines span,.home .sample-cards i{animation:piece-in .5s ease both}
-  .home .sample-nav{animation-delay:.08s}
-  .home .sample-block{animation-delay:.16s}
-  .home .sample-lines span:nth-child(1){animation-delay:.24s}
-  .home .sample-lines span:nth-child(2){animation-delay:.32s}
-  .home .sample-lines span:nth-child(3){animation-delay:.4s}
-  .home .sample-cards i:nth-child(1){animation-delay:.36s}
-  .home .sample-cards i:nth-child(2){animation-delay:.44s}
-  .home .sample-cards i:nth-child(3){animation-delay:.52s}
   .home .hero .btn,.home .band .btn,.home .nav-cta,.home .float-cta-icon,.home .work-list a .arrow{transition:transform .2s ease}
   .home .hero .btn:hover,.home .band .btn:hover,.home .nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(11,18,32,.14)}
   .home .float-cta:hover .float-cta-icon,.home .work-list a:hover .arrow{transform:translateX(4px)}
-  .home .num-list > li,.home .work-list > li,.home .price-lines > li,.home .group-card{transition:transform .2s ease}
-  .home .num-list > li:hover,.home .work-list > li:hover,.home .price-lines > li:hover,.home .group-card:hover{transform:translateY(-4px)}
+  .home .num-list:not(.steps) > li,.home .work-list > li,.home .price-lines > li,.home .group-card{transition:transform .2s ease}
+  .home .num-list:not(.steps) > li:hover,.home .work-list > li:hover,.home .price-lines > li:hover,.home .group-card:hover{transform:translateY(-4px)}
   html.js-motion .home .rise.is-in:hover{transition-delay:0s}
   html.js-motion .home .num-list > li.rise.is-in:hover,
   html.js-motion .home .work-list > li.rise.is-in:hover,
@@ -220,4 +217,91 @@ html.js-motion .home .num-list > li.rise.is-in:nth-child(5){transition-delay:.32
 }
 @keyframes hero-drift{from{transform:translate3d(0,0,0)}to{transform:translate3d(28px,-18px,0)}}
 @keyframes example-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-@keyframes piece-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes line-mask{from{transform:translateY(110%)}to{transform:translateY(0)}}
+@keyframes reveal-num{from{--reveal:0}to{--reveal:1}}
+@keyframes zoom-settle{from{transform:translate3d(0,18px,0) scale(1.08)}to{transform:translate3d(0,-12px,0) scale(1)}}
+@property --reveal{syntax:"<number>";inherits:true;initial-value:1}
+
+/* Pricing sits in a dark chapter. The form section and its controls stay paper. */
+.home section[aria-labelledby="pricing"] .kicker{color:#D9CFC6}
+.home section[aria-labelledby="pricing"] h2,
+.home section[aria-labelledby="pricing"] .price-lines strong{color:#F6EFE6}
+.home section[aria-labelledby="pricing"] .price-lines li,
+.home section[aria-labelledby="pricing"] .price-note{color:#E7DCD2}
+.home section[aria-labelledby="pricing"] .price-lines li{border-color:rgba(246,239,230,.22)}
+.home section[aria-labelledby="pricing"] .btn-primary{background:#F6EFE6;color:#0B1220}
+.home section[aria-labelledby="pricing"] .btn-primary:hover{background:#1D4ED8;color:#fff}
+.home section[aria-labelledby="pricing"] .btn-primary:active{background:#1E3A8A;color:#fff}
+
+.home .scroll-progress{position:fixed;left:0;top:0;z-index:80;width:100%;height:2px;background:#1D4ED8;transform:scaleX(var(--scroll,0));transform-origin:0 50%;opacity:0;pointer-events:none}
+html.js-motion .home .scroll-progress{opacity:.95}
+
+@media(min-width:60rem){
+  .home .steps-scene>.container>.steps-pin{grid-column:1;grid-row:1/span 2;align-self:start}
+}
+.home .steps>li>div>span{color:#1D4ED8;font-weight:700;font-size:16px;font-variant-numeric:tabular-nums;letter-spacing:.04em}
+
+html.js-motion .home h2 .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding:.06em 0 .22em;margin:-.06em 0 -.22em}
+html.js-motion .home h2 .wi{display:block}
+html.js-motion .home h2 .wi[data-line="0"]{--i:0}
+html.js-motion .home h2 .wi[data-line="1"]{--i:1}
+html.js-motion .home h2 .wi[data-line="2"]{--i:2}
+html.js-motion .home h2 .wi[data-line="3"]{--i:3}
+html.js-motion .home h2 .wi[data-line="4"]{--i:4}
+html.js-motion .home h2 .wi[data-line="5"]{--i:5}
+html.js-motion .home h2 .wi[data-line="6"]{--i:6}
+html.js-motion .home h2 .wi[data-line="7"]{--i:7}
+html.js-motion.view-on .home h2{animation-name:reveal-num;animation-duration:1s;animation-timing-function:linear;animation-fill-mode:both;animation-timeline:view();animation-range:cover 0% cover 34%}
+html.js-motion .home h2 .wi{transform:translateY(calc((1 - clamp(0,(var(--reveal,1) - var(--i,0) * .08) / .62,1)) * 110%))}
+html.js-motion.motion-settled .home h2{animation:none}
+html.js-motion.motion-settled .home h2 .wi{animation:none;transform:none;transition:none}
+html.js-motion.motion-settled .home .rise{opacity:1;transform:none}
+
+html.js-motion .home .hero::before,
+html.js-motion .home .hero::after,
+html.js-motion .home .example{animation:none}
+html.js-motion .home .hero::before{transform:translate3d(calc(var(--hero-p,0) * 40px),calc(var(--hero-p,0) * -22px),0)}
+html.js-motion .home .hero::after{transform:translate3d(calc(var(--hero-p,0) * -26px),calc(var(--hero-p,0) * 18px),0)}
+html.js-motion .home .example{transform:translate3d(0,calc(var(--hero-p,0) * -36px),0) scale(calc(1.08 - var(--hero-p,0) * .08))}
+html.js-motion.view-on .home .work-marquee{animation-name:zoom-settle;animation-duration:1s;animation-timing-function:linear;animation-fill-mode:both;animation-timeline:view();animation-range:cover 0% cover 70%}
+html.js-motion:not(.view-on) .home .work-marquee{transform:translate3d(0,calc((1 - var(--p,0)) * 16px - var(--p,0) * 8px),0) scale(calc(1.08 - var(--p,0) * .08))}
+
+@media(min-width:64rem) and (prefers-reduced-motion:no-preference){
+  html.js-motion .home .steps-scene .steps>li{min-height:62vh;box-sizing:border-box}
+  html.js-motion .home .steps-pin{position:sticky;top:5.5rem}
+  html.js-motion .home .steps{--step:0;position:relative;padding-left:1.35rem}
+  html.js-motion .home .steps::before,
+  html.js-motion .home .steps::after{content:"";position:absolute;left:0;top:.35rem;bottom:.35rem;width:2px;pointer-events:none}
+  html.js-motion .home .steps::before{background:rgba(43,34,32,.16)}
+  html.js-motion .home .steps::after{background:#1D4ED8;transform:scaleY(var(--step));transform-origin:top center}
+  html.js-motion .home .steps>li{opacity:.62;transform:translateY(12px);transition:opacity .7s cubic-bezier(.16,.84,.32,1),transform .7s cubic-bezier(.16,.84,.32,1)}
+  html.js-motion .home .steps>li>div>span{color:rgba(29,78,216,.35)}
+  html.js-motion .home .steps[data-step="0"]>li:nth-child(1),
+  html.js-motion .home .steps[data-step="1"]>li:nth-child(-n+2),
+  html.js-motion .home .steps[data-step="2"]>li{opacity:1;transform:none}
+  html.js-motion .home .steps[data-step="0"]>li:nth-child(1)>div>span,
+  html.js-motion .home .steps[data-step="1"]>li:nth-child(-n+2)>div>span,
+  html.js-motion .home .steps[data-step="2"]>li>div>span{color:#1D4ED8}
+  html.js-motion.motion-settled .home .steps>li{opacity:1;transform:none}
+  html.js-motion.motion-settled .home .steps>li>div>span{color:#1D4ED8}
+  html.js-motion.motion-settled .home .steps::after{transform:scaleY(1)}
+}
+
+@media(hover:hover) and (pointer:fine){
+  html.js-glide .home .work-marquee:hover .work-track{animation-play-state:running}
+  html.js-glide .home .work-marquee:focus-within .work-track,
+  html.js-glide .home .work-marquee:active .work-track{animation-play-state:paused}
+  .home .btn,.home .nav-cta{position:relative}
+  .home .btn::after,.home .nav-cta::after{content:"";position:absolute;top:50%;right:14px;width:14px;height:12px;background:currentColor;clip-path:polygon(0 35%,52% 35%,52% 0,100% 50%,52% 100%,52% 65%,0 65%);transform:translate(-8px,-50%);opacity:0;transition:transform .55s cubic-bezier(.16,.84,.32,1),opacity .4s ease;pointer-events:none}
+  .home .btn:hover::after,.home .nav-cta:hover::after,.home .btn:focus-visible::after,.home .nav-cta:focus-visible::after{opacity:1;transform:translate(0,-50%)}
+  .home .float-cta:hover .float-cta-icon,.home .float-cta:focus-visible .float-cta-icon{transform:translateX(6px)}
+}
+html.js-magnet .home .btn,html.js-magnet .home .nav-cta{transition:transform .18s ease,background-color .2s ease,box-shadow .2s ease}
+@media(min-width:601px){
+  html.js-magnet .home .float-cta:hover:not(.hide){transform:translateX(-50%)}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .home .steps>li,.home h2 .wi,.home .example,.home .work-marquee,.home .hero::before,.home .hero::after{animation:none;transform:none;opacity:1}
+  .home .scroll-progress{display:none}
+}
