@@ -119,6 +119,9 @@ html:has(body.home){scroll-behavior:auto}
 .home .price-lines li{padding:28px 0;border-top:1px solid rgba(43,34,32,.12)}
 .home .price-lines li:last-child{border-bottom:1px solid rgba(43,34,32,.12)}
 .home .price-lines strong{display:block;margin:0 0 .7rem;font-size:clamp(36px,4vw,64px)}
+@media(max-width:600px){
+  .home .price-lines strong{font-size:clamp(22px,6vw,24px)}
+}
 @media(min-width:60rem){
   .home .price-lines strong{font-size:clamp(24px,1.8vw,28px)}
 }
@@ -249,6 +252,8 @@ html.js-motion .home .site-footer .rise.is-in:nth-child(6){transition-delay:.3s}
 .home section[aria-labelledby="pricing"] .btn-primary{background:#F6EFE6;color:#0B1220}
 .home section[aria-labelledby="pricing"] .btn-primary:hover{background:#1D4ED8;color:#fff}
 .home section[aria-labelledby="pricing"] .btn-primary:active{background:#1E3A8A;color:#fff}
+.home section[aria-labelledby="pricing"] a:focus-visible,
+.home section[aria-labelledby="pricing"] button:focus-visible{outline:2px solid #93C5FD;outline-offset:3px}
 
 .home .scroll-progress{position:fixed;left:0;top:0;z-index:80;width:100%;height:2px;background:#1D4ED8;transform:scaleX(var(--scroll,0));transform-origin:0 50%;opacity:0;pointer-events:none}
 html.js-motion .home .scroll-progress{opacity:.95}
@@ -286,7 +291,7 @@ html.js-motion.view-on .home .work-marquee{animation-name:zoom-settle;animation-
 html.js-motion:not(.view-on) .home .work-marquee{transform:translate3d(0,calc((1 - var(--p,0)) * 16px - var(--p,0) * 8px),0) scale(calc(1.08 - var(--p,0) * .08))}
 
 @media(min-width:64rem) and (prefers-reduced-motion:no-preference){
-  html.js-motion .home .steps-scene .steps>li{min-height:30vh;box-sizing:border-box}
+  html.js-motion .home .steps-scene .steps>li{min-height:40vh;box-sizing:border-box}
   html.js-motion .home .steps-pin{position:sticky;top:5.5rem}
   html.js-motion .home .steps{--step:0;position:relative;padding-left:1.35rem}
   html.js-motion .home .steps::before,
@@ -308,11 +313,6 @@ html.js-motion:not(.view-on) .home .work-marquee{transform:translate3d(0,calc((1
   html.js-motion.motion-settled .home .steps::after{transform:scaleY(1)}
 }
 
-@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
-  .home .quiet-link,.home .group-source a,.home .work-notes a,.home .site-footer a{position:relative}
-  .home .quiet-link::after,.home .group-source a::after,.home .work-notes a::after,.home .site-footer a::after{content:"";position:absolute;left:.15rem;right:.15rem;bottom:.55em;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left center;transition:transform .35s ease;pointer-events:none}
-  .home .quiet-link:hover::after,.home .group-source a:hover::after,.home .work-notes a:hover::after,.home .site-footer a:hover::after,.home .quiet-link:focus-visible::after,.home .group-source a:focus-visible::after,.home .work-notes a:focus-visible::after,.home .site-footer a:focus-visible::after{transform:scaleX(1)}
-}
 @media(hover:hover) and (pointer:fine){
   html.js-glide .home .work-marquee:hover .work-track{animation-play-state:running}
   html.js-glide .home .work-marquee:focus-within .work-track,
