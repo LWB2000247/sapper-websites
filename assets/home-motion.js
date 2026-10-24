@@ -1,6 +1,6 @@
-/* Scroll-linked motion for the home page. Original implementation.
+/* Scroll-linked motion for the home page.
    No JavaScript, no IntersectionObserver, or reduced motion: nothing is hidden.
-   The hero headline and the mock are never given an entrance fade. */
+   The hero headline and the mock frame are never given an entrance fade. */
 (function () {
   "use strict";
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -320,10 +320,40 @@
     }
   }
 
+  var pointerFine = window.matchMedia("(pointer: fine)");
+  var mock = hero ? hero.querySelector(".example") : null;
+  function clearTilt() {
+    if (!mock) return;
+    mock.style.removeProperty("--tilt-x");
+    mock.style.removeProperty("--tilt-y");
+    mock.style.removeProperty("--tilt-rx");
+    mock.style.removeProperty("--tilt-ry");
+  }
+  if (pointerFine.matches && hero && mock) {
+    hero.addEventListener("pointermove", function (event) {
+      if (!alive) return;
+      if (event.pointerType && event.pointerType !== "mouse") return;
+      var rect = mock.getBoundingClientRect();
+      var nx = (event.clientX - (rect.left + rect.width / 2)) / (rect.width / 2 || 1);
+      var ny = (event.clientY - (rect.top + rect.height / 2)) / (rect.height / 2 || 1);
+      if (nx > 1) nx = 1;
+      if (nx < -1) nx = -1;
+      if (ny > 1) ny = 1;
+      if (ny < -1) ny = -1;
+      mock.style.setProperty("--tilt-x", (nx * 5).toFixed(2) + "px");
+      mock.style.setProperty("--tilt-y", (ny * 4).toFixed(2) + "px");
+      mock.style.setProperty("--tilt-ry", (nx * -3.5).toFixed(2) + "deg");
+      mock.style.setProperty("--tilt-rx", (ny * 2.5).toFixed(2) + "deg");
+    });
+    hero.addEventListener("pointerleave", clearTilt);
+    hero.addEventListener("pointercancel", clearTilt);
+  }
+
   if (reduce.addEventListener) {
     reduce.addEventListener("change", function () {
       if (!reduce.matches) return;
       alive = false;
+      clearTilt();
       root.classList.remove("js-motion");
       root.classList.remove("view-on");
       root.classList.remove("js-glide");

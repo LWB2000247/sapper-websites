@@ -32,4 +32,17 @@
     var links = nav.querySelectorAll("a");
     for (var i = 0; i < links.length; i++) links[i].addEventListener("click", closeMenu);
   }
+
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  var scrolled = false;
+  function markScroll() {
+    var y = window.scrollY || document.documentElement.scrollTop || 0;
+    var next = !reduceMotion.matches && y > 0;
+    if (next === scrolled) return;
+    scrolled = next;
+    document.documentElement.classList.toggle("is-scrolled", next);
+  }
+  markScroll();
+  window.addEventListener("scroll", markScroll, { passive: true });
+  if (reduceMotion.addEventListener) reduceMotion.addEventListener("change", markScroll);
 })();
