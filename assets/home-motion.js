@@ -284,9 +284,9 @@
       if (my > 6) my = 6;
       if (my < -6) my = -6;
       if (btn.classList.contains("float-cta")) {
-        btn.style.transform = "translateX(calc(-50% + " + mx.toFixed(2) + "px)) translateY(" + my.toFixed(2) + "px)";
+        btn.style.transform = "translateX(calc(-50% + " + mx.toFixed(2) + "px)) translateY(" + my.toFixed(2) + "px) scale(1.02)";
       } else {
-        btn.style.transform = "translate(" + mx.toFixed(2) + "px," + my.toFixed(2) + "px)";
+        btn.style.transform = "translate(" + mx.toFixed(2) + "px," + my.toFixed(2) + "px) scale(1.02)";
       }
     }
     var m;
