@@ -59,6 +59,7 @@ html:has(body.home){scroll-behavior:auto}
 .home .sample-cursor{position:absolute;right:.95rem;bottom:.55rem;width:16px;height:16px;pointer-events:none}
 .home .hero-actions{margin-top:1.4rem}
 .home .hero .btn-primary,.home .band .btn-primary,.home .nav-cta{background:rgba(11,18,32,.78);color:#fff;border:1px solid rgba(255,255,255,.28);box-shadow:0 8px 22px rgba(11,18,32,.16),inset 0 1px 0 rgba(255,255,255,.35);-webkit-backdrop-filter:blur(16px) saturate(1.5);backdrop-filter:blur(16px) saturate(1.5)}
+.home .nav-cta:hover{background:#1D4ED8;color:#fff}
 .home .hero .btn-primary:hover,.home .band .btn-primary:hover{background:#1D4ED8;color:#fff}
 .home .quiet-link{color:#1D4ED8;font-size:16px}
 
