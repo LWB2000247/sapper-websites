@@ -18,8 +18,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 .site-footer a:focus-visible,.site-footer button:focus-visible{outline:2px solid #93C5FD;outline-offset:3px}
 .container{width:100%;max-width:80rem;margin-inline:auto;padding-inline:clamp(1.25rem,4vw,3rem)}
 
-.site-header{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(255,248,237,.72);color:#1C1614;border-bottom:1px solid rgba(49,39,38,.14);box-shadow:inset 0 1px 0 rgba(255,255,255,.75);-webkit-backdrop-filter:saturate(1.8) blur(26px);backdrop-filter:saturate(1.8) blur(26px)}
-html.is-scrolled .site-header{background:rgba(255,248,237,.66);border-bottom-color:rgba(49,39,38,.18);box-shadow:0 10px 30px rgba(20,18,16,.12),inset 0 1px 0 rgba(255,255,255,.8);-webkit-backdrop-filter:saturate(1.8) blur(26px);backdrop-filter:saturate(1.8) blur(26px)}
+.site-header{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(255,252,248,.92);color:#141210;border-bottom:1px solid rgba(20,18,16,.12);box-shadow:inset 0 1px 0 rgba(255,255,255,.95);-webkit-backdrop-filter:saturate(1.8) blur(28px);backdrop-filter:saturate(1.8) blur(28px)}
+html.is-scrolled .site-header{background:rgba(255,252,248,.92);border-bottom-color:rgba(20,18,16,.16);box-shadow:0 8px 28px rgba(20,18,16,.12),inset 0 1px 0 rgba(255,255,255,.98);-webkit-backdrop-filter:saturate(1.8) blur(28px);backdrop-filter:saturate(1.8) blur(28px)}
 .site-header::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;box-shadow:0 8px 22px rgba(11,18,32,.18);opacity:0}
 .header-inner{display:flex;align-items:center;flex-wrap:wrap;min-height:4.5rem;transform-origin:center top}
 .brand{display:inline-flex;align-items:center;align-self:center;gap:.6rem;margin-right:32px;font-family:Archivo,Inter,sans-serif;font-weight:500;font-stretch:118%;font-size:15px;letter-spacing:-.03em;min-height:44px;text-decoration:none}
@@ -229,13 +229,13 @@ body:has(main.thanks){background:#141210}
 .legal .legal-contents a{display:block;min-height:44px;min-width:44px;padding:.6rem 0}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
-  .site-header,html.is-scrolled .site-header{background:#FFF8ED;-webkit-backdrop-filter:none;backdrop-filter:none}
+  .site-header,html.is-scrolled .site-header{background:#FFFCFA;-webkit-backdrop-filter:none;backdrop-filter:none}
   .nav-cta,.btn-primary,.hero .btn-primary,.band .btn-primary,.float-cta{background:#141210;-webkit-backdrop-filter:none;backdrop-filter:none}
   .thanks .btn-primary{background:#FFF8ED;color:#1C1614;-webkit-backdrop-filter:none;backdrop-filter:none}
   .js .main-nav.is-open,.consent-banner{background:#FFF8ED;-webkit-backdrop-filter:none;backdrop-filter:none}
 }
 @media (prefers-reduced-transparency:reduce){
-  .site-header,html.is-scrolled .site-header{background:#FFF8ED;-webkit-backdrop-filter:none;backdrop-filter:none}
+  .site-header,html.is-scrolled .site-header{background:#FFFCFA;-webkit-backdrop-filter:none;backdrop-filter:none}
   .nav-cta,.btn-primary,.hero .btn-primary,.band .btn-primary,.float-cta{background:#141210;-webkit-backdrop-filter:none;backdrop-filter:none}
   .thanks .btn-primary{background:#FFF8ED;color:#1C1614;-webkit-backdrop-filter:none;backdrop-filter:none}
   .js .main-nav.is-open,.consent-banner{background:#FFF8ED;-webkit-backdrop-filter:none;backdrop-filter:none}

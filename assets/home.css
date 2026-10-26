@@ -19,35 +19,45 @@ html:has(body.home){scroll-behavior:auto}
 .home .container{max-width:none;padding-inline:clamp(20px,5.5vw,112px)}
 .home .hero,.home .band,.home .contact,.home .site-footer{border-top:0}
 
-/* Frosted bar over the dark hero. The scrolled state keeps the same glass. */
+/* Cream-white frosted bar. Light enough to read as glass over the night hero, not a flat grey. */
 .home .site-header,
 html.is-scrolled .home .site-header{
-  background:rgba(255,248,237,.7);
-  color:#1C1614;
-  border-bottom:1px solid rgba(255,248,237,.42);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.82),0 10px 30px rgba(0,0,0,.18);
-  -webkit-backdrop-filter:saturate(1.8) blur(26px);
-  backdrop-filter:saturate(1.8) blur(26px)
+  background:rgba(255,252,248,.92);
+  color:#141210;
+  border-bottom:1px solid rgba(20,18,16,.14);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.98),0 8px 28px rgba(0,0,0,.14);
+  -webkit-backdrop-filter:saturate(1.8) blur(28px);
+  backdrop-filter:saturate(1.8) blur(28px)
 }
 .home .header-inner{min-height:4rem}
-.home .main-nav a:hover,.home .main-nav a:focus-visible{color:#12306A;text-decoration:none}
+@media(min-width:64rem){.home .header-inner{flex-wrap:nowrap}}
+.home .main-nav{flex:1 1 auto;min-width:0}
+.home .main-nav a{
+  color:#141210;
+  opacity:1;
+  animation:none;
+  transform:none;
+  white-space:nowrap
+}
+.home .main-nav a:hover,.home .main-nav a:focus-visible{color:#12306A;text-decoration:none;opacity:1}
 
 .home .hero{
   position:relative;
   overflow:clip;
   display:flex;
   align-items:flex-start;
-  min-height:100svh;
+  min-height:0;
   background:
-    radial-gradient(ellipse at 50% 42%,rgba(48,40,34,.55),transparent 58%),
-    radial-gradient(ellipse at center,transparent 42%,rgba(0,0,0,.55) 100%),
+    radial-gradient(ellipse 42% 36% at 16% 78%,rgba(255,220,186,.2),transparent 64%),
+    radial-gradient(ellipse 38% 34% at 86% 16%,rgba(186,206,255,.16),transparent 66%),
+    radial-gradient(ellipse at center,transparent 52%,rgba(0,0,0,.5) 100%),
     var(--night);
   color:#FFF8ED;
   --fg:#FFF8ED;
   --muted:#D5CEC6;
   --line:rgba(255,248,237,.18);
   --link:#FFF8ED;
-  padding:calc(4rem + clamp(12px,2.4vh,28px)) 0 clamp(20px,3vh,36px)
+  padding:calc(4rem + 12px) 0 28px
 }
 .home .hero .container{position:relative;z-index:1;width:100%}
 .home .hero-grid{display:flex;flex-direction:column;align-items:center;gap:clamp(14px,2vh,26px);width:100%}
@@ -56,10 +66,10 @@ html.is-scrolled .home .site-header{
 .home .hero-glow,.home .hero-sweep{position:absolute;z-index:0;pointer-events:none}
 .home .hero-glow{border-radius:50%}
 .home .hero-glow span{display:block;width:100%;height:100%;border-radius:inherit}
-.home .hero-glow-a{width:min(46vw,520px);height:min(36vw,380px);left:-6%;bottom:6%}
-.home .hero-glow-a span{background:radial-gradient(circle,rgba(176,132,86,.34),rgba(176,132,86,0) 68%)}
-.home .hero-glow-b{width:min(42vw,480px);height:min(42vw,480px);right:-8%;top:18%}
-.home .hero-glow-b span{background:radial-gradient(circle,rgba(92,104,128,.28),rgba(92,104,128,0) 70%)}
+.home .hero-glow-a{width:min(42vw,460px);height:min(32vw,320px);left:-4%;bottom:8%}
+.home .hero-glow-a span{background:radial-gradient(circle,rgba(255,214,176,.42),rgba(255,214,176,0) 68%)}
+.home .hero-glow-b{width:min(36vw,400px);height:min(36vw,400px);right:-6%;top:14%}
+.home .hero-glow-b span{background:radial-gradient(circle,rgba(186,206,255,.32),rgba(186,206,255,0) 70%)}
 .home .hero-sweep{inset:auto 0 0 0;height:46%;overflow:hidden}
 .home .hero-sweep span{position:absolute;top:0;bottom:0;left:0;width:36%;background:linear-gradient(90deg,transparent,rgba(255,248,237,.08),transparent);opacity:0}
 
@@ -74,24 +84,19 @@ html.is-scrolled .home .site-header{
 }
 .home h1{font-size:clamp(34px,5.4vw,80px);color:#FFF8ED}
 .home h1 span{display:block;white-space:nowrap}
-.home h1 .accent{
-  background-image:linear-gradient(currentColor,currentColor);
-  background-repeat:no-repeat;
-  background-size:100% 1px;
-  background-position:0 100%
-}
+.home .hero h1 .accent{color:#FFF8ED;background:none;background-image:none;border:0;box-shadow:none;text-decoration:none}
 .home h1,.home h1 span,.home .brand img{animation:none;opacity:1;transform:none}
-.home h2{font-size:clamp(32px,4.2vw,64px);text-align:center;max-width:14em;margin-inline:auto;scroll-margin-top:5rem}
+.home h2{font-size:clamp(40px,5vw,72px);font-weight:700;text-align:center;max-width:16em;margin-inline:auto;scroll-margin-top:5rem;color:var(--fg)}
 .home .kicker{
-  margin:0 0 .85rem;
+  margin:0 0 .55rem;
   font-family:Inter,system-ui,sans-serif;
-  font-size:12px;
-  font-weight:600;
-  letter-spacing:.18em;
+  font-size:13px;
+  font-weight:650;
+  letter-spacing:.16em;
   line-height:1.3;
   text-transform:uppercase;
   text-align:center;
-  color:var(--muted)
+  color:var(--fg)
 }
 .home .hero-sub,.home .section-intro,.home .num-list p,.home .group-card p,.home .price-lines li,.home .price-note,.home .proof{color:var(--muted);font-size:17px;line-height:1.5}
 .home .hero-sub{max-width:34rem;margin:clamp(12px,1.6vh,18px) auto 0;color:#D5CEC6}
@@ -159,7 +164,7 @@ html.is-scrolled .home .site-header{
 .home .hero .btn-primary:active,.home .contact .btn-primary:active,.home section[aria-labelledby="pricing"] .btn-primary:active{color:#1C1614}
 .home .nav-cta:hover,.home .nav-cta:active,.home .float-cta:hover,.home .float-cta:active{color:#fff}
 
-.home .band{background:var(--paper);color:var(--fg);padding-block:clamp(72px,11vw,140px)}
+.home .band{background:var(--paper);color:var(--fg);padding-block:clamp(40px,5vw,72px)}
 .home section[aria-labelledby="about"],
 .home section[aria-labelledby="work"],
 .home section[aria-labelledby="group"],
@@ -179,7 +184,7 @@ html.is-scrolled .home .site-header{
 .home .band-head{text-align:center}
 
 .home .num-list{margin-top:clamp(28px,4vw,48px)}
-.home .num-list li{display:grid;grid-template-columns:1fr;gap:.55rem;padding:clamp(22px,3vw,36px) 0;border-top:1px solid var(--line);align-items:start;min-height:44px}
+.home .num-list li{display:grid;grid-template-columns:1fr;gap:.4rem;padding:16px 0;border-top:1px solid var(--line);align-items:start;min-height:44px}
 .home .num-list li:last-child{border-bottom:1px solid var(--line)}
 .home .num-list li>div{display:flex;gap:1rem;align-items:baseline}
 .home .num-list li>span{color:var(--muted);font-family:Inter,system-ui,sans-serif;font-weight:600;font-size:13px;letter-spacing:.14em}
@@ -228,7 +233,7 @@ html.is-scrolled .home .site-header{
 .home .glass-blob-a{width:min(70%,420px);height:min(70vw,360px);left:-4%;top:10%;background:radial-gradient(circle,rgba(186,146,96,.9),rgba(186,146,96,0) 68%)}
 .home .glass-blob-b{width:min(78%,460px);height:min(78vw,400px);right:-8%;bottom:0;background:radial-gradient(circle,rgba(120,132,160,.85),rgba(120,132,160,0) 70%)}
 .home .price-lines{display:block}
-.home .price-lines li{padding:clamp(22px,3vw,36px) 0;border-top:1px solid var(--line);color:var(--muted)}
+.home .price-lines li{padding:16px 0;border-top:1px solid var(--line);color:var(--muted)}
 .home .price-lines li:last-child{border-bottom:1px solid var(--line)}
 .home .price-lines strong{display:block;margin:0 0 .75rem;font-size:clamp(28px,3vw,44px);color:var(--fg)}
 .home .price-card .btn{margin-top:1.35rem}
@@ -258,7 +263,7 @@ html.is-scrolled .home .site-header{
 .home .group-source a{font-size:16px;color:var(--link);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
 .home .group-source a:hover{text-decoration:underline;text-decoration-thickness:1px}
 .home .group-grid{display:block;margin-top:clamp(28px,4vw,48px)}
-.home .group-card{display:grid;grid-template-columns:1fr;gap:.4rem;background:transparent;border:0;border-radius:0;border-top:1px solid var(--line);padding:clamp(22px,3vw,36px) 0;min-height:44px}
+.home .group-card{display:grid;grid-template-columns:1fr;gap:.35rem;background:transparent;border:0;border-radius:0;border-top:1px solid var(--line);padding:16px 0;min-height:44px}
 .home .group-card:last-child{border-bottom:1px solid var(--line)}
 .home .group-card h3{margin:0;font-size:clamp(26px,2.8vw,44px);overflow-wrap:normal;word-break:normal;hyphens:none}
 .home .group-card p{margin:0}
@@ -270,7 +275,7 @@ html.is-scrolled .home .site-header{
   --link:#FFF8ED;
   background:#141210;
   color:#FFF8ED;
-  padding-block:clamp(72px,11vw,140px);
+  padding-block:clamp(40px,5vw,72px);
   color-scheme:dark
 }
 .home .contact h2{color:#FFF8ED;text-align:left;margin-inline:0}
@@ -323,12 +328,12 @@ html.is-scrolled .home .site-header{
   background:#0C0B0A;
   color:#FFF8ED;
   font-size:15px;
-  padding-top:clamp(56px,8vw,96px);
+  padding-top:clamp(36px,4.5vw,56px);
   box-shadow:inset 0 1px 0 rgba(255,248,237,.16)
 }
 .home .site-footer a,.home .cookie-settings{font-size:15px;color:#FFF8ED;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
 .home .site-footer a:hover,.home .cookie-settings:hover{color:#FFF8ED;text-decoration:underline;text-decoration-thickness:1px}
-@media(min-width:45.01rem){.home .site-footer{padding-bottom:clamp(56px,8vw,96px)}}
+@media(min-width:45.01rem){.home .site-footer{padding-bottom:clamp(36px,4.5vw,56px)}}
 .home .consent-banner p{font-size:16px;line-height:1.45}
 @media(max-width:45rem) and (min-width:601px){.home .hero{padding-bottom:calc(28px + env(safe-area-inset-bottom))}}
 
@@ -345,16 +350,14 @@ html.js-motion .home .scroll-progress{opacity:.9}
   color:var(--fg);
   font-variant-numeric:tabular-nums
 }
-@media(min-width:64rem){
-  .home .steps-scene>.container{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:clamp(32px,4vw,72px);align-items:start}
-  .home .steps-scene>.container>.steps-pin{grid-column:1;grid-row:1;align-self:start}
-  .home .steps-scene .home-copy{grid-column:2;grid-row:1;max-width:none;margin:0}
-  .home .steps-pin .kicker,.home .steps-pin h2{text-align:left;margin-inline:0}
-  .home .steps-scene .section-intro{text-align:left;margin-inline:0}
-}
+.home .steps-scene .home-copy{max-width:46rem}
+.home .steps-pin .kicker,.home .steps-pin h2,.home .steps-scene .section-intro{text-align:center;margin-inline:auto}
 
 html.js-motion .home .rise{opacity:0;transform:translateY(18px)}
-html.js-motion .home .rise.is-in{opacity:1;transform:none;transition:opacity 1.15s cubic-bezier(.16,.84,.32,1),transform 1.2s cubic-bezier(.16,.84,.32,1)}
+html.js-motion .home .kicker.rise,
+html.js-motion .home h2.rise,
+html.js-motion .home .rise.is-in{opacity:1;transform:none}
+html.js-motion .home .rise.is-in{transition:opacity .8s cubic-bezier(.16,.84,.32,1),transform .85s cubic-bezier(.16,.84,.32,1)}
 html.js-motion .home .num-list > li.rise.is-in:nth-child(2),
 html.js-motion .home .price-lines > li.rise.is-in:nth-child(2),
 html.js-motion .home .group-card.rise.is-in:nth-child(2){transition-delay:.12s}
@@ -404,20 +407,16 @@ html.js-motion .home .site-footer .rise.is-in:nth-child(6){transition-delay:.3s}
 @keyframes cue-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
 @keyframes step-pop{from{transform:scale(.92)}to{transform:scale(1)}}
 
-html.js-motion .home h2 .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding:.08em .04em .2em;margin:-.08em 0 -.2em}
-html.js-motion .home h2 .wi{display:block}
-html.js-motion .home h2 .wi[data-line="0"]{--i:0}
-html.js-motion .home h2 .wi[data-line="1"]{--i:1}
-html.js-motion .home h2 .wi[data-line="2"]{--i:2}
-html.js-motion .home h2 .wi[data-line="3"]{--i:3}
-html.js-motion .home h2 .wi[data-line="4"]{--i:4}
-html.js-motion .home h2 .wi[data-line="5"]{--i:5}
-html.js-motion .home h2 .wi[data-line="6"]{--i:6}
-html.js-motion .home h2 .wi[data-line="7"]{--i:7}
-html.js-motion.view-on .home h2{animation-name:reveal-num;animation-duration:1s;animation-timing-function:linear;animation-fill-mode:both;animation-timeline:view();animation-range:cover 0% cover 40%}
-html.js-motion .home h2 .wi{transform:translateY(calc((1 - clamp(0,(var(--reveal,1) - var(--i,0) * .08) / .62,1)) * 110%))}
-html.js-motion.motion-settled .home h2{animation:none}
-html.js-motion.motion-settled .home h2 .wi{animation:none;transform:none;transition:none}
+html.js-motion .home h2,
+html.js-motion .home h2 .w,
+html.js-motion .home h2 .wi,
+html.js-motion.view-on .home h2,
+html.js-motion.view-on .home h2 .wi{
+  animation:none;
+  transform:none;
+  opacity:1;
+  overflow:visible
+}
 html.js-motion.motion-settled .home .rise{opacity:1;transform:none}
 
 html.js-motion .home .example{
@@ -430,7 +429,7 @@ html.js-motion .home .price-card,
 html.js-motion .home .group-grid{transform:translate3d(0,calc((.5 - var(--p,.5)) * 12px),0)}
 
 @media(min-width:64rem) and (prefers-reduced-motion:no-preference){
-  html.js-motion .home .steps-scene .steps>li{min-height:46vh;box-sizing:border-box}
+  html.js-motion .home .steps-scene .steps>li{min-height:0;box-sizing:border-box}
   html.js-motion .home .steps-pin{position:sticky;top:5.5rem}
   html.js-motion .home .steps{--step:0;position:relative;padding-left:1.5rem}
   html.js-motion .home .steps::before,
@@ -473,14 +472,14 @@ html.js-magnet .home .btn,html.js-magnet .home .nav-cta{transition:transform .18
   .home .scroll-progress{display:none}
 }
 @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
-  .home .site-header,html.is-scrolled .home .site-header{background:#FFF8ED;-webkit-backdrop-filter:none;backdrop-filter:none}
+  .home .site-header,html.is-scrolled .home .site-header{background:#FFFCFA;-webkit-backdrop-filter:none;backdrop-filter:none}
   .home .nav-cta,.home .float-cta{background:#141210;color:#fff;-webkit-backdrop-filter:none;backdrop-filter:none}
   .home .hero .btn-primary,.home .contact .btn-primary,.home section[aria-labelledby="pricing"] .btn-primary{background:#FFF8ED;color:#1C1614;-webkit-backdrop-filter:none;backdrop-filter:none}
   .home .plan{background:#FFF8ED;color:#1C1614;-webkit-backdrop-filter:none;backdrop-filter:none}
   .home .hero-glow span,.home .glass-blob{background:none}
 }
 @media (prefers-reduced-transparency:reduce){
-  .home .site-header,html.is-scrolled .home .site-header{background:#FFF8ED;-webkit-backdrop-filter:none;backdrop-filter:none}
+  .home .site-header,html.is-scrolled .home .site-header{background:#FFFCFA;-webkit-backdrop-filter:none;backdrop-filter:none}
   .home .nav-cta,.home .float-cta{background:#141210;color:#fff;-webkit-backdrop-filter:none;backdrop-filter:none}
   .home .hero .btn-primary,.home .contact .btn-primary,.home section[aria-labelledby="pricing"] .btn-primary{background:#FFF8ED;color:#1C1614;-webkit-backdrop-filter:none;backdrop-filter:none}
   .home .plan{background:#FFF8ED;color:#1C1614;-webkit-backdrop-filter:none;backdrop-filter:none}
