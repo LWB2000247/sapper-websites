@@ -388,12 +388,13 @@ html.js-magnet .home .btn,html.js-magnet .home .nav-cta{transition:transform .18
 }
 @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
   .home .hero .btn-primary,.home .band .btn-primary,.home .nav-cta,.home .contact .btn-primary{background:#0B1220;-webkit-backdrop-filter:none;backdrop-filter:none}
-  .home section[aria-labelledby="pricing"] .btn-primary{background:#F6EFE6;color:#0B1220}
+  .home section[aria-labelledby="pricing"] .btn-primary{background:#F6EFE6;color:#0B1220;-webkit-backdrop-filter:none;backdrop-filter:none}
   .home .plan{background:#FFFCF8;-webkit-backdrop-filter:none;backdrop-filter:none}
+  .home .hero-glow span,.home .glass-blob{background:none;filter:none}
 }
 @media (prefers-reduced-transparency:reduce){
   .home .hero .btn-primary,.home .band .btn-primary,.home .nav-cta,.home .contact .btn-primary{background:#0B1220;-webkit-backdrop-filter:none;backdrop-filter:none}
-  .home section[aria-labelledby="pricing"] .btn-primary{background:#F6EFE6;color:#0B1220}
+  .home section[aria-labelledby="pricing"] .btn-primary{background:#F6EFE6;color:#0B1220;-webkit-backdrop-filter:none;backdrop-filter:none}
   .home .plan{background:#FFFCF8;-webkit-backdrop-filter:none;backdrop-filter:none}
-  .home .hero-glow span,.home .glass-blob{filter:none}
+  .home .hero-glow span,.home .glass-blob{background:none;filter:none}
 }
