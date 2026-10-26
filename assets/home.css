@@ -256,6 +256,7 @@ html.is-scrolled .home .site-header{
 .home .price-note{margin-top:.9rem;font-size:16px;line-height:1.5;color:var(--muted)}
 .home .plan-row{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,1.5vw,18px);margin-top:1.25rem}
 .home .plan{
+  position:relative;
   min-width:0;
   padding:clamp(16px,2vw,28px) clamp(12px,1.6vw,22px) clamp(18px,2vw,28px);
   border-radius:22px;
@@ -275,7 +276,7 @@ html.is-scrolled .home .site-header{
 .home .plan-kicker{margin:0;font-family:Inter,system-ui,sans-serif;font-size:12px;font-weight:600;letter-spacing:.14em;line-height:1.3;text-transform:uppercase;color:#FFF8ED}
 .home .plan-price{margin:.45rem 0 0;font-family:Inter,system-ui,sans-serif;font-size:15px;font-weight:500;line-height:1.3;color:#FFF8ED}
 .home .plan-amount{display:block;font-size:clamp(52px,7vw,104px);line-height:.88;letter-spacing:-.06em;color:#FFF8ED;margin-bottom:.15rem}
-.home .plan-save{display:inline-block;margin:0 0 .7rem;padding:.18rem .55rem;border-radius:999px;background:#FFF8ED;color:#141210;font-family:Inter,system-ui,sans-serif;font-size:12px;font-weight:600;letter-spacing:.02em;line-height:1.3}
+.home .plan-save{position:absolute;top:0;left:50%;z-index:1;display:inline-block;margin:0;padding:.18rem .55rem;border-radius:999px;background:#FFF8ED;color:#141210;font-family:Inter,system-ui,sans-serif;font-size:12px;font-weight:600;letter-spacing:.02em;line-height:1.3;white-space:nowrap;transform:translate(-50%,-50%)}
 .home section[aria-labelledby="pricing"] a:focus-visible,
 .home section[aria-labelledby="pricing"] button:focus-visible{outline:2px solid #F6E7C1;outline-offset:3px}
 
