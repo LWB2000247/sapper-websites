@@ -361,6 +361,7 @@ html.js-motion .home .group-grid{transform:translate3d(0,calc((.5 - var(--p,.5))
   html.js-glide .home .work-marquee:focus-within .work-track,
   html.js-glide .home .work-marquee:active .work-track{animation-play-state:paused}
   .home .btn,.home .nav-cta{position:relative}
+  .home .nav-cta{padding-right:2.25rem}
   .home .btn::after,.home .nav-cta::after{content:"";position:absolute;top:50%;right:14px;width:14px;height:12px;background:currentColor;clip-path:polygon(0 35%,52% 35%,52% 0,100% 50%,52% 100%,52% 65%,0 65%);transform:translate(-8px,-50%);opacity:0;transition:transform .55s cubic-bezier(.16,.84,.32,1),opacity .4s ease;pointer-events:none}
   .home .btn:hover::after,.home .nav-cta:hover::after,.home .btn:focus-visible::after,.home .nav-cta:focus-visible::after{opacity:1;transform:translate(0,-50%)}
   .home .float-cta:hover .float-cta-icon,.home .float-cta:focus-visible .float-cta-icon{transform:translateX(6px)}
