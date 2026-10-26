@@ -371,8 +371,22 @@ html.js-motion .home .scroll-progress{opacity:.9}
   color:var(--fg);
   font-variant-numeric:tabular-nums
 }
+.home .steps-pin{position:static}
 .home .steps-scene .home-copy{max-width:46rem}
 .home .steps-pin .kicker,.home .steps-pin h2,.home .steps-scene .section-intro{text-align:center;margin-inline:auto}
+@media(max-width:45rem){
+  .home .steps-pin{position:static;top:auto}
+}
+@media(min-width:45.01rem){
+  .home .steps-scene>.container{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:clamp(32px,4vw,72px);align-items:start}
+  .home .steps-scene>.container>.steps-pin{grid-column:1;grid-row:1;align-self:start;min-width:0}
+  .home .steps-scene .home-copy{grid-column:2;grid-row:1;max-width:none;margin:0;min-width:0}
+  .home .steps-pin .kicker,.home .steps-pin h2,.home .steps-scene .section-intro{text-align:left;margin-inline:0}
+  .home .steps-pin h2{max-width:100%}
+}
+@media(min-width:45.01rem) and (prefers-reduced-motion:no-preference){
+  html.js-motion .home .steps-pin{position:sticky;top:6rem}
+}
 
 html.js-motion .home .rise{opacity:0;transform:translateY(18px)}
 html.js-motion .home .kicker.rise,
@@ -451,7 +465,6 @@ html.js-motion .home .group-grid{transform:translate3d(0,calc((.5 - var(--p,.5))
 
 @media(min-width:64rem) and (prefers-reduced-motion:no-preference){
   html.js-motion .home .steps-scene .steps>li{min-height:0;box-sizing:border-box}
-  html.js-motion .home .steps-pin{position:sticky;top:5.5rem}
   html.js-motion .home .steps{--step:0;position:relative;padding-left:1.5rem}
   html.js-motion .home .steps::before,
   html.js-motion .home .steps::after{content:"";position:absolute;left:0;top:.4rem;bottom:.4rem;width:1px;pointer-events:none}
