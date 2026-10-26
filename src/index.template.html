@@ -26,8 +26,8 @@
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/Archivo-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/style.css?v=72">
-<link rel="stylesheet" href="assets/home.css?v=72">
+<link rel="stylesheet" href="assets/style.css?v=73">
+<link rel="stylesheet" href="assets/home.css?v=73">
 <script>document.documentElement.classList.add("js");window.__formOpened=Date.now();</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","name":"{{brand_name}}","url":"https://{{domain}}/","description":"{{description}}","parentOrganization":{"@type":"Organization","name":"{{legal_name}}","url":"{{parent_site_url}}"},"address":{"@type":"PostalAddress","streetAddress":"{{address_street}}","addressLocality":"{{address_city}}","addressRegion":"{{address_state}}","postalCode":"{{address_zip}}","addressCountry":"US"}}
@@ -256,7 +256,7 @@
       <form data-clarity-mask="True" id="start" class="form" action="https://formsubmit.co/{{form_email}}" method="POST" accept-charset="UTF-8" aria-labelledby="contact-h">
         <input type="hidden" name="_subject" value="New website request" data-clarity-mask="True">
         <input type="hidden" name="_template" value="table" data-clarity-mask="True">
-        <input type="hidden" name="_captcha" value="true" data-clarity-mask="True">
+        <input type="hidden" name="_captcha" value="false" data-clarity-mask="True">
         <input type="hidden" name="_next" value="https://{{domain}}/thanks.html" data-clarity-mask="True">
         <p id="form-guard-msg" class="field-error" role="alert"></p>
         <p class="sr-only">Required fields are marked with an asterisk.</p>
@@ -328,7 +328,7 @@
 </div>
 <script src="assets/form-guard.js"></script>
 <script>
-/* Applies the checks in assets/form-guard.js. If JavaScript is off, or this fails, the form still posts to FormSubmit. _captcha stays on. _next stays the live thank-you page. */
+/* Applies the checks in assets/form-guard.js. If JavaScript is off, or this fails, the form still posts to FormSubmit. _captcha is off so FormSubmit redirects straight to _next. */
 (function () {
   var f = document.getElementById("start");
   if (!f) return;
@@ -406,9 +406,9 @@
   });
 })();
 </script>
-<script src="assets/float-pill.js?v=72"></script>
-<script src="assets/site.js?v=72"></script>
-<script src="assets/consent.js?v=72"></script>
-<script src="assets/home-motion.js?v=72"></script>
+<script src="assets/float-pill.js?v=73"></script>
+<script src="assets/site.js?v=73"></script>
+<script src="assets/consent.js?v=73"></script>
+<script src="assets/home-motion.js?v=73"></script>
 </body>
 </html>
