@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.clarity.ms https://*.clarity.ms; style-src 'self'; font-src 'self' data:; img-src 'self' data: https://*.clarity.ms https://www.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://www.clarity.ms; form-action https://formsubmit.co; base-uri 'self'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.clarity.ms https://*.clarity.ms; style-src 'self'; font-src 'self' data:; img-src 'self' data: https://*.clarity.ms https://www.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://www.clarity.ms https://formsubmit.co; form-action https://formsubmit.co; base-uri 'self'; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>{{page_title}}</title>
 <meta name="description" content="{{description}}">
@@ -26,8 +26,8 @@
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/Archivo-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/style.css?v=73">
-<link rel="stylesheet" href="assets/home.css?v=73">
+<link rel="stylesheet" href="assets/style.css?v=74">
+<link rel="stylesheet" href="assets/home.css?v=74">
 <script>document.documentElement.classList.add("js");window.__formOpened=Date.now();</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","name":"{{brand_name}}","url":"https://{{domain}}/","description":"{{description}}","parentOrganization":{"@type":"Organization","name":"{{legal_name}}","url":"{{parent_site_url}}"},"address":{"@type":"PostalAddress","streetAddress":"{{address_street}}","addressLocality":"{{address_city}}","addressRegion":"{{address_state}}","postalCode":"{{address_zip}}","addressCountry":"US"}}
@@ -253,7 +253,7 @@
         <p class="hint">Only the starred answers are required.</p>
       </div>
       <div class="contact-form">
-      <form data-clarity-mask="True" id="start" class="form" action="https://formsubmit.co/{{form_email}}" method="POST" accept-charset="UTF-8" aria-labelledby="contact-h">
+      <form data-clarity-mask="True" id="start" class="form" action="https://formsubmit.co/91dfdb1b36b35a1d4a0f92a4e963d9b9" method="POST" accept-charset="UTF-8" aria-labelledby="contact-h">
         <input type="hidden" name="_subject" value="New website request" data-clarity-mask="True">
         <input type="hidden" name="_template" value="table" data-clarity-mask="True">
         <input type="hidden" name="_captcha" value="false" data-clarity-mask="True">
@@ -328,11 +328,13 @@
 </div>
 <script src="assets/form-guard.js"></script>
 <script>
-/* Applies the checks in assets/form-guard.js. If JavaScript is off, or this fails, the form still posts to FormSubmit. _captcha is off so FormSubmit redirects straight to _next. */
+/* Applies the checks in assets/form-guard.js. A valid form with an empty honeypot is sent with fetch so the visitor stays on this site. If JavaScript is off, or this fails before that send, the form still posts to FormSubmit and _next points at the thank-you page. */
 (function () {
   var f = document.getElementById("start");
   if (!f) return;
   var opened = window.__formOpened || Date.now();
+  var ajaxUrl = "https://formsubmit.co/ajax/91dfdb1b36b35a1d4a0f92a4e963d9b9";
+  var sendError = "Sorry, that didn't go through. Please try again in a moment.";
   var ids = {name:"f-name", email:"f-email", phone:"f-phone", business:"f-business", need:"f-need", site:"f-site", consent:"f-consent"};
   function read(id) {
     var el = document.getElementById(id);
@@ -345,6 +347,14 @@
     for (var j = 0; j < bad.length; j++) bad[j].removeAttribute("aria-invalid");
     var box = document.getElementById("form-guard-msg");
     if (box) box.textContent = "";
+  }
+  function showSendError(btn) {
+    var box = document.getElementById("form-guard-msg");
+    if (box) {
+      box.textContent = sendError;
+      box.classList.add("is-on");
+    }
+    if (btn) btn.disabled = false;
   }
   f.addEventListener("input", function (ev) {
     var el = ev.target;
@@ -393,6 +403,10 @@
         if (first && first.focus) first.focus();
         return;
       }
+      if (honey && honey.value) return;
+      ev.preventDefault();
+      var btn = f.querySelector('[type="submit"]');
+      if (btn) btn.disabled = true;
       var reply = f.querySelector('input[name="_replyto"]');
       if (!reply) {
         reply = document.createElement("input");
@@ -402,13 +416,30 @@
         f.appendChild(reply);
       }
       reply.value = values.email;
+      var data = {};
+      new FormData(f).forEach(function (value, key) { data[key] = value; });
+      fetch(ajaxUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(data)
+      }).then(function (res) {
+        return res.json();
+      }).then(function (body) {
+        if (body && (body.success === true || body.success === "true")) {
+          window.location.href = "/thanks.html";
+          return;
+        }
+        showSendError(btn);
+      }).catch(function () {
+        showSendError(btn);
+      });
     } catch (err) {}
   });
 })();
 </script>
-<script src="assets/float-pill.js?v=73"></script>
-<script src="assets/site.js?v=73"></script>
-<script src="assets/consent.js?v=73"></script>
-<script src="assets/home-motion.js?v=73"></script>
+<script src="assets/float-pill.js?v=74"></script>
+<script src="assets/site.js?v=74"></script>
+<script src="assets/consent.js?v=74"></script>
+<script src="assets/home-motion.js?v=74"></script>
 </body>
 </html>
