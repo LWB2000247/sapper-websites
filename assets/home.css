@@ -31,7 +31,7 @@ html.is-scrolled .home .site-header{
 }
 .home .header-inner{min-height:4rem}
 @media(min-width:64rem){.home .header-inner{flex-wrap:nowrap}}
-.home .main-nav{flex:1 1 auto;min-width:0}
+@media(min-width:45.01rem){.home .main-nav{flex:1 1 auto;min-width:0}}
 .home .main-nav a{
   color:#141210;
   opacity:1;
@@ -148,8 +148,7 @@ html.is-scrolled .home .site-header{
   text-decoration:none
 }
 .home .hero .btn-primary,
-.home .contact .btn-primary,
-.home section[aria-labelledby="pricing"] .btn-primary{
+.home .contact .btn-primary{
   background:linear-gradient(180deg,rgba(255,255,255,.7),rgba(255,255,255,0) 36%),rgba(255,248,237,.82);
   color:#1C1614;
   border:1px solid rgba(255,255,255,.72);
@@ -158,10 +157,24 @@ html.is-scrolled .home .site-header{
   backdrop-filter:saturate(1.8) blur(22px);
   text-decoration:none
 }
+.home section[aria-labelledby="pricing"] .btn-primary{
+  background:#FFF8ED;
+  color:#141210;
+  border:0;
+  box-shadow:0 12px 28px rgba(0,0,0,.28);
+  -webkit-backdrop-filter:none;
+  backdrop-filter:none;
+  text-decoration:none
+}
+.home section[aria-labelledby="pricing"] .btn-primary:hover,
+.home section[aria-labelledby="pricing"] .btn-primary:focus-visible{
+  background:#fff;
+  color:#141210
+}
 .home .nav-cta:hover,.home .float-cta:hover,.home .hero .btn-primary:hover,.home .band .btn-primary:hover,.home .contact .btn-primary:hover,
 .home .nav-cta:active,.home .float-cta:active,.home .hero .btn-primary:active,.home .band .btn-primary:active,.home .contact .btn-primary:active{filter:none}
-.home .hero .btn-primary:hover,.home .contact .btn-primary:hover,.home section[aria-labelledby="pricing"] .btn-primary:hover,
-.home .hero .btn-primary:active,.home .contact .btn-primary:active,.home section[aria-labelledby="pricing"] .btn-primary:active{color:#1C1614}
+.home .hero .btn-primary:hover,.home .contact .btn-primary:hover,
+.home .hero .btn-primary:active,.home .contact .btn-primary:active{color:#1C1614}
 .home .nav-cta:hover,.home .nav-cta:active,.home .float-cta:hover,.home .float-cta:active{color:#fff}
 
 .home .band{background:var(--paper);color:var(--fg);padding-block:clamp(40px,5vw,72px)}
@@ -180,6 +193,9 @@ html.is-scrolled .home .site-header{
   color:#FFF8ED
 }
 .home .band+.band,.home .contact{box-shadow:inset 0 1px 0 var(--line)}
+.home section.band[aria-labelledby="services"],
+.home section.band[aria-labelledby="pricing"],
+.home section.band[aria-labelledby="strengths"]{box-shadow:none}
 .home .home-copy{max-width:980px;margin-inline:auto}
 .home .band-head{text-align:center}
 
@@ -243,19 +259,23 @@ html.is-scrolled .home .site-header{
   min-width:0;
   padding:clamp(16px,2vw,28px) clamp(12px,1.6vw,22px) clamp(18px,2vw,28px);
   border-radius:22px;
-  background:rgba(255,248,237,.74);
-  color:#1C1614;
+  background:rgba(20,18,16,.64);
+  color:#FFF8ED;
   text-align:center;
-  border:1px solid rgba(255,255,255,.7);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.92),inset 0 0 0 1px rgba(255,255,255,.22),0 18px 40px rgba(0,0,0,.28);
-  -webkit-backdrop-filter:saturate(1.8) blur(20px);
-  backdrop-filter:saturate(1.8) blur(20px)
+  cursor:default;
+  border:1px solid rgba(255,248,237,.28);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.34),0 18px 40px rgba(0,0,0,.22);
+  -webkit-backdrop-filter:saturate(1.5) blur(18px);
+  backdrop-filter:saturate(1.5) blur(18px)
 }
-.home .plan-best{border-color:rgba(255,248,237,.92)}
-.home .plan-kicker{margin:0;font-family:Inter,system-ui,sans-serif;font-size:12px;font-weight:600;letter-spacing:.14em;line-height:1.3;text-transform:uppercase;color:#3A312C}
-.home .plan-price{margin:.45rem 0 0;font-family:Inter,system-ui,sans-serif;font-size:15px;font-weight:500;line-height:1.3;color:#3A312C}
-.home .plan-amount{display:block;font-size:clamp(52px,7vw,104px);line-height:.88;letter-spacing:-.06em;color:#1C1614;margin-bottom:.15rem}
-.home .plan-save{display:inline-block;margin:0 0 .7rem;padding:.22rem .55rem;border-radius:999px;background:#141210;color:#FFF8ED;font-family:Inter,system-ui,sans-serif;font-size:12px;font-weight:600;letter-spacing:.04em;line-height:1.3}
+.home .plan-best{
+  border-color:rgba(255,248,237,.72);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.48),0 0 0 1px rgba(255,248,237,.16),0 0 36px rgba(186,206,255,.28),0 18px 40px rgba(0,0,0,.28)
+}
+.home .plan-kicker{margin:0;font-family:Inter,system-ui,sans-serif;font-size:12px;font-weight:600;letter-spacing:.14em;line-height:1.3;text-transform:uppercase;color:#FFF8ED}
+.home .plan-price{margin:.45rem 0 0;font-family:Inter,system-ui,sans-serif;font-size:15px;font-weight:500;line-height:1.3;color:#FFF8ED}
+.home .plan-amount{display:block;font-size:clamp(52px,7vw,104px);line-height:.88;letter-spacing:-.06em;color:#FFF8ED;margin-bottom:.15rem}
+.home .plan-save{display:inline-block;margin:0 0 .7rem;padding:.18rem .55rem;border-radius:999px;background:#FFF8ED;color:#141210;font-family:Inter,system-ui,sans-serif;font-size:12px;font-weight:600;letter-spacing:.02em;line-height:1.3}
 .home section[aria-labelledby="pricing"] a:focus-visible,
 .home section[aria-labelledby="pricing"] button:focus-visible{outline:2px solid #F6E7C1;outline-offset:3px}
 
@@ -276,7 +296,8 @@ html.is-scrolled .home .site-header{
   background:#141210;
   color:#FFF8ED;
   padding-block:clamp(40px,5vw,72px);
-  color-scheme:dark
+  color-scheme:dark;
+  box-shadow:none
 }
 .home .contact h2{color:#FFF8ED;text-align:left;margin-inline:0}
 .home .contact-grid{width:min(100%,1080px);max-width:1080px;margin-inline:auto;row-gap:clamp(28px,4vw,56px)}
@@ -447,6 +468,10 @@ html.js-motion .home .group-grid{transform:translate3d(0,calc((.5 - var(--p,.5))
   html.js-motion.motion-settled .home .steps::after{transform:scaleY(1)}
 }
 
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .home .plan{transition:transform .45s cubic-bezier(.16,.84,.32,1)}
+  .home .plan:hover{transform:translateY(-4px)}
+}
 @media(hover:hover) and (pointer:fine){
   html.js-glide .home .work-marquee:hover .work-track{animation-play-state:running}
   html.js-glide .home .work-marquee:focus-within .work-track,
@@ -474,14 +499,18 @@ html.js-magnet .home .btn,html.js-magnet .home .nav-cta{transition:transform .18
 @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
   .home .site-header,html.is-scrolled .home .site-header{background:#FFFCFA;-webkit-backdrop-filter:none;backdrop-filter:none}
   .home .nav-cta,.home .float-cta{background:#141210;color:#fff;-webkit-backdrop-filter:none;backdrop-filter:none}
-  .home .hero .btn-primary,.home .contact .btn-primary,.home section[aria-labelledby="pricing"] .btn-primary{background:#FFF8ED;color:#1C1614;-webkit-backdrop-filter:none;backdrop-filter:none}
-  .home .plan{background:#FFF8ED;color:#1C1614;-webkit-backdrop-filter:none;backdrop-filter:none}
+  .home .hero .btn-primary,.home .contact .btn-primary{background:#FFF8ED;color:#1C1614;-webkit-backdrop-filter:none;backdrop-filter:none}
+  .home section[aria-labelledby="pricing"] .btn-primary{background:#FFF8ED;color:#141210;-webkit-backdrop-filter:none;backdrop-filter:none}
+  .home .plan{background:#161310;color:#FFF8ED;-webkit-backdrop-filter:none;backdrop-filter:none}
+  .home .plan-best{background:#221E1A}
   .home .hero-glow span,.home .glass-blob{background:none}
 }
 @media (prefers-reduced-transparency:reduce){
   .home .site-header,html.is-scrolled .home .site-header{background:#FFFCFA;-webkit-backdrop-filter:none;backdrop-filter:none}
   .home .nav-cta,.home .float-cta{background:#141210;color:#fff;-webkit-backdrop-filter:none;backdrop-filter:none}
-  .home .hero .btn-primary,.home .contact .btn-primary,.home section[aria-labelledby="pricing"] .btn-primary{background:#FFF8ED;color:#1C1614;-webkit-backdrop-filter:none;backdrop-filter:none}
-  .home .plan{background:#FFF8ED;color:#1C1614;-webkit-backdrop-filter:none;backdrop-filter:none}
+  .home .hero .btn-primary,.home .contact .btn-primary{background:#FFF8ED;color:#1C1614;-webkit-backdrop-filter:none;backdrop-filter:none}
+  .home section[aria-labelledby="pricing"] .btn-primary{background:#FFF8ED;color:#141210;-webkit-backdrop-filter:none;backdrop-filter:none}
+  .home .plan{background:#161310;color:#FFF8ED;-webkit-backdrop-filter:none;backdrop-filter:none}
+  .home .plan-best{background:#221E1A}
   .home .hero-glow span,.home .glass-blob{background:none}
 }
