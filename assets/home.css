@@ -206,6 +206,30 @@ html.is-scrolled .home .site-header{
 .home .num-list li>span{color:var(--muted);font-family:Inter,system-ui,sans-serif;font-weight:600;font-size:13px;letter-spacing:.14em}
 .home .num-list h3{font-size:clamp(26px,2.6vw,40px);margin:0}
 .home .num-list p{margin:0;max-width:none}
+.home .faq-list{margin-top:clamp(28px,4vw,48px)}
+.home .faq-list details{border-top:1px solid var(--line)}
+.home .faq-list details:last-child{border-bottom:1px solid var(--line)}
+.home .faq-list summary{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:1rem;
+  align-items:start;
+  min-height:44px;
+  padding:1rem 0;
+  cursor:pointer;
+  font-weight:600;
+  line-height:1.35;
+  list-style:none
+}
+.home .faq-list summary::-webkit-details-marker{display:none}
+.home .faq-list summary::marker{content:""}
+.home .faq-list summary::after{content:"+";font-weight:500;line-height:1.35}
+.home .faq-list details[open] summary::after{content:"\2212"}
+.home .faq-list details p{margin:0 0 1rem;max-width:40rem;color:var(--muted)}
+.home .faq-list summary:focus-visible{outline:2px solid var(--ring);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){
+  .home .faq-list summary,.home .faq-list details{transition:none}
+}
 @media(min-width:48rem){
   .home .num-list li{grid-template-columns:minmax(16rem,1.15fr) minmax(0,1fr);column-gap:clamp(24px,3vw,48px);align-items:baseline}
 }
