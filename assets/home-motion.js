@@ -70,6 +70,7 @@
     "main .group-card",
     "main .price-note",
     "main .group-source",
+    "main .faq-list > details",
     "main .contact-form",
     "footer.site-footer .container > p"
   ].join(",");

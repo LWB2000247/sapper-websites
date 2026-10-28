@@ -32,7 +32,8 @@
   {"label": "Services", "href": "#services"},
   {"label": "Our work", "href": "#work"},
   {"label": "Pricing", "href": "#pricing"},
-  {"label": "The group", "href": "#group"}
+  {"label": "The group", "href": "#group"},
+  {"label": "FAQ", "href": "#faq"}
  ],
  "nav_cta_label": "Get my website",
  "nav_cta_href": "#start",
