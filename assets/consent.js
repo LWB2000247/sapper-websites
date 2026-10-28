@@ -110,7 +110,7 @@
 
     var text = document.createElement("p");
     text.id = "consent-banner-text";
-    text.textContent = "We use Microsoft Clarity to see how visitors use this site. It sets cookies and records anonymised sessions, with form fields masked. You can accept or decline.";
+    text.textContent = "We use Microsoft Clarity and Google Analytics to see how visitors use this site. Both set cookies, and Clarity records anonymised sessions with form fields masked. Neither runs unless you accept. You can accept or decline.";
 
     var actions = document.createElement("div");
     actions.className = "consent-actions";
