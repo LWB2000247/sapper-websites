@@ -1,12 +1,14 @@
-/* Loads Microsoft Clarity only after a stored Accept choice. No inline script. */
+/* Loads Microsoft Clarity and Google Analytics only after a stored Accept choice. No inline script. */
 (function () {
   "use strict";
   var KEY = "sapper_consent";
+  var GA_ID = "G-4MWTYSKJFT";
   var root = document.documentElement;
   var projectId = root.getAttribute("data-clarity-id");
   if (!projectId) return;
 
   var loaded = false;
+  var gaLoaded = false;
   var dialog = null;
   var returnFocus = false;
 
@@ -24,6 +26,19 @@
     } catch (err) {}
   }
 
+  function expireCookie(name) {
+    var host = location.hostname;
+    var labels = host.split(".");
+    var domains = ["", host];
+    if (labels.length > 1) domains.push("." + labels.slice(-2).join("."));
+    var j;
+    for (j = 0; j < domains.length; j++) {
+      var domain = domains[j] ? "; domain=" + domains[j] : "";
+      document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/" + domain;
+      document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; Secure" + domain;
+    }
+  }
+
   function loadClarity() {
     if (loaded || window.clarity) return;
     loaded = true;
@@ -39,16 +54,34 @@
 
   function clearClarityCookies() {
     var names = ["_clck", "_clsk"];
-    var host = location.hostname;
-    var labels = host.split(".");
-    var domains = ["", host];
-    if (labels.length > 1) domains.push("." + labels.slice(-2).join("."));
-    var i, j;
-    for (i = 0; i < names.length; i++) {
-      for (j = 0; j < domains.length; j++) {
-        document.cookie = names[i] + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/" + (domains[j] ? "; domain=" + domains[j] : "");
-      }
+    var i;
+    for (i = 0; i < names.length; i++) expireCookie(names[i]);
+  }
+
+  function loadGtag() {
+    if (gaLoaded) return;
+    gaLoaded = true;
+    var script = document.createElement("script");
+    script.async = true;
+    script.src = "https://www.googletagmanager.com/gtag/js?id=" + GA_ID;
+    var first = document.getElementsByTagName("script")[0];
+    if (first && first.parentNode) first.parentNode.insertBefore(script, first);
+    else document.head.appendChild(script);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function gtag() { window.dataLayer.push(arguments); };
+    window.gtag("js", new Date());
+    window.gtag("config", GA_ID);
+  }
+
+  function clearGaCookies() {
+    var names = ["_ga", "_ga_" + GA_ID.slice(2)];
+    var parts = document.cookie ? document.cookie.split(";") : [];
+    var i;
+    for (i = 0; i < parts.length; i++) {
+      var name = parts[i].split("=")[0].replace(/^\s+/, "");
+      if (name.indexOf("_ga_") === 0 && names.indexOf(name) === -1) names.push(name);
     }
+    for (i = 0; i < names.length; i++) expireCookie(names[i]);
   }
 
   function closeDialog() {
@@ -127,6 +160,7 @@
     accept.addEventListener("click", function () {
       write("granted");
       loadClarity();
+      loadGtag();
       closeDialog();
     });
 
@@ -134,7 +168,8 @@
       var previous = read();
       write("denied");
       clearClarityCookies();
-      if (previous === "granted" || loaded) {
+      clearGaCookies();
+      if (previous === "granted" || loaded || gaLoaded) {
         location.reload();
         return;
       }
@@ -145,8 +180,10 @@
   }
 
   var choice = read();
-  if (choice === "granted") loadClarity();
-  else if (choice !== "denied") openDialog(false);
+  if (choice === "granted") {
+    loadClarity();
+    loadGtag();
+  } else if (choice !== "denied") openDialog(false);
 
   var settings = document.querySelector(".cookie-settings");
   if (settings) settings.addEventListener("click", function () { openDialog(true); });
