@@ -48,9 +48,20 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     @font-face{font-family:Inter;font-style:normal;font-weight:100 900;font-display:swap;src:url("/assets/fonts/Inter-Variable.woff2") format("woff2")}
+    @font-face{font-family:Archivo;font-style:normal;font-weight:100 900;font-stretch:62% 125%;font-display:swap;src:url("/assets/fonts/Archivo-Variable.woff2") format("woff2")}
     body {
       font-family: Inter, system-ui, sans-serif;
       color-scheme: dark;
+    }
+    .brand{
+      display:inline-flex;align-items:center;gap:.6rem;min-height:44px;
+      font-family:Archivo,Inter,sans-serif;font-weight:500;font-stretch:118%;
+      font-size:15px;letter-spacing:-.03em;line-height:1;color:#FFF8ED;text-decoration:none
+    }
+    .brand img{width:32px;height:32px}
+    h1.display,h2.display,#step-title.display{
+      font-family:Archivo,Inter,sans-serif;font-weight:500;font-stretch:120%;
+      letter-spacing:-.04em;line-height:1.05
     }
     :focus-visible { outline: 2px solid #F6E7C1; outline-offset: 3px; }
     a { color: #FFF8ED; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
@@ -72,15 +83,7 @@
 
   <!-- Header / Navigation Header -->
   <header class="w-full max-w-5xl mx-auto px-6 py-8 flex justify-between items-center">
-    <div class="flex items-center gap-3">
-      <div class="w-10 h-10 rounded-xl bg-cream flex items-center justify-center">
-        <i class="fa-solid fa-bolt text-night text-xl"></i>
-      </div>
-      <div>
-        <span class="text-xl font-bold tracking-tight text-cream">SapperWebsites</span>
-        <span class="text-xs text-slate-400 block font-semibold tracking-wider uppercase">Digital Acceleration</span>
-      </div>
-    </div>
+    <a class="brand" href="/" aria-label="Sapper Websites home"><img src="/assets/eagle-mark.webp" alt="Eagle logo of Sapper Websites" width="32" height="32"><span>Sapper Websites</span></a>
     <a href="https://sapperwebsites.com" target="_blank" class="text-xs sm:text-sm font-medium text-cream no-underline hover:underline transition-colors flex items-center gap-2 bg-transparent px-4 py-2 rounded-full border border-cream/30">
       <span>Main Website</span>
       <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
@@ -97,7 +100,7 @@
           <span id="step-indicator" class="text-xs font-semibold tracking-wider text-cream uppercase bg-transparent px-3 py-1 rounded-full border border-cream/30">
             Step 1 of 3
           </span>
-          <span id="step-title" class="text-xs font-medium text-slate-400">
+          <span id="step-title" class="display text-xs font-medium text-slate-400">
             Business Profile
           </span>
         </div>
@@ -118,7 +121,7 @@
         <!-- ================= STEP 1: BUSINESS PROFILE ================= -->
         <div id="step-1" class="step-content space-y-6 transition-opacity duration-300">
           <div>
-            <h1 class="text-2xl sm:text-3xl font-bold text-cream tracking-tight">Tell us about your company</h1>
+            <h1 class="display text-2xl sm:text-3xl text-cream">Tell us about your company</h1>
             <p class="text-slate-400 mt-2 text-sm">We tailor our development solutions based on your operational scale.</p>
           </div>
 
@@ -194,7 +197,7 @@
         <!-- ================= STEP 2: PROJECT SCOPE & INVESTMENT ================= -->
         <div id="step-2" class="step-content space-y-6 hidden transition-opacity duration-300">
           <div>
-            <h1 class="text-2xl sm:text-3xl font-bold text-cream tracking-tight">Project Scope & Investment</h1>
+            <h1 class="display text-2xl sm:text-3xl text-cream">Project Scope & Investment</h1>
             <p class="text-slate-400 mt-2 text-sm">Help us understand what you need and set realistic goals.</p>
           </div>
 
@@ -220,7 +223,7 @@
           <!-- Budget Radio Cards -->
           <div class="space-y-2">
             <label class="block text-sm font-medium text-slate-300">
-              What is your target budget range for this digital transition? <span class="text-brand-500">*</span>
+              What is your target budget range for this project? <span class="text-brand-500">*</span>
             </label>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
               
@@ -268,7 +271,7 @@
                 </div>
                 <div>
                   <span class="block text-sm font-bold text-cream">$10,000+</span>
-                  <span class="block text-xs text-slate-400 mt-0.5">Full Ecosystem Transformation & Platform</span>
+                  <span class="block text-xs text-slate-400 mt-0.5">Large custom build</span>
                 </div>
               </label>
 
@@ -291,8 +294,8 @@
         <!-- ================= STEP 3: CONTACT & SUBMIT ================= -->
         <div id="step-3" class="step-content space-y-6 hidden transition-opacity duration-300">
           <div>
-            <h1 class="text-2xl sm:text-3xl font-bold text-cream tracking-tight">Where should we send your proposal?</h1>
-            <p class="text-slate-400 mt-2 text-sm">We'll review your submission and contact you within 24 business hours.</p>
+            <h1 class="display text-2xl sm:text-3xl text-cream">Where should we send your proposal?</h1>
+            <p class="text-slate-400 mt-2 text-sm">We'll review your submission and get back to you by email or phone.</p>
           </div>
 
           <!-- Full Name -->
@@ -353,7 +356,7 @@
         </div>
         
         <div class="space-y-2">
-          <h2 class="text-3xl font-bold text-cream">Application Received!</h2>
+          <h2 class="display text-3xl text-cream">Application Received!</h2>
           <p class="text-slate-400 max-w-md mx-auto text-sm leading-relaxed">
             Thank you for reaching out to <span class="text-cream font-medium">SapperWebsites.com</span>. Our technical strategy team is evaluating your business profile and will get in touch shortly.
           </p>
