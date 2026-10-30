@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, follow">
   <title>Get Started | Sapper Websites</title>
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -11,22 +12,33 @@
       theme: {
         extend: {
           colors: {
+            // Same palette as sapperwebsites.com (assets/home.css, contact section)
             brand: {
-              50: '#00000',
-              100: '11111',
-              500: '#3b82f6',
-              600: '#2563eb',
-              700: '#1d4ed8',
-              900: '#1e3a8a',
+              400: '#FFF8ED',
+              500: '#FFF8ED',
+              600: '#FFF8ED',
             },
             dark: {
-              800: '#0f172a',
-              900: '#020617',
-              700: '#1e293b'
-            }
+              900: '#141210',
+            },
+            night: '#141210',
+            ink: '#1C1614',
+            cream: '#FFF8ED',
+            slate: {
+              100: '#FFF8ED',
+              200: '#FFF8ED',
+              300: '#FFF8ED',
+              400: '#D5CEC6',
+              500: '#C9C2B8',
+              700: '#5E5852',
+              800: '#26231F',
+              900: '#1C1A17',
+            },
+            rose: { 400: '#FECACA' },
+            emerald: { 400: '#FFF8ED', 500: '#FFF8ED' },
           },
           fontFamily: {
-            sans: ['Inter', 'sans-serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
           }
         }
       }
@@ -34,42 +46,42 @@
   </script>
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    @font-face{font-family:Inter;font-style:normal;font-weight:100 900;font-display:swap;src:url("/assets/fonts/Inter-Variable.woff2") format("woff2")}
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: Inter, system-ui, sans-serif;
+      color-scheme: dark;
     }
+    :focus-visible { outline: 2px solid #F6E7C1; outline-offset: 3px; }
+    a { color: #FFF8ED; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    select option { background: #1C1A17; color: #FFF8ED; }
+    input:-webkit-autofill, textarea:-webkit-autofill { -webkit-text-fill-color: #FFF8ED; caret-color: #FFF8ED; box-shadow: 0 0 0 1000px #26231F inset; }
     .custom-scrollbar::-webkit-scrollbar {
       width: 6px;
     }
     .custom-scrollbar::-webkit-scrollbar-track {
-      background: #0f172a;
+      background: #1C1A17;
     }
     .custom-scrollbar::-webkit-scrollbar-thumb {
-      background: #334155;
+      background: #5E5852;
       border-radius: 3px;
     }
   </style>
 </head>
-<body class="bg-dark-900 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-brand-500 selection:text-white relative overflow-x-hidden">
-
-  <!-- Background Decorative Gradient Blurs -->
-  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-gradient-to-br from-blue-600/20 via-indigo-600/10 to-transparent blur-3xl -z-10 pointer-events-none"></div>
-  <div class="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/10 blur-3xl -z-10 pointer-events-none"></div>
+<body class="bg-dark-900 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-cream selection:text-night relative overflow-x-hidden">
 
   <!-- Header / Navigation Header -->
   <header class="w-full max-w-5xl mx-auto px-6 py-8 flex justify-between items-center">
     <div class="flex items-center gap-3">
-      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-500 flex items-center justify-center shadow-lg shadow-brand-500/20">
-        <i class="fa-solid fa-bolt text-white text-xl"></i>
+      <div class="w-10 h-10 rounded-xl bg-cream flex items-center justify-center">
+        <i class="fa-solid fa-bolt text-night text-xl"></i>
       </div>
       <div>
-        <span class="text-xl font-bold tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">SapperWebsites</span>
-        <span class="text-xs text-brand-500 block font-semibold tracking-wider uppercase">Digital Acceleration</span>
+        <span class="text-xl font-bold tracking-tight text-cream">SapperWebsites</span>
+        <span class="text-xs text-slate-400 block font-semibold tracking-wider uppercase">Digital Acceleration</span>
       </div>
     </div>
-    <a href="https://sapperwebsites.com" target="_blank" class="text-xs sm:text-sm font-medium text-slate-400 hover:text-white transition-colors flex items-center gap-2 bg-slate-800/60 backdrop-blur px-4 py-2 rounded-full border border-slate-700/50">
+    <a href="https://sapperwebsites.com" target="_blank" class="text-xs sm:text-sm font-medium text-cream no-underline hover:underline transition-colors flex items-center gap-2 bg-transparent px-4 py-2 rounded-full border border-cream/30">
       <span>Main Website</span>
       <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
     </a>
@@ -77,12 +89,12 @@
 
   <!-- Main Container -->
   <main class="w-full max-w-3xl mx-auto px-4 sm:px-6 my-auto py-6">
-    <div class="bg-slate-900/80 backdrop-blur-xl border border-slate-800/80 rounded-3xl p-6 sm:p-10 shadow-2xl relative overflow-hidden">
+    <div class="bg-slate-900 border border-cream/20 rounded-3xl p-6 sm:p-10 relative overflow-hidden">
 
       <!-- Progress Header -->
       <div id="progress-container" class="mb-8">
         <div class="flex items-center justify-between mb-4">
-          <span id="step-indicator" class="text-xs font-semibold tracking-wider text-brand-500 uppercase bg-brand-500/10 px-3 py-1 rounded-full border border-brand-500/20">
+          <span id="step-indicator" class="text-xs font-semibold tracking-wider text-cream uppercase bg-transparent px-3 py-1 rounded-full border border-cream/30">
             Step 1 of 3
           </span>
           <span id="step-title" class="text-xs font-medium text-slate-400">
@@ -91,18 +103,22 @@
         </div>
         
         <!-- Progress Bar Track -->
-        <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
-          <div id="progress-bar" class="h-full bg-gradient-to-r from-brand-600 to-indigo-500 transition-all duration-500 ease-out w-1/3"></div>
+        <div class="w-full h-2 bg-cream/15 rounded-full overflow-hidden">
+          <div id="progress-bar" class="h-full bg-cream transition-all duration-500 ease-out w-1/3"></div>
         </div>
       </div>
 
       <!-- Form Elements -->
-      <form id="leadForm" onsubmit="handleFormSubmit(event)">
+      <form id="leadForm" action="https://formsubmit.co/91dfdb1b36b35a1d4a0f92a4e963d9b9" method="POST" accept-charset="UTF-8" onsubmit="handleFormSubmit(event)">
+        <input type="hidden" name="_subject" value="New /form1 application">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://sapperwebsites.com/thanks.html">
         
         <!-- ================= STEP 1: BUSINESS PROFILE ================= -->
         <div id="step-1" class="step-content space-y-6 transition-opacity duration-300">
           <div>
-            <h1 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">Tell us about your company</h1>
+            <h1 class="text-2xl sm:text-3xl font-bold text-cream tracking-tight">Tell us about your company</h1>
             <p class="text-slate-400 mt-2 text-sm">We tailor our development solutions based on your operational scale.</p>
           </div>
 
@@ -110,7 +126,7 @@
           <div class="space-y-2">
             <label for="industry" class="block text-sm font-medium text-slate-300">What industry is your business in? <span class="text-brand-500">*</span></label>
             <div class="relative">
-              <select id="industry" name="industry" required class="w-full bg-slate-800/90 border border-slate-700 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all appearance-none cursor-pointer pr-10">
+              <select id="industry" name="industry" required class="w-full bg-slate-800/90 border border-cream/30 rounded-xl px-4 py-3.5 text-cream focus:outline-none focus:ring-2 focus:ring-[#F6E7C1] focus:border-cream transition-all appearance-none cursor-pointer pr-10">
                 <option value="" disabled selected>Select an industry...</option>
                 <option value="ecommerce">E-Commerce & Retail</option>
                 <option value="services">Professional Services (Legal, Finance, Consulting)</option>
@@ -133,34 +149,34 @@
             <label class="block text-sm font-medium text-slate-300">How many employees does your company have? <span class="text-brand-500">*</span></label>
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
               <!-- Option 1 -->
-              <label class="relative flex flex-col items-center justify-center p-4 bg-slate-800/50 border border-slate-700/70 rounded-xl cursor-pointer hover:border-brand-500/50 hover:bg-slate-800 transition-all text-center group has-[:checked]:border-brand-500 has-[:checked]:bg-brand-500/10 has-[:checked]:ring-1 has-[:checked]:ring-brand-500">
+              <label class="relative flex flex-col items-center justify-center p-4 bg-slate-800/50 border border-cream/25 rounded-xl cursor-pointer hover:border-cream/60 hover:bg-slate-800 transition-all text-center group has-[:checked]:border-brand-500 has-[:checked]:bg-cream/10 has-[:checked]:ring-1 has-[:checked]:ring-brand-500">
                 <input type="radio" name="employeeCount" value="1" class="sr-only" required>
-                <i class="fa-solid fa-user text-lg text-slate-400 group-hover:text-brand-500 mb-2 group-has-[:checked]:text-brand-500 transition-colors"></i>
-                <span class="text-sm font-semibold text-white">1</span>
+                <i class="fa-solid fa-user text-lg text-slate-400 group-hover:text-cream mb-2 group-has-[:checked]:text-brand-500 transition-colors"></i>
+                <span class="text-sm font-semibold text-cream">1</span>
                 <span class="text-[11px] text-slate-400">Just Me</span>
               </label>
 
               <!-- Option 2 -->
-              <label class="relative flex flex-col items-center justify-center p-4 bg-slate-800/50 border border-slate-700/70 rounded-xl cursor-pointer hover:border-brand-500/50 hover:bg-slate-800 transition-all text-center group has-[:checked]:border-brand-500 has-[:checked]:bg-brand-500/10 has-[:checked]:ring-1 has-[:checked]:ring-brand-500">
+              <label class="relative flex flex-col items-center justify-center p-4 bg-slate-800/50 border border-cream/25 rounded-xl cursor-pointer hover:border-cream/60 hover:bg-slate-800 transition-all text-center group has-[:checked]:border-brand-500 has-[:checked]:bg-cream/10 has-[:checked]:ring-1 has-[:checked]:ring-brand-500">
                 <input type="radio" name="employeeCount" value="2-10" class="sr-only">
-                <i class="fa-solid fa-users text-lg text-slate-400 group-hover:text-brand-500 mb-2 group-has-[:checked]:text-brand-500 transition-colors"></i>
-                <span class="text-sm font-semibold text-white">2 – 10</span>
+                <i class="fa-solid fa-users text-lg text-slate-400 group-hover:text-cream mb-2 group-has-[:checked]:text-brand-500 transition-colors"></i>
+                <span class="text-sm font-semibold text-cream">2 – 10</span>
                 <span class="text-[11px] text-slate-400">Small Team</span>
               </label>
 
               <!-- Option 3 -->
-              <label class="relative flex flex-col items-center justify-center p-4 bg-slate-800/50 border border-slate-700/70 rounded-xl cursor-pointer hover:border-brand-500/50 hover:bg-slate-800 transition-all text-center group has-[:checked]:border-brand-500 has-[:checked]:bg-brand-500/10 has-[:checked]:ring-1 has-[:checked]:ring-brand-500">
+              <label class="relative flex flex-col items-center justify-center p-4 bg-slate-800/50 border border-cream/25 rounded-xl cursor-pointer hover:border-cream/60 hover:bg-slate-800 transition-all text-center group has-[:checked]:border-brand-500 has-[:checked]:bg-cream/10 has-[:checked]:ring-1 has-[:checked]:ring-brand-500">
                 <input type="radio" name="employeeCount" value="11-50" class="sr-only">
-                <i class="fa-solid fa-people-group text-lg text-slate-400 group-hover:text-brand-500 mb-2 group-has-[:checked]:text-brand-500 transition-colors"></i>
-                <span class="text-sm font-semibold text-white">11 – 50</span>
+                <i class="fa-solid fa-people-group text-lg text-slate-400 group-hover:text-cream mb-2 group-has-[:checked]:text-brand-500 transition-colors"></i>
+                <span class="text-sm font-semibold text-cream">11 – 50</span>
                 <span class="text-[11px] text-slate-400">Growing</span>
               </label>
 
               <!-- Option 4 -->
-              <label class="relative flex flex-col items-center justify-center p-4 bg-slate-800/50 border border-slate-700/70 rounded-xl cursor-pointer hover:border-brand-500/50 hover:bg-slate-800 transition-all text-center group has-[:checked]:border-brand-500 has-[:checked]:bg-brand-500/10 has-[:checked]:ring-1 has-[:checked]:ring-brand-500">
+              <label class="relative flex flex-col items-center justify-center p-4 bg-slate-800/50 border border-cream/25 rounded-xl cursor-pointer hover:border-cream/60 hover:bg-slate-800 transition-all text-center group has-[:checked]:border-brand-500 has-[:checked]:bg-cream/10 has-[:checked]:ring-1 has-[:checked]:ring-brand-500">
                 <input type="radio" name="employeeCount" value="50+" class="sr-only">
-                <i class="fa-solid fa-building text-lg text-slate-400 group-hover:text-brand-500 mb-2 group-has-[:checked]:text-brand-500 transition-colors"></i>
-                <span class="text-sm font-semibold text-white">50+</span>
+                <i class="fa-solid fa-building text-lg text-slate-400 group-hover:text-cream mb-2 group-has-[:checked]:text-brand-500 transition-colors"></i>
+                <span class="text-sm font-semibold text-cream">50+</span>
                 <span class="text-[11px] text-slate-400">Enterprise</span>
               </label>
             </div>
@@ -168,7 +184,7 @@
           </div>
 
           <div class="pt-4 flex justify-end">
-            <button type="button" onclick="nextStep(1)" class="w-full sm:w-auto px-8 py-3.5 bg-brand-600 hover:bg-brand-500 text-white font-semibold rounded-xl transition-all shadow-lg shadow-brand-600/30 flex items-center justify-center gap-2 group">
+            <button type="button" onclick="nextStep(1)" class="w-full sm:w-auto px-8 py-3.5 bg-cream hover:bg-[#ffffff] text-ink font-semibold rounded-full transition-all flex items-center justify-center gap-2 group">
               <span>Continue to Project Scope</span>
               <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
             </button>
@@ -178,7 +194,7 @@
         <!-- ================= STEP 2: PROJECT SCOPE & INVESTMENT ================= -->
         <div id="step-2" class="step-content space-y-6 hidden transition-opacity duration-300">
           <div>
-            <h1 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">Project Scope & Investment</h1>
+            <h1 class="text-2xl sm:text-3xl font-bold text-cream tracking-tight">Project Scope & Investment</h1>
             <p class="text-slate-400 mt-2 text-sm">Help us understand what you need and set realistic goals.</p>
           </div>
 
@@ -197,7 +213,7 @@
               oninput="updateSentenceCount(this)"
               placeholder="e.g. 1. We provide eco-friendly residential cleaning services in San Francisco.&#10;2. Our main customers are busy working professionals and families.&#10;3. We want to accept online bookings and manage customer subscriptions automatically." 
               required
-              class="w-full bg-slate-800/90 border border-slate-700 rounded-xl p-4 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all text-sm leading-relaxed custom-scrollbar"></textarea>
+              class="w-full bg-slate-800/90 border border-cream/30 rounded-xl p-4 text-cream placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#F6E7C1] focus:border-cream transition-all text-sm leading-relaxed custom-scrollbar"></textarea>
             <p id="description-error" class="hidden text-xs text-rose-400 mt-1"><i class="fa-solid fa-circle-exclamation mr-1"></i>Please provide a short description of your business.</p>
           </div>
 
@@ -209,49 +225,49 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
               
               <!-- Under $2k -->
-              <label class="relative flex items-start p-4 bg-slate-800/50 border border-slate-700/70 rounded-xl cursor-pointer hover:border-brand-500/50 hover:bg-slate-800 transition-all group has-[:checked]:border-brand-500 has-[:checked]:bg-brand-500/10 has-[:checked]:ring-1 has-[:checked]:ring-brand-500">
+              <label class="relative flex items-start p-4 bg-slate-800/50 border border-cream/25 rounded-xl cursor-pointer hover:border-cream/60 hover:bg-slate-800 transition-all group has-[:checked]:border-brand-500 has-[:checked]:bg-cream/10 has-[:checked]:ring-1 has-[:checked]:ring-brand-500">
                 <input type="radio" name="budget" value="under_2k" class="sr-only" required>
-                <div class="mt-0.5 mr-3 w-4 h-4 rounded-full border border-slate-500 group-has-[:checked]:border-brand-500 group-has-[:checked]:bg-brand-500 flex items-center justify-center flex-shrink-0">
-                  <div class="w-1.5 h-1.5 rounded-full bg-white opacity-0 group-has-[:checked]:opacity-100"></div>
+                <div class="mt-0.5 mr-3 w-4 h-4 rounded-full border border-slate-400 group-has-[:checked]:border-brand-500 group-has-[:checked]:bg-brand-500 flex items-center justify-center flex-shrink-0">
+                  <div class="w-1.5 h-1.5 rounded-full bg-night opacity-0 group-has-[:checked]:opacity-100"></div>
                 </div>
                 <div>
-                  <span class="block text-sm font-bold text-white">Under $2,000</span>
+                  <span class="block text-sm font-bold text-cream">Under $2,000</span>
                   <span class="block text-xs text-slate-400 mt-0.5">Quick Audits, Minor Fixes, or Advisory</span>
                 </div>
               </label>
 
               <!-- $2k - $5k -->
-              <label class="relative flex items-start p-4 bg-slate-800/50 border border-slate-700/70 rounded-xl cursor-pointer hover:border-brand-500/50 hover:bg-slate-800 transition-all group has-[:checked]:border-brand-500 has-[:checked]:bg-brand-500/10 has-[:checked]:ring-1 has-[:checked]:ring-brand-500">
+              <label class="relative flex items-start p-4 bg-slate-800/50 border border-cream/25 rounded-xl cursor-pointer hover:border-cream/60 hover:bg-slate-800 transition-all group has-[:checked]:border-brand-500 has-[:checked]:bg-cream/10 has-[:checked]:ring-1 has-[:checked]:ring-brand-500">
                 <input type="radio" name="budget" value="2k_5k" class="sr-only">
-                <div class="mt-0.5 mr-3 w-4 h-4 rounded-full border border-slate-500 group-has-[:checked]:border-brand-500 group-has-[:checked]:bg-brand-500 flex items-center justify-center flex-shrink-0">
-                  <div class="w-1.5 h-1.5 rounded-full bg-white opacity-0 group-has-[:checked]:opacity-100"></div>
+                <div class="mt-0.5 mr-3 w-4 h-4 rounded-full border border-slate-400 group-has-[:checked]:border-brand-500 group-has-[:checked]:bg-brand-500 flex items-center justify-center flex-shrink-0">
+                  <div class="w-1.5 h-1.5 rounded-full bg-night opacity-0 group-has-[:checked]:opacity-100"></div>
                 </div>
                 <div>
-                  <span class="block text-sm font-bold text-white">$2,000 – $5,000</span>
+                  <span class="block text-sm font-bold text-cream">$2,000 – $5,000</span>
                   <span class="block text-xs text-slate-400 mt-0.5">Custom Business Website & Funnel</span>
                 </div>
               </label>
 
               <!-- $5k - $10k -->
-              <label class="relative flex items-start p-4 bg-slate-800/50 border border-slate-700/70 rounded-xl cursor-pointer hover:border-brand-500/50 hover:bg-slate-800 transition-all group has-[:checked]:border-brand-500 has-[:checked]:bg-brand-500/10 has-[:checked]:ring-1 has-[:checked]:ring-brand-500">
+              <label class="relative flex items-start p-4 bg-slate-800/50 border border-cream/25 rounded-xl cursor-pointer hover:border-cream/60 hover:bg-slate-800 transition-all group has-[:checked]:border-brand-500 has-[:checked]:bg-cream/10 has-[:checked]:ring-1 has-[:checked]:ring-brand-500">
                 <input type="radio" name="budget" value="5k_10k" class="sr-only">
-                <div class="mt-0.5 mr-3 w-4 h-4 rounded-full border border-slate-500 group-has-[:checked]:border-brand-500 group-has-[:checked]:bg-brand-500 flex items-center justify-center flex-shrink-0">
-                  <div class="w-1.5 h-1.5 rounded-full bg-white opacity-0 group-has-[:checked]:opacity-100"></div>
+                <div class="mt-0.5 mr-3 w-4 h-4 rounded-full border border-slate-400 group-has-[:checked]:border-brand-500 group-has-[:checked]:bg-brand-500 flex items-center justify-center flex-shrink-0">
+                  <div class="w-1.5 h-1.5 rounded-full bg-night opacity-0 group-has-[:checked]:opacity-100"></div>
                 </div>
                 <div>
-                  <span class="block text-sm font-bold text-white">$5,000 – $10,000</span>
+                  <span class="block text-sm font-bold text-cream">$5,000 – $10,000</span>
                   <span class="block text-xs text-slate-400 mt-0.5">Advanced E-commerce or Web Application</span>
                 </div>
               </label>
 
               <!-- $10k+ -->
-              <label class="relative flex items-start p-4 bg-slate-800/50 border border-slate-700/70 rounded-xl cursor-pointer hover:border-brand-500/50 hover:bg-slate-800 transition-all group has-[:checked]:border-brand-500 has-[:checked]:bg-brand-500/10 has-[:checked]:ring-1 has-[:checked]:ring-brand-500">
+              <label class="relative flex items-start p-4 bg-slate-800/50 border border-cream/25 rounded-xl cursor-pointer hover:border-cream/60 hover:bg-slate-800 transition-all group has-[:checked]:border-brand-500 has-[:checked]:bg-cream/10 has-[:checked]:ring-1 has-[:checked]:ring-brand-500">
                 <input type="radio" name="budget" value="10k_plus" class="sr-only">
-                <div class="mt-0.5 mr-3 w-4 h-4 rounded-full border border-slate-500 group-has-[:checked]:border-brand-500 group-has-[:checked]:bg-brand-500 flex items-center justify-center flex-shrink-0">
-                  <div class="w-1.5 h-1.5 rounded-full bg-white opacity-0 group-has-[:checked]:opacity-100"></div>
+                <div class="mt-0.5 mr-3 w-4 h-4 rounded-full border border-slate-400 group-has-[:checked]:border-brand-500 group-has-[:checked]:bg-brand-500 flex items-center justify-center flex-shrink-0">
+                  <div class="w-1.5 h-1.5 rounded-full bg-night opacity-0 group-has-[:checked]:opacity-100"></div>
                 </div>
                 <div>
-                  <span class="block text-sm font-bold text-white">$10,000+</span>
+                  <span class="block text-sm font-bold text-cream">$10,000+</span>
                   <span class="block text-xs text-slate-400 mt-0.5">Full Ecosystem Transformation & Platform</span>
                 </div>
               </label>
@@ -261,11 +277,11 @@
           </div>
 
           <div class="pt-4 flex items-center justify-between gap-4">
-            <button type="button" onclick="prevStep(2)" class="px-6 py-3.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-medium rounded-xl transition-all border border-slate-700 text-sm flex items-center gap-2">
+            <button type="button" onclick="prevStep(2)" class="px-6 py-3.5 bg-transparent hover:bg-cream/10 text-cream font-medium rounded-full transition-all border border-cream/30 text-sm flex items-center gap-2">
               <i class="fa-solid fa-arrow-left text-xs"></i>
               <span>Back</span>
             </button>
-            <button type="button" onclick="nextStep(2)" class="px-8 py-3.5 bg-brand-600 hover:bg-brand-500 text-white font-semibold rounded-xl transition-all shadow-lg shadow-brand-600/30 flex items-center justify-center gap-2 group">
+            <button type="button" onclick="nextStep(2)" class="px-8 py-3.5 bg-cream hover:bg-[#ffffff] text-ink font-semibold rounded-full transition-all flex items-center justify-center gap-2 group">
               <span>Continue to Contact</span>
               <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
             </button>
@@ -275,7 +291,7 @@
         <!-- ================= STEP 3: CONTACT & SUBMIT ================= -->
         <div id="step-3" class="step-content space-y-6 hidden transition-opacity duration-300">
           <div>
-            <h1 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">Where should we send your proposal?</h1>
+            <h1 class="text-2xl sm:text-3xl font-bold text-cream tracking-tight">Where should we send your proposal?</h1>
             <p class="text-slate-400 mt-2 text-sm">We'll review your submission and contact you within 24 business hours.</p>
           </div>
 
@@ -283,7 +299,7 @@
           <div class="space-y-2">
             <label for="fullName" class="block text-sm font-medium text-slate-300">Full Name <span class="text-brand-500">*</span></label>
             <div class="relative">
-              <input type="text" id="fullName" name="fullName" placeholder="Sarah Jenkins" required class="w-full bg-slate-800/90 border border-slate-700 rounded-xl px-4 py-3.5 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all pl-11">
+              <input type="text" id="fullName" name="fullName" placeholder="Sarah Jenkins" required class="w-full bg-slate-800/90 border border-cream/30 rounded-xl px-4 py-3.5 text-cream placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#F6E7C1] focus:border-cream transition-all pl-11">
               <i class="fa-regular fa-user absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm"></i>
             </div>
             <p id="name-error" class="hidden text-xs text-rose-400 mt-1"><i class="fa-solid fa-circle-exclamation mr-1"></i>Please enter your full name.</p>
@@ -293,7 +309,7 @@
           <div class="space-y-2">
             <label for="email" class="block text-sm font-medium text-slate-300">Business Email <span class="text-brand-500">*</span></label>
             <div class="relative">
-              <input type="email" id="email" name="email" placeholder="sarah@yourcompany.com" required class="w-full bg-slate-800/90 border border-slate-700 rounded-xl px-4 py-3.5 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all pl-11">
+              <input type="email" id="email" name="email" placeholder="sarah@yourcompany.com" required class="w-full bg-slate-800/90 border border-cream/30 rounded-xl px-4 py-3.5 text-cream placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#F6E7C1] focus:border-cream transition-all pl-11">
               <i class="fa-regular fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm"></i>
             </div>
             <p id="email-error" class="hidden text-xs text-rose-400 mt-1"><i class="fa-solid fa-circle-exclamation mr-1"></i>Please enter a valid business email address.</p>
@@ -303,52 +319,59 @@
           <div class="space-y-2">
             <label for="phone" class="block text-sm font-medium text-slate-300">Phone Number <span class="text-brand-500">*</span></label>
             <div class="relative">
-              <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" required class="w-full bg-slate-800/90 border border-slate-700 rounded-xl px-4 py-3.5 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all pl-11">
+              <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" required class="w-full bg-slate-800/90 border border-cream/30 rounded-xl px-4 py-3.5 text-cream placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#F6E7C1] focus:border-cream transition-all pl-11">
               <i class="fa-solid fa-phone absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm"></i>
             </div>
             <p id="phone-error" class="hidden text-xs text-rose-400 mt-1"><i class="fa-solid fa-circle-exclamation mr-1"></i>Please enter your phone number.</p>
           </div>
 
-          <div class="pt-4 flex items-center justify-between gap-4">
-            <button type="button" onclick="prevStep(3)" class="px-6 py-3.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-medium rounded-xl transition-all border border-slate-700 text-sm flex items-center gap-2">
+          <p id="send-error" class="hidden text-xs text-rose-400" role="alert">Sorry, that didn't go through. Please try again in a moment.</p>
+          <div class="pt-4 flex flex-col-reverse sm:flex-row items-stretch sm:items-center sm:justify-between gap-4">
+            <button type="button" onclick="prevStep(3)" class="justify-center px-6 py-3.5 bg-transparent hover:bg-cream/10 text-cream font-medium rounded-full transition-all border border-cream/30 text-sm flex items-center gap-2">
               <i class="fa-solid fa-arrow-left text-xs"></i>
               <span>Back</span>
             </button>
-            <button type="submit" id="submit-btn" class="px-8 py-3.5 bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white font-semibold rounded-xl transition-all shadow-lg shadow-brand-600/30 flex items-center justify-center gap-2">
+            <div class="flex flex-col-reverse sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
+            <a href="/privacy.html" class="text-sm text-cream whitespace-nowrap text-center">Privacy Policy</a>
+            <button type="submit" id="submit-btn" class="w-full sm:w-auto whitespace-nowrap px-6 sm:px-8 py-3.5 bg-cream hover:bg-[#ffffff] text-ink font-semibold rounded-full transition-all flex items-center justify-center gap-2">
               <span>Submit Application</span>
               <i class="fa-solid fa-paper-plane text-xs"></i>
             </button>
+            </div>
           </div>
         </div>
 
+        <p class="absolute left-0 top-0 h-px w-px overflow-hidden" aria-hidden="true">
+          <label>Leave this field empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label>
+        </p>
       </form>
 
       <!-- ================= SUCCESS CONFIRMATION STATE ================= -->
       <div id="success-screen" class="hidden py-8 text-center space-y-6">
-        <div class="w-20 h-20 bg-emerald-500/10 border border-emerald-500/30 rounded-full flex items-center justify-center mx-auto text-emerald-400 text-3xl shadow-lg shadow-emerald-500/10">
+        <div class="w-20 h-20 bg-emerald-500/10 border border-emerald-500/30 rounded-full flex items-center justify-center mx-auto text-emerald-400 text-3xl ">
           <i class="fa-solid fa-check"></i>
         </div>
         
         <div class="space-y-2">
-          <h2 class="text-3xl font-bold text-white">Application Received!</h2>
+          <h2 class="text-3xl font-bold text-cream">Application Received!</h2>
           <p class="text-slate-400 max-w-md mx-auto text-sm leading-relaxed">
-            Thank you for reaching out to <span class="text-white font-medium">SapperWebsites.com</span>. Our technical strategy team is evaluating your business profile and will get in touch shortly.
+            Thank you for reaching out to <span class="text-cream font-medium">SapperWebsites.com</span>. Our technical strategy team is evaluating your business profile and will get in touch shortly.
           </p>
         </div>
 
         <!-- Submission Details Summary Box -->
-        <div class="bg-slate-800/40 border border-slate-700/50 rounded-2xl p-5 text-left max-w-md mx-auto space-y-3 text-xs text-slate-300">
-          <div class="flex justify-between pb-2 border-b border-slate-700/50">
+        <div class="bg-slate-800 border border-cream/20 rounded-2xl p-5 text-left max-w-md mx-auto space-y-3 text-xs text-slate-300">
+          <div class="flex justify-between pb-2 border-b border-cream/15">
             <span class="text-slate-400">Industry:</span>
-            <span id="summary-industry" class="font-medium text-white">-</span>
+            <span id="summary-industry" class="font-medium text-cream">-</span>
           </div>
-          <div class="flex justify-between pb-2 border-b border-slate-700/50">
+          <div class="flex justify-between pb-2 border-b border-cream/15">
             <span class="text-slate-400">Team Size:</span>
-            <span id="summary-employees" class="font-medium text-white">-</span>
+            <span id="summary-employees" class="font-medium text-cream">-</span>
           </div>
-          <div class="flex justify-between pb-2 border-b border-slate-700/50">
+          <div class="flex justify-between pb-2 border-b border-cream/15">
             <span class="text-slate-400">Target Budget:</span>
-            <span id="summary-budget" class="font-medium text-white">-</span>
+            <span id="summary-budget" class="font-medium text-cream">-</span>
           </div>
           <div class="flex justify-between">
             <span class="text-slate-400">Contact Email:</span>
@@ -357,7 +380,7 @@
         </div>
 
         <div class="pt-4">
-          <button onclick="resetForm()" class="text-xs text-slate-400 hover:text-white transition-colors underline underline-offset-4">
+          <button onclick="resetForm()" class="text-xs text-slate-400 hover:text-cream transition-colors underline underline-offset-4">
             Submit another application
           </button>
         </div>
@@ -376,6 +399,7 @@
     document.getElementById('year').textContent = new Date().getFullYear();
 
     let currentStep = 1;
+    const formOpened = window.__formOpened || Date.now();
 
     // Helper: Update sentence counter
     function updateSentenceCount(textarea) {
@@ -532,34 +556,47 @@
 
       if (!isValid) return;
 
-      // Simulate loading state
+      const form = document.getElementById('leadForm');
+      const sendError = document.getElementById('send-error');
+      const honey = form.querySelector('input[name="_honey"]');
+      if (sendError) sendError.classList.add('hidden');
+      if ((honey && honey.value) || (Date.now() - formOpened < 3000)) {
+        if (sendError) sendError.classList.remove('hidden');
+        return;
+      }
+
       const submitBtn = document.getElementById('submit-btn');
       submitBtn.disabled = true;
-      submitBtn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> Processing...`;
 
-      setTimeout(() => {
-        // Populate Summary
-        const industrySelect = document.getElementById('industry');
-        const employeeChecked = document.querySelector('input[name="employeeCount"]:checked');
-        const budgetChecked = document.querySelector('input[name="budget"]:checked');
+      let reply = form.querySelector('input[name="_replyto"]');
+      if (!reply) {
+        reply = document.createElement('input');
+        reply.type = 'hidden';
+        reply.name = '_replyto';
+        form.appendChild(reply);
+      }
+      reply.value = email;
 
-        const budgetLabels = {
-          'under_2k': 'Under $2,000',
-          '2k_5k': '$2,000 – $5,000',
-          '5k_10k': '$5,000 – $10,000',
-          '10k_plus': '$10,000+'
-        };
+      const data = {};
+      new FormData(form).forEach(function (value, key) { data[key] = value; });
 
-        document.getElementById('summary-industry').textContent = industrySelect.options[industrySelect.selectedIndex].text;
-        document.getElementById('summary-employees').textContent = `${employeeChecked.value} ${employeeChecked.value === '1' ? 'Person' : 'Employees'}`;
-        document.getElementById('summary-budget').textContent = budgetLabels[budgetChecked.value] || budgetChecked.value;
-        document.getElementById('summary-email').textContent = email;
-
-        // Hide form & progress, show success screen
-        document.getElementById('leadForm').classList.add('hidden');
-        document.getElementById('progress-container').classList.add('hidden');
-        document.getElementById('success-screen').classList.remove('hidden');
-      }, 1000);
+      fetch('https://formsubmit.co/ajax/91dfdb1b36b35a1d4a0f92a4e963d9b9', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      }).then(function (res) {
+        return res.json();
+      }).then(function (body) {
+        if (body && (body.success === true || body.success === 'true')) {
+          window.location.href = '/thanks.html';
+          return;
+        }
+        if (sendError) sendError.classList.remove('hidden');
+        submitBtn.disabled = false;
+      }).catch(function () {
+        if (sendError) sendError.classList.remove('hidden');
+        submitBtn.disabled = false;
+      });
     }
 
     // Reset Form
