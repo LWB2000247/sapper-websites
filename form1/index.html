@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Started | Sapper Websites</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              900: '#1e3a8a',
+            },
+            dark: {
+              800: '#0f172a',
+              900: '#020617',
+              700: '#1e293b'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body class="bg-dark-900 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-brand-500 selection:text-white relative overflow-x-hidden">
+
+  <!-- Background Decorative Gradient Blurs -->
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-gradient-to-br from-blue-600/20 via-indigo-600/10 to-transparent blur-3xl -z-10 pointer-events-none"></div>
+  <div class="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/10 blur-3xl -z-10 pointer-events-none"></div>
+
+  <!-- Header / Navigation Header -->
+  <header class="w-full max-w-5xl mx-auto px-6 py-8 flex justify-between items-center">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-500 flex items-center justify-center shadow-lg shadow-brand-500/20">
+        <i class="fa-solid fa-bolt text-white text-xl"></i>
+      </div>
+      <div>
+        <span class="text-xl font-bold tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">SapperWebsites</span>
+        <span class="text-xs text-brand-500 block font-semibold tracking-wider uppercase">Digital Acceleration</span>
+      </div>
+    </div>
+    <a href="https://sapperwebsites.com" target="_blank" class="text-xs sm:text-sm font-medium text-slate-400 hover:text-white transition-colors flex items-center gap-2 bg-slate-800/60 backdrop-blur px-4 py-2 rounded-full border border-slate-700/50">
+      <span>Main Website</span>
+      <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+    </a>
+  </header>
+
+  <!-- Main Container -->
+  <main class="w-full max-w-3xl mx-auto px-4 sm:px-6 my-auto py-6">
+    <div class="bg-slate-900/80 backdrop-blur-xl border border-slate-800/80 rounded-3xl p-6 sm:p-10 shadow-2xl relative overflow-hidden">
+
+      <!-- Progress Header -->
+      <div id="progress-container" class="mb-8">
+        <div class="flex items-center justify-between mb-4">
+          <span id="step-indicator" class="text-xs font-semibold tracking-wider text-brand-500 uppercase bg-brand-500/10 px-3 py-1 rounded-full border border-brand-500/20">
+            Step 1 of 3
+          </span>
+          <span id="step-title" class="text-xs font-medium text-slate-400">
+            Business Profile
+          </span>
+        </div>
+        
+        <!-- Progress Bar Track -->
+        <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+          <div id="progress-bar" class="h-full bg-gradient-to-r from-brand-600 to-indigo-500 transition-all duration-500 ease-out w-1/3"></div>
+        </div>
+      </div>
+
+      <!-- Form Elements -->
+      <form id="leadForm" onsubmit="handleFormSubmit(event)">
+        
+        <!-- ================= STEP 1: BUSINESS PROFILE ================= -->
+        <div id="step-1" class="step-content space-y-6 transition-opacity duration-300">
+          <div>
+            <h1 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">Tell us about your company</h1>
+            <p class="text-slate-400 mt-2 text-sm">We tailor our development solutions based on your operational scale.</p>
+          </div>
+
+          <!-- Industry Selection -->
+          <div class="space-y-2">
+            <label for="industry" class="block text-sm font-medium text-slate-300">What industry is your business in? <span class="text-brand-500">*</span></label>
+            <div class="relative">
+              <select id="industry" name="industry" required class="w-full bg-slate-800/90 border border-slate-700 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all appearance-none cursor-pointer pr-10">
+                <option value="" disabled selected>Select an industry...</option>
+                <option value="ecommerce">E-Commerce & Retail</option>
+                <option value="services">Professional Services (Legal, Finance, Consulting)</option>
+                <option value="healthcare">Healthcare & Wellness</option>
+                <option value="construction">Construction, Real Estate & Trades</option>
+                <option value="tech">Technology, SaaS & Digital Products</option>
+                <option value="hospitality">Food, Beverage & Hospitality</option>
+                <option value="education">Education & Non-Profit</option>
+                <option value="other">Other Industry</option>
+              </select>
+              <div class="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-slate-400">
+                <i class="fa-solid fa-chevron-down text-xs"></i>
+              </div>
+            </div>
+            <p id="industry-error" class="hidden text-xs text-rose-400 mt-1"><i class="fa-solid fa-circle-exclamation mr-1"></i>Please select an industry.</p>
+          </div>
+
+          <!-- Employee Count Cards -->
+          <div class="space-y-2">
+            <label class="block text-sm font-medium text-slate-300">How many employees does your company have? <span class="text-brand-500">*</span></label>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <!-- Option 1 -->
+              <label class="relative flex flex-col items-center justify-center p-4 bg-slate-800/50 border border-slate-700/70 rounded-xl cursor-pointer hover:border-brand-500/50 hover:bg-slate-800 transition-all text-center group has-[:checked]:border-brand-500 has-[:checked]:bg-brand-500/10 has-[:checked]:ring-1 has-[:checked]:ring-brand-500">
+                <input type="radio" name="employeeCount" value="1" class="sr-only" required>
+                <i class="fa-solid fa-user text-lg text-slate-400 group-hover:text-brand-500 mb-2 group-has-[:checked]:text-brand-500 transition-colors"></i>
+                <span class="text-sm font-semibold text-white">1</span>
+                <span class="text-[11px] text-slate-400">Just Me</span>
+              </label>
+
+              <!-- Option 2 -->
+              <label class="relative flex flex-col items-center justify-center p-4 bg-slate-800/50 border border-slate-700/70 rounded-xl cursor-pointer hover:border-brand-500/50 hover:bg-slate-800 transition-all text-center group has-[:checked]:border-brand-500 has-[:checked]:bg-brand-500/10 has-[:checked]:ring-1 has-[:checked]:ring-brand-500">
+                <input type="radio" name="employeeCount" value="2-10" class="sr-only">
+                <i class="fa-solid fa-users text-lg text-slate-400 group-hover:text-brand-500 mb-2 group-has-[:checked]:text-brand-500 transition-colors"></i>
+                <span class="text-sm font-semibold text-white">2 – 10</span>
+                <span class="text-[11px] text-slate-400">Small Team</span>
+              </label>
+
+              <!-- Option 3 -->
+              <label class="relative flex flex-col items-center justify-center p-4 bg-slate-800/50 border border-slate-700/70 rounded-xl cursor-pointer hover:border-brand-500/50 hover:bg-slate-800 transition-all text-center group has-[:checked]:border-brand-500 has-[:checked]:bg-brand-500/10 has-[:checked]:ring-1 has-[:checked]:ring-brand-500">
+                <input type="radio" name="employeeCount" value="11-50" class="sr-only">
+                <i class="fa-solid fa-people-group text-lg text-slate-400 group-hover:text-brand-500 mb-2 group-has-[:checked]:text-brand-500 transition-colors"></i>
+                <span class="text-sm font-semibold text-white">11 – 50</span>
+                <span class="text-[11px] text-slate-400">Growing</span>
+              </label>
+
+              <!-- Option 4 -->
+              <label class="relative flex flex-col items-center justify-center p-4 bg-slate-800/50 border border-slate-700/70 rounded-xl cursor-pointer hover:border-brand-500/50 hover:bg-slate-800 transition-all text-center group has-[:checked]:border-brand-500 has-[:checked]:bg-brand-500/10 has-[:checked]:ring-1 has-[:checked]:ring-brand-500">
+                <input type="radio" name="employeeCount" value="50+" class="sr-only">
+                <i class="fa-solid fa-building text-lg text-slate-400 group-hover:text-brand-500 mb-2 group-has-[:checked]:text-brand-500 transition-colors"></i>
+                <span class="text-sm font-semibold text-white">50+</span>
+                <span class="text-[11px] text-slate-400">Enterprise</span>
+              </label>
+            </div>
+            <p id="employee-error" class="hidden text-xs text-rose-400 mt-1"><i class="fa-solid fa-circle-exclamation mr-1"></i>Please select your employee count.</p>
+          </div>
+
+          <div class="pt-4 flex justify-end">
+            <button type="button" onclick="nextStep(1)" class="w-full sm:w-auto px-8 py-3.5 bg-brand-600 hover:bg-brand-500 text-white font-semibold rounded-xl transition-all shadow-lg shadow-brand-600/30 flex items-center justify-center gap-2 group">
+              <span>Continue to Project Scope</span>
+              <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- ================= STEP 2: PROJECT SCOPE & INVESTMENT ================= -->
+        <div id="step-2" class="step-content space-y-6 hidden transition-opacity duration-300">
+          <div>
+            <h1 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">Project Scope & Investment</h1>
+            <p class="text-slate-400 mt-2 text-sm">Help us understand what you need and set realistic goals.</p>
+          </div>
+
+          <!-- 3 Sentences Explanation -->
+          <div class="space-y-2">
+            <div class="flex justify-between items-center">
+              <label for="companyDescription" class="block text-sm font-medium text-slate-300">
+                Explain your company in ~3 sentences <span class="text-brand-500">*</span>
+              </label>
+              <span id="sentence-counter" class="text-xs text-slate-500">0/3 sentences detected</span>
+            </div>
+            <textarea 
+              id="companyDescription" 
+              name="companyDescription" 
+              rows="4" 
+              oninput="updateSentenceCount(this)"
+              placeholder="e.g. 1. We provide eco-friendly residential cleaning services in San Francisco.&#10;2. Our main customers are busy working professionals and families.&#10;3. We want to accept online bookings and manage customer subscriptions automatically." 
+              required
+              class="w-full bg-slate-800/90 border border-slate-700 rounded-xl p-4 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all text-sm leading-relaxed custom-scrollbar"></textarea>
+            <p id="description-error" class="hidden text-xs text-rose-400 mt-1"><i class="fa-solid fa-circle-exclamation mr-1"></i>Please provide a short description of your business.</p>
+          </div>
+
+          <!-- Budget Radio Cards -->
+          <div class="space-y-2">
+            <label class="block text-sm font-medium text-slate-300">
+              What is your target budget range for this digital transition? <span class="text-brand-500">*</span>
+            </label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              
+              <!-- Under $2k -->
+              <label class="relative flex items-start p-4 bg-slate-800/50 border border-slate-700/70 rounded-xl cursor-pointer hover:border-brand-500/50 hover:bg-slate-800 transition-all group has-[:checked]:border-brand-500 has-[:checked]:bg-brand-500/10 has-[:checked]:ring-1 has-[:checked]:ring-brand-500">
+                <input type="radio" name="budget" value="under_2k" class="sr-only" required>
+                <div class="mt-0.5 mr-3 w-4 h-4 rounded-full border border-slate-500 group-has-[:checked]:border-brand-500 group-has-[:checked]:bg-brand-500 flex items-center justify-center flex-shrink-0">
+                  <div class="w-1.5 h-1.5 rounded-full bg-white opacity-0 group-has-[:checked]:opacity-100"></div>
+                </div>
+                <div>
+                  <span class="block text-sm font-bold text-white">Under $2,000</span>
+                  <span class="block text-xs text-slate-400 mt-0.5">Quick Audits, Minor Fixes, or Advisory</span>
+                </div>
+              </label>
+
+              <!-- $2k - $5k -->
+              <label class="relative flex items-start p-4 bg-slate-800/50 border border-slate-700/70 rounded-xl cursor-pointer hover:border-brand-500/50 hover:bg-slate-800 transition-all group has-[:checked]:border-brand-500 has-[:checked]:bg-brand-500/10 has-[:checked]:ring-1 has-[:checked]:ring-brand-500">
+                <input type="radio" name="budget" value="2k_5k" class="sr-only">
+                <div class="mt-0.5 mr-3 w-4 h-4 rounded-full border border-slate-500 group-has-[:checked]:border-brand-500 group-has-[:checked]:bg-brand-500 flex items-center justify-center flex-shrink-0">
+                  <div class="w-1.5 h-1.5 rounded-full bg-white opacity-0 group-has-[:checked]:opacity-100"></div>
+                </div>
+                <div>
+                  <span class="block text-sm font-bold text-white">$2,000 – $5,000</span>
+                  <span class="block text-xs text-slate-400 mt-0.5">Custom Business Website & Funnel</span>
+                </div>
+              </label>
+
+              <!-- $5k - $10k -->
+              <label class="relative flex items-start p-4 bg-slate-800/50 border border-slate-700/70 rounded-xl cursor-pointer hover:border-brand-500/50 hover:bg-slate-800 transition-all group has-[:checked]:border-brand-500 has-[:checked]:bg-brand-500/10 has-[:checked]:ring-1 has-[:checked]:ring-brand-500">
+                <input type="radio" name="budget" value="5k_10k" class="sr-only">
+                <div class="mt-0.5 mr-3 w-4 h-4 rounded-full border border-slate-500 group-has-[:checked]:border-brand-500 group-has-[:checked]:bg-brand-500 flex items-center justify-center flex-shrink-0">
+                  <div class="w-1.5 h-1.5 rounded-full bg-white opacity-0 group-has-[:checked]:opacity-100"></div>
+                </div>
+                <div>
+                  <span class="block text-sm font-bold text-white">$5,000 – $10,000</span>
+                  <span class="block text-xs text-slate-400 mt-0.5">Advanced E-commerce or Web Application</span>
+                </div>
+              </label>
+
+              <!-- $10k+ -->
+              <label class="relative flex items-start p-4 bg-slate-800/50 border border-slate-700/70 rounded-xl cursor-pointer hover:border-brand-500/50 hover:bg-slate-800 transition-all group has-[:checked]:border-brand-500 has-[:checked]:bg-brand-500/10 has-[:checked]:ring-1 has-[:checked]:ring-brand-500">
+                <input type="radio" name="budget" value="10k_plus" class="sr-only">
+                <div class="mt-0.5 mr-3 w-4 h-4 rounded-full border border-slate-500 group-has-[:checked]:border-brand-500 group-has-[:checked]:bg-brand-500 flex items-center justify-center flex-shrink-0">
+                  <div class="w-1.5 h-1.5 rounded-full bg-white opacity-0 group-has-[:checked]:opacity-100"></div>
+                </div>
+                <div>
+                  <span class="block text-sm font-bold text-white">$10,000+</span>
+                  <span class="block text-xs text-slate-400 mt-0.5">Full Ecosystem Transformation & Platform</span>
+                </div>
+              </label>
+
+            </div>
+            <p id="budget-error" class="hidden text-xs text-rose-400 mt-1"><i class="fa-solid fa-circle-exclamation mr-1"></i>Please select your target budget.</p>
+          </div>
+
+          <div class="pt-4 flex items-center justify-between gap-4">
+            <button type="button" onclick="prevStep(2)" class="px-6 py-3.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-medium rounded-xl transition-all border border-slate-700 text-sm flex items-center gap-2">
+              <i class="fa-solid fa-arrow-left text-xs"></i>
+              <span>Back</span>
+            </button>
+            <button type="button" onclick="nextStep(2)" class="px-8 py-3.5 bg-brand-600 hover:bg-brand-500 text-white font-semibold rounded-xl transition-all shadow-lg shadow-brand-600/30 flex items-center justify-center gap-2 group">
+              <span>Continue to Contact</span>
+              <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- ================= STEP 3: CONTACT & SUBMIT ================= -->
+        <div id="step-3" class="step-content space-y-6 hidden transition-opacity duration-300">
+          <div>
+            <h1 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">Where should we send your proposal?</h1>
+            <p class="text-slate-400 mt-2 text-sm">We'll review your submission and contact you within 24 business hours.</p>
+          </div>
+
+          <!-- Full Name -->
+          <div class="space-y-2">
+            <label for="fullName" class="block text-sm font-medium text-slate-300">Full Name <span class="text-brand-500">*</span></label>
+            <div class="relative">
+              <input type="text" id="fullName" name="fullName" placeholder="Sarah Jenkins" required class="w-full bg-slate-800/90 border border-slate-700 rounded-xl px-4 py-3.5 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all pl-11">
+              <i class="fa-regular fa-user absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm"></i>
+            </div>
+            <p id="name-error" class="hidden text-xs text-rose-400 mt-1"><i class="fa-solid fa-circle-exclamation mr-1"></i>Please enter your full name.</p>
+          </div>
+
+          <!-- Email -->
+          <div class="space-y-2">
+            <label for="email" class="block text-sm font-medium text-slate-300">Business Email <span class="text-brand-500">*</span></label>
+            <div class="relative">
+              <input type="email" id="email" name="email" placeholder="sarah@yourcompany.com" required class="w-full bg-slate-800/90 border border-slate-700 rounded-xl px-4 py-3.5 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all pl-11">
+              <i class="fa-regular fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm"></i>
+            </div>
+            <p id="email-error" class="hidden text-xs text-rose-400 mt-1"><i class="fa-solid fa-circle-exclamation mr-1"></i>Please enter a valid business email address.</p>
+          </div>
+
+          <!-- Phone Number -->
+          <div class="space-y-2">
+            <label for="phone" class="block text-sm font-medium text-slate-300">Phone Number <span class="text-brand-500">*</span></label>
+            <div class="relative">
+              <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" required class="w-full bg-slate-800/90 border border-slate-700 rounded-xl px-4 py-3.5 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all pl-11">
+              <i class="fa-solid fa-phone absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm"></i>
+            </div>
+            <p id="phone-error" class="hidden text-xs text-rose-400 mt-1"><i class="fa-solid fa-circle-exclamation mr-1"></i>Please enter your phone number.</p>
+          </div>
+
+          <div class="pt-4 flex items-center justify-between gap-4">
+            <button type="button" onclick="prevStep(3)" class="px-6 py-3.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-medium rounded-xl transition-all border border-slate-700 text-sm flex items-center gap-2">
+              <i class="fa-solid fa-arrow-left text-xs"></i>
+              <span>Back</span>
+            </button>
+            <button type="submit" id="submit-btn" class="px-8 py-3.5 bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white font-semibold rounded-xl transition-all shadow-lg shadow-brand-600/30 flex items-center justify-center gap-2">
+              <span>Submit Application</span>
+              <i class="fa-solid fa-paper-plane text-xs"></i>
+            </button>
+          </div>
+        </div>
+
+      </form>
+
+      <!-- ================= SUCCESS CONFIRMATION STATE ================= -->
+      <div id="success-screen" class="hidden py-8 text-center space-y-6">
+        <div class="w-20 h-20 bg-emerald-500/10 border border-emerald-500/30 rounded-full flex items-center justify-center mx-auto text-emerald-400 text-3xl shadow-lg shadow-emerald-500/10">
+          <i class="fa-solid fa-check"></i>
+        </div>
+        
+        <div class="space-y-2">
+          <h2 class="text-3xl font-bold text-white">Application Received!</h2>
+          <p class="text-slate-400 max-w-md mx-auto text-sm leading-relaxed">
+            Thank you for reaching out to <span class="text-white font-medium">SapperWebsites.com</span>. Our technical strategy team is evaluating your business profile and will get in touch shortly.
+          </p>
+        </div>
+
+        <!-- Submission Details Summary Box -->
+        <div class="bg-slate-800/40 border border-slate-700/50 rounded-2xl p-5 text-left max-w-md mx-auto space-y-3 text-xs text-slate-300">
+          <div class="flex justify-between pb-2 border-b border-slate-700/50">
+            <span class="text-slate-400">Industry:</span>
+            <span id="summary-industry" class="font-medium text-white">-</span>
+          </div>
+          <div class="flex justify-between pb-2 border-b border-slate-700/50">
+            <span class="text-slate-400">Team Size:</span>
+            <span id="summary-employees" class="font-medium text-white">-</span>
+          </div>
+          <div class="flex justify-between pb-2 border-b border-slate-700/50">
+            <span class="text-slate-400">Target Budget:</span>
+            <span id="summary-budget" class="font-medium text-white">-</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-400">Contact Email:</span>
+            <span id="summary-email" class="font-medium text-brand-400">-</span>
+          </div>
+        </div>
+
+        <div class="pt-4">
+          <button onclick="resetForm()" class="text-xs text-slate-400 hover:text-white transition-colors underline underline-offset-4">
+            Submit another application
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="w-full max-w-5xl mx-auto px-6 py-6 text-center text-xs text-slate-500">
+    <p>&copy; <span id="year"></span> SapperWebsites.com — High Performance Web Platforms.</p>
+  </footer>
+
+  <!-- Application Logic -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    let currentStep = 1;
+
+    // Helper: Update sentence counter
+    function updateSentenceCount(textarea) {
+      const text = textarea.value.trim();
+      if (!text) {
+        document.getElementById('sentence-counter').textContent = '0/3 sentences detected';
+        return;
+      }
+      // Simple regex sentence splitter
+      const sentences = text.split(/[.!?]+/).filter(Boolean);
+      document.getElementById('sentence-counter').textContent = `${sentences.length}/3 sentences detected`;
+    }
+
+    // Step Navigation Function
+    function nextStep(step) {
+      if (validateStep(step)) {
+        hideStep(step);
+        currentStep = step + 1;
+        showStep(currentStep);
+        updateProgressBar(currentStep);
+      }
+    }
+
+    function prevStep(step) {
+      hideStep(step);
+      currentStep = step - 1;
+      showStep(currentStep);
+      updateProgressBar(currentStep);
+    }
+
+    function showStep(step) {
+      const stepElem = document.getElementById(`step-${step}`);
+      stepElem.classList.remove('hidden');
+      setTimeout(() => {
+        stepElem.classList.remove('opacity-0');
+      }, 50);
+    }
+
+    function hideStep(step) {
+      const stepElem = document.getElementById(`step-${step}`);
+      stepElem.classList.add('opacity-0');
+      stepElem.classList.add('hidden');
+    }
+
+    function updateProgressBar(step) {
+      const progressBar = document.getElementById('progress-bar');
+      const stepIndicator = document.getElementById('step-indicator');
+      const stepTitle = document.getElementById('step-title');
+
+      const titles = {
+        1: "Business Profile",
+        2: "Project Scope & Investment",
+        3: "Contact & Submission"
+      };
+
+      const widths = {
+        1: "33%",
+        2: "66%",
+        3: "100%"
+      };
+
+      progressBar.style.width = widths[step];
+      stepIndicator.textContent = `Step ${step} of 3`;
+      stepTitle.textContent = titles[step];
+    }
+
+    // Client-side Validation Logic
+    function validateStep(step) {
+      let isValid = true;
+
+      if (step === 1) {
+        // Industry Check
+        const industrySelect = document.getElementById('industry');
+        const industryError = document.getElementById('industry-error');
+        if (!industrySelect.value) {
+          industryError.classList.remove('hidden');
+          isValid = false;
+        } else {
+          industryError.classList.add('hidden');
+        }
+
+        // Employee Count Check
+        const employeeChecked = document.querySelector('input[name="employeeCount"]:checked');
+        const employeeError = document.getElementById('employee-error');
+        if (!employeeChecked) {
+          employeeError.classList.remove('hidden');
+          isValid = false;
+        } else {
+          employeeError.classList.add('hidden');
+        }
+      }
+
+      if (step === 2) {
+        // Company Description Check
+        const descTextarea = document.getElementById('companyDescription');
+        const descError = document.getElementById('description-error');
+        if (!descTextarea.value.trim() || descTextarea.value.trim().length < 15) {
+          descError.classList.remove('hidden');
+          isValid = false;
+        } else {
+          descError.classList.add('hidden');
+        }
+
+        // Budget Check
+        const budgetChecked = document.querySelector('input[name="budget"]:checked');
+        const budgetError = document.getElementById('budget-error');
+        if (!budgetChecked) {
+          budgetError.classList.remove('hidden');
+          isValid = false;
+        } else {
+          budgetError.classList.add('hidden');
+        }
+      }
+
+      return isValid;
+    }
+
+    // Final Form Submission
+    function handleFormSubmit(event) {
+      event.preventDefault();
+
+      // Step 3 Validation
+      const fullName = document.getElementById('fullName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+
+      const nameError = document.getElementById('name-error');
+      const emailError = document.getElementById('email-error');
+      const phoneError = document.getElementById('phone-error');
+
+      let isValid = true;
+
+      if (!fullName) {
+        nameError.classList.remove('hidden');
+        isValid = false;
+      } else {
+        nameError.classList.add('hidden');
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email || !emailRegex.test(email)) {
+        emailError.classList.remove('hidden');
+        isValid = false;
+      } else {
+        emailError.classList.add('hidden');
+      }
+
+      if (!phone) {
+        phoneError.classList.remove('hidden');
+        isValid = false;
+      } else {
+        phoneError.classList.add('hidden');
+      }
+
+      if (!isValid) return;
+
+      // Simulate loading state
+      const submitBtn = document.getElementById('submit-btn');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> Processing...`;
+
+      setTimeout(() => {
+        // Populate Summary
+        const industrySelect = document.getElementById('industry');
+        const employeeChecked = document.querySelector('input[name="employeeCount"]:checked');
+        const budgetChecked = document.querySelector('input[name="budget"]:checked');
+
+        const budgetLabels = {
+          'under_2k': 'Under $2,000',
+          '2k_5k': '$2,000 – $5,000',
+          '5k_10k': '$5,000 – $10,000',
+          '10k_plus': '$10,000+'
+        };
+
+        document.getElementById('summary-industry').textContent = industrySelect.options[industrySelect.selectedIndex].text;
+        document.getElementById('summary-employees').textContent = `${employeeChecked.value} ${employeeChecked.value === '1' ? 'Person' : 'Employees'}`;
+        document.getElementById('summary-budget').textContent = budgetLabels[budgetChecked.value] || budgetChecked.value;
+        document.getElementById('summary-email').textContent = email;
+
+        // Hide form & progress, show success screen
+        document.getElementById('leadForm').classList.add('hidden');
+        document.getElementById('progress-container').classList.add('hidden');
+        document.getElementById('success-screen').classList.remove('hidden');
+      }, 1000);
+    }
+
+    // Reset Form
+    function resetForm() {
+      document.getElementById('leadForm').reset();
+      document.getElementById('leadForm').classList.remove('hidden');
+      document.getElementById('progress-container').classList.remove('hidden');
+      document.getElementById('success-screen').classList.add('hidden');
+
+      const submitBtn = document.getElementById('submit-btn');
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = `<span>Submit Application</span><i class="fa-solid fa-paper-plane text-xs"></i>`;
+
+      hideStep(3);
+      currentStep = 1;
+      showStep(1);
+      updateProgressBar(1);
+      document.getElementById('sentence-counter').textContent = '0/3 sentences detected';
+    }
+  </script>
+</body>
+</html>
